@@ -16,3 +16,8 @@ We hope you will enjoy using the WIKITUDE API. If you have any questions, please
 
 Best regards,
 The WIKITUDE team.
+
+
+
+
+doc : http://www.wikitude.org/developers
