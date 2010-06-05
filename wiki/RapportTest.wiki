@@ -25,4 +25,8 @@ DISPLAY
 SERVER
  
  -il en faut 1!sinon flikr mais sans png donc sans transparence.
+
+ECRAN TITRE
+
+ -corriger titre taille
  
