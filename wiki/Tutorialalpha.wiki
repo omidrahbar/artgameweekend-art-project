@@ -5,3 +5,9 @@ Tutorial:
 2: ici vous pourrez choisir entre dessiner pour vous exprimer ou voir les tags déposer autour de vous par les autres utilisateurs. Les tags sont geolocalisés l’endroit d’ou vous l'enverrez sera l’endroit ou les autre utilisateurs le verront. 
 
 3: utilisez votre mobile comme une fenêtre vers les tags déposé autour de vous. 
+
+1 Hello, Welcome in ART the App th Tag in augmented reality! Thanks to this tool you will be able to tag, draw, place your signature into the reality through your mobile. And without degrading the environment. Tag much as you wish.
+
+2: Here you can choose between drawing for expressing yourself or display the tags around you. Tags are geolocalised, where you’re sending your picture will be the place the others will see it. 
+
+3: Use your mobile as a window to see the tags placed around you.
