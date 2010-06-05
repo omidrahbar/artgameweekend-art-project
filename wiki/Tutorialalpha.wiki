@@ -1,8 +1,8 @@
 Tutorial:
 
-1: Bonjour bienvenue dans ART l’application de tag en réalité augmenté! Grace à cette outil vous allez pouvoir tagger, dessiner,  placer votre griffe où vous le souhaiter dans la réalité à travers votre mobile. Et le tout sans dégrader l'environnement, alors n’hésitez pas à tager autant que vous le souhaitez. 
+1: Bonjour, bienvenue dans ART l’application de tag en réalité augmenté! Gràce à cet outil vous allez pouvoir tagger, dessiner,  placer votre griffe où vous le souhaiter dans la réalité à travers votre mobile. Et le tout sans dégrader l'environnement, alors n’hésitez pas à tager autant que vous le souhaitez. 
 
-2: ici vous pourrez choisir entre dessiner pour vous exprimer ou voir les tags déposés autour de vous par les autres utilisateurs. Les tags sont geolocalisés l’endroit d’ou vous l'enverrez sera l’endroit ou les autres utilisateurs le verront. 
+2: ici vous pourrez choisir entre dessiner pour vous exprimer ou voir les tags déposés autour de vous par les autres utilisateurs. Les tags sont geolocalisés l’endroit d’où vous l'enverrez sera l’endroit où les autres utilisateurs le verront. 
 
 3: utilisez votre mobile comme une fenêtre vers les tags déposés autour de vous. 
 
