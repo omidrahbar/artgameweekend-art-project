@@ -19,6 +19,8 @@ DISPLAY
  -viré le wikitude-mais se suprime dans le temps si on le touche pas( pas très grave donc si pas supprimé)
  
  -viré la barre d'état en haut
+
+ -crash si touch screen
  
 SERVER
  
