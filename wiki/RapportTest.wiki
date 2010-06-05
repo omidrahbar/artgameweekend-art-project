@@ -4,7 +4,7 @@ PAINT
 
  -pression sans bouger ne dessine pas
  
- -sauvegarde? 
+ -sauvegarde? automatique lorsque l'on quitte le mode draw pour revenir vers le menu
 
  -taille des brushs? 
 
