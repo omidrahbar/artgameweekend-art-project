@@ -1,0 +1,3 @@
+serveur : mysql5-3.720
+login : alchimikagw
+pass : art2game
