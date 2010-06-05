@@ -1,15 +1,26 @@
 PAINT
+
  -Choix couleurs noir-blanc /opacité
+
  -pression sans bouger ne dessine pas
- -sauvegarde? 
+ 
+-sauvegarde? 
+
  -taille des brushs? 
+
  -zoom?
- -envoi!
+
+-envoi!
+
+ -Gomme blanche sans couleur
 
 DISPLAY
+
  -viré le wikitude
- -viré la barre d'état en haut
+ 
+-viré la barre d'état en haut
  
 SERVER
- -il en faut 1!sinon flikr mais sans png donc sans transparence.
+ 
+-il en faut 1!sinon flikr mais sans png donc sans transparence.
  
