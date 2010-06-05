@@ -20,7 +20,7 @@ DISPLAY
  
  -viré la barre d'état en haut
 
- -crash si touch screen
+ -crash si touch screen aprés disparition "wikitude"
  
 SERVER
  
