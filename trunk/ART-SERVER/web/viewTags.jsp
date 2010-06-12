@@ -41,9 +41,9 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript">
 
-            var LAT = 48.87051626826306;
-            var LNG = 2.3423409126281625;
-            var ZOOM = 18;
+            var LAT = 48.862;
+            var LNG = 2.3415;
+            var ZOOM = 5;
 
             /**
              * Google map conf
