@@ -20,6 +20,16 @@ html, body {
     padding:0.4em 1em;
 }
 
+#marker {
+    color: #000;
+    font-size:75%;
+
+}
+
+#marker img {
+    width: 200px;
+}
+
 div.box {
     border: 1x solid #aaa;
     -moz-border-radius: 20px;

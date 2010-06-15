@@ -11,7 +11,7 @@
 
     var LAT = 48.862;
     var LNG = 2.3415;
-    var ZOOM = 5;
+    var ZOOM = 12;
 
     /**
      * Google map conf
@@ -33,7 +33,7 @@
         var marker = new google.maps.Marker({ position: myLatlng, map: MAP });
         markers.push( marker );
         google.maps.event.addListener(marker, 'click', function ( event ) {
-            var content = "ID #" + id + "<br />" + title + "<br />" + "<img src=\"display?id="+id+"\" />"+ date + "<br/><a href=\"delete?id=" + id +"\">Delete</a>";
+            var content = "<div id=\"marker\">ID #" + id + "<br />" + title + "<br />" + "<img src=\"display?id="+id+"\" /><br/>"+ date + "<br/><a href=\"delete?id=" + id +"\">Delete</a></div>";
             var myInfoWindow = new google.maps.InfoWindow( { content: content } );
             if( THE_INFO_WINDOW != null ) { THE_INFO_WINDOW.close(); }
             myInfoWindow.open( MAP, marker );
