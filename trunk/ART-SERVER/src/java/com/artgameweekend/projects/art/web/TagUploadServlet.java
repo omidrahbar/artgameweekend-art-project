@@ -36,7 +36,7 @@ public class TagUploadServlet extends HttpServlet
 
             // Create a new file upload handler
             ServletFileUpload upload = new ServletFileUpload();
-            upload.setSizeMax(200000);
+            upload.setSizeMax(500000);
             res.setContentType("text/plain");
             PrintWriter out = res.getWriter();
             byte[] image = null;
@@ -90,7 +90,7 @@ public class TagUploadServlet extends HttpServlet
                 }
             } catch (SizeLimitExceededException e)
             {
-                out.println("You exceeded the maximu size ("
+                out.println("You exceeded the maximum size ("
                         + e.getPermittedSize() + ") of the file ("
                         + e.getActualSize() + ")");
             }
