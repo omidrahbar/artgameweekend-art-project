@@ -1,15 +1,24 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/* Copyright (c) 2010 ARt Project owners
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.artgameweekend.projects.art.web;
 
-import com.artgameweekend.projects.art.business.PMF;
 import com.artgameweekend.projects.art.business.Tag;
+import com.artgameweekend.projects.art.business.TagDAO;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
-import javax.jdo.PersistenceManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +46,7 @@ public class TagUploadServlet extends HttpServlet
             // Create a new file upload handler
             ServletFileUpload upload = new ServletFileUpload();
             upload.setSizeMax(500000);
-            res.setContentType("text/plain");
+            res.setContentType(Constants.CONTENT_TYPE_TEXT);
             PrintWriter out = res.getWriter();
             byte[] image = null;
 
@@ -54,15 +63,15 @@ public class TagUploadServlet extends HttpServlet
                     if (item.isFormField())
                     {
                         out.println("Got a form field: " + item.getFieldName());
-                        if ("name".equals(item.getFieldName()))
+                        if ( Constants.PARAMATER_NAME.equals(item.getFieldName()))
                         {
                             tag.setName( IOUtils.toString(in));
                         }
-                        if ("lat".equals(item.getFieldName()))
+                        if ( Constants.PARAMATER_LAT.equals(item.getFieldName()))
                         {
                             tag.setLat(Double.parseDouble( IOUtils.toString(in)));
                         }
-                        if ("lon".equals(item.getFieldName()))
+                        if ( Constants.PARAMATER_LON.equals(item.getFieldName()))
                         {
                             tag.setLon(Double.parseDouble( IOUtils.toString(in)));
                         }
@@ -95,15 +104,8 @@ public class TagUploadServlet extends HttpServlet
                         + e.getActualSize() + ")");
             }
 
-            PersistenceManager pm = PMF.get().getPersistenceManager();
-
-            try
-            {
-                pm.makePersistent(tag);
-            } finally
-            {
-                pm.close();
-            }
+            TagDAO dao = new TagDAO();
+            dao.create(tag);
 
         } catch (Exception ex)
         {
