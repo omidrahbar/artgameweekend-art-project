@@ -40,7 +40,7 @@ public class TagImageServlet extends HttpServlet
             if (tag != null)
             {
                 resp.setContentType( Constants.CONTENT_TYPE_JPEG );
-                resp.setHeader( "Content-Disposition", "attachment;filename=\"" + tag.getName() + "\"" );
+//                resp.setHeader( "Content-Disposition", "attachment;filename=\"" + tag.getName() + "\"" );
                 OutputStream out = resp.getOutputStream();
                 out.write(tag.getImage());
                 out.close();
