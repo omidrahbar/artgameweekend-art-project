@@ -1,17 +1,24 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/* Copyright (c) 2010 ARt Project owners
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.artgameweekend.projects.art.web;
 
-import com.artgameweekend.projects.art.business.PMF;
 import com.artgameweekend.projects.art.business.Tag;
+import com.artgameweekend.projects.art.business.TagDAO;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.List;
-import javax.jdo.PersistenceManager;
-import javax.jdo.Query;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,37 +35,35 @@ public class TagsServlet extends HttpServlet
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         Writer out = resp.getWriter();
-        resp.setContentType("application/xml");
+        resp.setContentType(Constants.CONTENT_TYPE_XML);
         out.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         out.write("<tags>");
 
-        PersistenceManager pm = PMF.get().getPersistenceManager();
-        Query query = pm.newQuery( "SELECT FROM " + Tag.class.getName() );
-        List<Tag> list = (List<Tag>) query.execute();
-        for( Tag tag : list )
+        TagDAO dao = new TagDAO();
+
+        List<Tag> list = dao.findAll();
+        for (Tag tag : list)
         {
-        out.write("<tag>");
+            out.write("<tag>");
 
-        out.write("<id>");
-        out.write( "" + tag.getId() );
-        out.write("</id>");
-        out.write("<lat>");
-        out.write( Double.toString(tag.getLat()));
-        out.write("</lat>");
-        out.write("<lon>");
-        out.write(Double.toString(tag.getLon()));
-        out.write("</lon>");
-        out.write("<name>");
-        out.write( tag.getName() );
-        out.write("</name>");
+            out.write("<id>");
+            out.write("" + tag.getId());
+            out.write("</id>");
+            out.write("<lat>");
+            out.write(Double.toString(tag.getLat()));
+            out.write("</lat>");
+            out.write("<lon>");
+            out.write(Double.toString(tag.getLon()));
+            out.write("</lon>");
+            out.write("<name>");
+            out.write(tag.getName());
+            out.write("</name>");
 
-        out.write("</tag>");
+            out.write("</tag>");
         }
 
 
         out.write("</tags>");
         out.close();
     }
-
-
 }

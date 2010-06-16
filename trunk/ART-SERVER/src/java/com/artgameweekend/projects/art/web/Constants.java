@@ -12,31 +12,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.artgameweekend.projects.art.web;
 
-import com.artgameweekend.projects.art.business.TagDAO;
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+package com.artgameweekend.projects.art.web;
 
 /**
  *
  * @author pierre
  */
-public class DeleteServlet extends HttpServlet
+public final class Constants
 {
+    public static final String PARAMATER_ID = "id";
+    public static final String PARAMATER_NAME = "name";
+    public static final String PARAMATER_LAT = "lat";
+    public static final String PARAMATER_LON = "lon";
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-    {
-        String sId = req.getParameter( Constants.PARAMATER_ID);
-        long id = Long.parseLong(sId);
-        TagDAO dao = new TagDAO();
-        dao.remove(id);
+    public static final String CONTENT_TYPE_TEXT = "text/plain";
+    public static final String CONTENT_TYPE_XML = "application/xml";
+    public static final String CONTENT_TYPE_JPEG = "image/jpeg";
 
-        resp.sendRedirect(Constants.URL_VIEW_TAGS);
 
-    }
+    public static final String URL_VIEW_TAGS = "/viewTags.jsp";
 }
