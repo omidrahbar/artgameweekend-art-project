@@ -26,10 +26,6 @@ html, body {
 
 }
 
-#marker img {
-    width: 200px;
-}
-
 div.box {
     border: 1x solid #aaa;
     -moz-border-radius: 20px;

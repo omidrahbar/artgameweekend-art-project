@@ -14,8 +14,8 @@
  */
 package com.artgameweekend.projects.art.web;
 
-import com.artgameweekend.projects.art.business.TagImage;
-import com.artgameweekend.projects.art.business.TagImageDAO;
+import com.artgameweekend.projects.art.business.TagThumbnail;
+import com.artgameweekend.projects.art.business.TagThumbnailDAO;
 import java.io.IOException;
 import java.io.OutputStream;
 import javax.servlet.ServletException;
@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author pierre
  */
-public class TagImageServlet extends HttpServlet
+public class TagThumbnailServlet extends HttpServlet
 {
 
     @Override
@@ -35,13 +35,13 @@ public class TagImageServlet extends HttpServlet
     {
         String sId = req.getParameter( Constants.PARAMATER_ID );
         long id = Long.parseLong(sId);
-        TagImageDAO dao = new TagImageDAO();
-        TagImage tagImage= dao.findById(id);
-            if (tagImage != null)
+        TagThumbnailDAO dao = new TagThumbnailDAO();
+        TagThumbnail tagThumbnail= dao.findById(id);
+            if (tagThumbnail != null)
             {
-                resp.setContentType( tagImage.getContentType() );
+                resp.setContentType( tagThumbnail.getContentType() );
                 OutputStream out = resp.getOutputStream();
-                out.write(tagImage.getImage());
+                out.write(tagThumbnail.getImage());
                 out.close();
             }
 

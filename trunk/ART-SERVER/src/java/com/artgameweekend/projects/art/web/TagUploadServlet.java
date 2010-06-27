@@ -16,6 +16,14 @@ package com.artgameweekend.projects.art.web;
 
 import com.artgameweekend.projects.art.business.Tag;
 import com.artgameweekend.projects.art.business.TagDAO;
+import com.artgameweekend.projects.art.business.TagImage;
+import com.artgameweekend.projects.art.business.TagImageDAO;
+import com.artgameweekend.projects.art.business.TagThumbnail;
+import com.artgameweekend.projects.art.business.TagThumbnailDAO;
+import com.google.appengine.api.images.Image;
+import com.google.appengine.api.images.ImagesService;
+import com.google.appengine.api.images.ImagesServiceFactory;
+import com.google.appengine.api.images.Transform;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -35,6 +43,8 @@ import org.apache.commons.io.IOUtils;
  */
 public class TagUploadServlet extends HttpServlet
 {
+    private static final int THUMBNAIL_MIN = 180;
+    private static final int THUMBNAIL_MAX = 240;
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res)
@@ -51,6 +61,8 @@ public class TagUploadServlet extends HttpServlet
             byte[] image = null;
 
             Tag tag = new Tag();
+            TagImage tagImage = new TagImage();
+            TagThumbnail tagThumbnail = new TagThumbnail();
 
             try
             {
@@ -89,7 +101,10 @@ public class TagUploadServlet extends HttpServlet
                         try
                         {
                             image = IOUtils.toByteArray(in);
-                            tag.setImage(image);
+                            tagImage.setImage(image);
+                            tagImage.setContentType(contentType);
+                            tagThumbnail.setImage( createThumbnail( image ));
+                            tagThumbnail.setContentType(contentType);
                         } finally
                         {
                             IOUtils.closeQuietly(in);
@@ -104,13 +119,44 @@ public class TagUploadServlet extends HttpServlet
                         + e.getActualSize() + ")");
             }
 
+            TagImageDAO daoImage = new TagImageDAO();
+            daoImage.create(tagImage);
+
+            TagThumbnailDAO daoThumbnail = new TagThumbnailDAO();
+            daoThumbnail.create(tagThumbnail);
+
             TagDAO dao = new TagDAO();
+            tag.setKeyImage(tagImage.getKey());
+            tag.setKeyThumbnail( tagThumbnail.getKey());
             dao.create(tag);
+
 
         } catch (Exception ex)
         {
 
             throw new ServletException(ex);
         }
+    }
+
+    private byte[] createThumbnail( byte[] image )
+    {
+        ImagesService imagesService = ImagesServiceFactory.getImagesService();
+
+        Image oldImage = ImagesServiceFactory.makeImage(image);
+
+        int width = THUMBNAIL_MIN;
+        int height = THUMBNAIL_MAX;
+
+        if( oldImage.getWidth() > oldImage.getHeight() )
+        {
+            width = THUMBNAIL_MAX;
+            height = THUMBNAIL_MIN;
+        }
+
+        Transform resize = ImagesServiceFactory.makeResize( width , height );
+
+        Image newImage = imagesService.applyTransform(resize, oldImage);
+
+        return newImage.getImageData();
     }
 }
