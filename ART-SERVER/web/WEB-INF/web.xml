@@ -25,6 +25,14 @@
         <url-pattern>/tags</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>layar</servlet-name>
+        <servlet-class>com.artgameweekend.projects.art.web.LayarServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>layar</servlet-name>
+        <url-pattern>/layar</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>delete</servlet-name>
         <servlet-class>com.artgameweekend.projects.art.web.DeleteServlet</servlet-class>
     </servlet>
