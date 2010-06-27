@@ -1,17 +1,17 @@
 <%@include file="header.jsp" %>
 
 <div class="box">
-<h2>View Tags</h2>
+    <h2>View Tags</h2>
 </div>
 
-<div id="map" style="padding:0;width: 100%;min-height: 85%;"></div>
+<div id="map" ></div>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 
     var LAT = 48.862;
     var LNG = 2.3415;
-    var ZOOM = 12;
+    var ZOOM = 5;
 
     /**
      * Google map conf
@@ -19,17 +19,20 @@
     var MAP_OPTIONS = { zoom: ZOOM, center: new google.maps.LatLng( LAT, LNG ), mapTypeId: google.maps.MapTypeId.SATELLITE };
     var MAP = new google.maps.Map( document.getElementById("map"), MAP_OPTIONS );
 
-    google.maps.event.addListener(MAP, 'click', getTags );
-    google.maps.event.addListener(MAP, 'zoom_changed', getTags );
-    google.maps.event.addListener(MAP, 'dragend', getTags );
+//    google.maps.event.addListener(MAP, 'click', getTags );
+//    google.maps.event.addListener(MAP, 'zoom_changed', getTags );
+//    google.maps.event.addListener(MAP, 'dragend', getTags );
 
     function centerMap( lat, lng ) {
         MAP.setCenter( new google.maps.LatLng( lat, lng ) );
     }
     var THE_INFO_WINDOW = null;
     var markers = Array();
+    var bounds = new google.maps.LatLngBounds();
+
     function addMarker( id, lat, lng, title, date ) {
         var myLatlng = new google.maps.LatLng(lat, lng);
+        bounds.extend( myLatlng );
         var marker = new google.maps.Marker({ position: myLatlng, map: MAP });
         markers.push( marker );
         google.maps.event.addListener(marker, 'click', function ( event ) {
@@ -48,11 +51,14 @@
     }
     function getTags( ) {
         getTagsFromWebService( MAP.getCenter().lat(), MAP.getCenter().lng(), MAP.getZoom() );
+//        MAP.fitBounds(bounds);
     }
 
  
     var URL_GET = "tags";
+
     function getTagsFromWebService( _lat, _lng, _zoom ) {
+
         $.get( URL_GET, {lat:_lat, lng:_lng, zoom:_zoom}, function( xml ) {
             flushMap( );
             $(xml).find("tags>tag").each( function() {
@@ -66,6 +72,7 @@
         });
     }
     getTagsFromWebService( LAT, LNG, ZOOM );
+//    MAP.fitBounds(bounds);
 
 </script>
 

@@ -29,6 +29,7 @@ public final class Constants
     public static final String CONTENT_TYPE_TEXT = "text/plain";
     public static final String CONTENT_TYPE_XML = "application/xml";
     public static final String CONTENT_TYPE_JPEG = "image/jpeg";
+    public static final String CONTENT_TYPE_JSON = "application/javascript";
 
 
     public static final String URL_VIEW_TAGS = "/viewTags.jsp";
