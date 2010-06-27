@@ -58,7 +58,18 @@ public class TagsServlet extends HttpServlet
             out.write("<name>");
             out.write(tag.getName());
             out.write("</name>");
-
+            if (tag.getKeyImage() != null)
+            {
+                out.write("<image-id>");
+                out.write("" + tag.getKeyImage().getId());
+                out.write("</image-id>");
+            }
+            if (tag.getKeyThumbnail() != null)
+            {
+                out.write("<thumbnail-id>");
+                out.write("" + tag.getKeyThumbnail().getId());
+                out.write("</thumbnail-id>");
+            }
             out.write("</tag>");
         }
 

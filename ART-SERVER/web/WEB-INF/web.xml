@@ -17,6 +17,14 @@
         <url-pattern>/display</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>thumbnail</servlet-name>
+        <servlet-class>com.artgameweekend.projects.art.web.TagThumbnailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>thumbnail</servlet-name>
+        <url-pattern>/thumbnail</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>tags</servlet-name>
         <servlet-class>com.artgameweekend.projects.art.web.TagsServlet</servlet-class>
     </servlet>

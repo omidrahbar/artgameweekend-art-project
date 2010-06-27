@@ -18,17 +18,7 @@ package com.artgameweekend.projects.art.business;
  *
  * @author pierre
  */
-public class TagDAO extends GenericDAO<Tag>
+public class TagThumbnailDAO extends GenericDAO<TagThumbnail>
 {
-    @Override
-    public void remove( long id )
-    {
-        Tag tag = findById( id );
-        TagImageDAO daoImage = new TagImageDAO();
-        daoImage.remove( tag.getKeyImage().getId() );
-        TagThumbnailDAO daoThumbnail = new TagThumbnailDAO();
-        daoThumbnail.remove( tag.getKeyThumbnail().getId() );
-        super.remove(id);
 
-    }
 }
