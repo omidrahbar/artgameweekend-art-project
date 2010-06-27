@@ -53,8 +53,9 @@ public class LayarServlet  extends HttpServlet
             poi.accumulate( "attribution", "ARt test layer" );
             poi.accumulate( "id", tag.getId() );
             poi.accumulate( "title", tag.getName() );
-            poi.accumulate( "lat", "" + (long) ( tag.getLat() * 1000000 ) );
-            poi.accumulate( "lon", "" + (long) ( tag.getLon() * 1000000 ) );
+            poi.accumulate( "imageUrl" , "http://art-server.appspot.com/display?id=" + tag.getId() );
+            poi.accumulate( "lat", (long) ( tag.getLat() * 1000000 ) );
+            poi.accumulate( "lon", (long) ( tag.getLon() * 1000000 ) );
             poi.accumulate( "line2", "line2" );
             poi.accumulate( "line3", "line3" );
             poi.accumulate( "line4", "line4" );
