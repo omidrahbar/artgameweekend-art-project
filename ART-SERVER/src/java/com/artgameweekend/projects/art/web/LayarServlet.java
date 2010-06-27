@@ -12,7 +12,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.artgameweekend.projects.art.web;
 
 import com.artgameweekend.projects.art.business.Tag;
@@ -31,7 +30,7 @@ import net.sf.json.JSONObject;
  *
  * @author pierre
  */
-public class LayarServlet  extends HttpServlet
+public class LayarServlet extends HttpServlet
 {
 
     @Override
@@ -44,34 +43,38 @@ public class LayarServlet  extends HttpServlet
 
         JSONObject layer = new JSONObject();
         JSONArray hotspots = new JSONArray();
-        JSONArray actions = new JSONArray();
         List<Tag> list = dao.findAll();
         for (Tag tag : list)
         {
+            JSONArray actions = new JSONArray();
+            JSONObject action1 = new JSONObject();
+            action1.accumulate("uri", "http://art-server.appspot.com/display?id=" + tag.getId());
+            action1.accumulate("label", "View tag");
+            actions.add(action1);
             JSONObject poi = new JSONObject();
-            poi.accumulate( "distance", 100 );
-            poi.accumulate( "attribution", "ARt test layer" );
-            poi.accumulate( "id", tag.getId() );
-            poi.accumulate( "title", tag.getName() );
-            poi.accumulate( "imageUrl" , "http://art-server.appspot.com/display?id=" + tag.getId() );
-            poi.accumulate( "lat", (long) ( tag.getLat() * 1000000 ) );
-            poi.accumulate( "lon", (long) ( tag.getLon() * 1000000 ) );
-            poi.accumulate( "line2", "line2" );
-            poi.accumulate( "line3", "line3" );
-            poi.accumulate( "line4", "line4" );
-            poi.accumulate( "actions", actions );
-            poi.accumulate( "type", 0 );
+            poi.accumulate("distance", 100);
+            poi.accumulate("attribution", "ARt test layer");
+            poi.accumulate("id", tag.getId());
+            poi.accumulate("title", tag.getName());
+            poi.accumulate("imageUrl", "http://art-server.appspot.com/display?id=" + tag.getId());
+            poi.accumulate("lat", (long) (tag.getLat() * 1000000));
+            poi.accumulate("lon", (long) (tag.getLon() * 1000000));
+            poi.accumulate("line2", "line2");
+            poi.accumulate("line3", "line3");
+            poi.accumulate("line4", "line4");
+            poi.accumulate("actions", actions);
+            poi.accumulate("type", 0);
             hotspots.add(poi);
         }
-        layer.accumulate("hotspots", hotspots );
-        layer.accumulate("layer", "ARt" );
-        layer.accumulate("errorString", "ok" );
-        layer.accumulate("morePages", false );
-        layer.accumulate("errorCode", 0 );
-        layer.accumulate("nextPageKey", null );
+        layer.accumulate("hotspots", hotspots);
+        layer.accumulate("layer", "artag2");
+        layer.accumulate("errorString", "ok");
+        layer.accumulate("morePages", false);
+        layer.accumulate("errorCode", 0);
+        layer.accumulate("nextPageKey", null);
 
 
-        out.write( layer.toString(2));
+        out.write(layer.toString(2));
         out.close();
     }
 }
