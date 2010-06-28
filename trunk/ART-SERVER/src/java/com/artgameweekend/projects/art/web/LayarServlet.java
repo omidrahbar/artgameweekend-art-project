@@ -46,24 +46,43 @@ public class LayarServlet extends HttpServlet
         List<Tag> list = dao.findAll();
         for (Tag tag : list)
         {
-            JSONArray actions = new JSONArray();
-            JSONObject action1 = new JSONObject();
-            action1.accumulate("uri", "http://art-server.appspot.com/display?id=" + tag.getId());
-            action1.accumulate("label", "View tag");
-            actions.add(action1);
             JSONObject poi = new JSONObject();
             poi.accumulate("distance", 100);
             poi.accumulate("attribution", "ARt test layer");
             poi.accumulate("id", tag.getId());
             poi.accumulate("title", tag.getName());
-            poi.accumulate("imageUrl", "http://art-server.appspot.com/thumbnail?id=" + tag.getKeyThumbnail().getId());
+            poi.accumulate("imageUrl", null );
             poi.accumulate("lat", tag.getLat10e6() );
             poi.accumulate("lon", tag.getLon10e6() );
             poi.accumulate("line2", "line2");
             poi.accumulate("line3", "line3");
             poi.accumulate("line4", "line4");
-            poi.accumulate("actions", actions);
             poi.accumulate("type", 0);
+            poi.accumulate("dimension", 2);
+            
+            // Actions
+            JSONArray actions = new JSONArray();
+            JSONObject action1 = new JSONObject();
+            action1.accumulate("uri", "http://art-server.appspot.com/display?id=" + tag.getId());
+            action1.accumulate("label", "View tag");
+            actions.add(action1);
+            poi.accumulate("actions", actions);
+
+            // Transform values
+            JSONObject transform = new JSONObject();
+            transform.accumulate("rel", true );
+            transform.accumulate("angle", 0 );
+            transform.accumulate("scale", 3.0 );
+            poi.accumulate("transform", transform);
+
+            // Transform values
+            JSONObject object = new JSONObject();
+            object.accumulate("baseURL", "http://art-server.appspot.com/thumbnail" );
+            object.accumulate("full", "?id=" + tag.getKeyThumbnail().getId() );
+            object.accumulate("size", 1);
+            poi.accumulate("object", object);
+
+
             hotspots.add(poi);
         }
         layer.accumulate("hotspots", hotspots);
