@@ -16,6 +16,9 @@
             <label for="uploadedfile">Image to upload : </label><input name="uploadedfile" type="file" id="uploadedfile"/><br />
             <br/>
             <br/>
+            <label for="landscape">Orientation : </label><input type="checkbox" name="landscape" id="landscape"/> Landscape
+            <br/>
+            <br/>
             <input type="submit" value="Create Tag" />
         </div>
     </div>

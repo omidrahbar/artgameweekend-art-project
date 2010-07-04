@@ -27,6 +27,7 @@ import com.google.appengine.api.images.Transform;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,6 +44,7 @@ import org.apache.commons.io.IOUtils;
  */
 public class TagUploadServlet extends HttpServlet
 {
+
     private static final int THUMBNAIL_MIN = 180;
     private static final int THUMBNAIL_MAX = 240;
 
@@ -63,6 +65,8 @@ public class TagUploadServlet extends HttpServlet
             Tag tag = new Tag();
             TagImage tagImage = new TagImage();
             TagThumbnail tagThumbnail = new TagThumbnail();
+            String contentType = null;
+            boolean bLandscape = false;
 
             try
             {
@@ -75,23 +79,27 @@ public class TagUploadServlet extends HttpServlet
                     if (item.isFormField())
                     {
                         out.println("Got a form field: " + item.getFieldName());
-                        if ( Constants.PARAMATER_NAME.equals(item.getFieldName()))
+                        if (Constants.PARAMATER_NAME.equals(item.getFieldName()))
                         {
-                            tag.setName( IOUtils.toString(in));
+                            tag.setName(IOUtils.toString(in));
                         }
-                        if ( Constants.PARAMATER_LAT.equals(item.getFieldName()))
+                        if (Constants.PARAMATER_LAT.equals(item.getFieldName()))
                         {
-                            tag.setLat(Double.parseDouble( IOUtils.toString(in)));
+                            tag.setLat(Double.parseDouble(IOUtils.toString(in)));
                         }
-                        if ( Constants.PARAMATER_LON.equals(item.getFieldName()))
+                        if (Constants.PARAMATER_LON.equals(item.getFieldName()))
                         {
-                            tag.setLon(Double.parseDouble( IOUtils.toString(in)));
+                            tag.setLon(Double.parseDouble(IOUtils.toString(in)));
+                        }
+                        if (Constants.PARAMATER_LANDSCAPE.equals(item.getFieldName()))
+                        {
+                            bLandscape = IOUtils.toString(in).equals("on");
                         }
                     } else
                     {
                         String fieldName = item.getFieldName();
                         String fileName = item.getName();
-                        String contentType = item.getContentType();
+                        contentType = item.getContentType();
 
                         out.println("--------------");
                         out.println("fileName = " + fileName);
@@ -101,10 +109,6 @@ public class TagUploadServlet extends HttpServlet
                         try
                         {
                             image = IOUtils.toByteArray(in);
-                            tagImage.setImage(image);
-                            tagImage.setContentType(contentType);
-                            tagThumbnail.setImage( createThumbnail( image ));
-                            tagThumbnail.setContentType(contentType);
                         } finally
                         {
                             IOUtils.closeQuietly(in);
@@ -119,6 +123,17 @@ public class TagUploadServlet extends HttpServlet
                         + e.getActualSize() + ")");
             }
 
+            contentType = (contentType != null) ? contentType : "image/jpeg";
+
+            if( bLandscape )
+            {
+                image = rotate( image );
+            }
+            tagImage.setImage(image);
+            tagImage.setContentType(contentType);
+            tagThumbnail.setImage(createThumbnail(image));
+            tagThumbnail.setContentType(contentType);
+
             TagImageDAO daoImage = new TagImageDAO();
             daoImage.create(tagImage);
 
@@ -127,7 +142,8 @@ public class TagUploadServlet extends HttpServlet
 
             TagDAO dao = new TagDAO();
             tag.setKeyImage(tagImage.getKey());
-            tag.setKeyThumbnail( tagThumbnail.getKey());
+            tag.setKeyThumbnail(tagThumbnail.getKey());
+            tag.setDate(new Date().getTime());
             dao.create(tag);
 
 
@@ -138,7 +154,7 @@ public class TagUploadServlet extends HttpServlet
         }
     }
 
-    private byte[] createThumbnail( byte[] image )
+    private byte[] createThumbnail(byte[] image)
     {
         ImagesService imagesService = ImagesServiceFactory.getImagesService();
 
@@ -147,15 +163,28 @@ public class TagUploadServlet extends HttpServlet
         int width = THUMBNAIL_MIN;
         int height = THUMBNAIL_MAX;
 
-        if( oldImage.getWidth() > oldImage.getHeight() )
+        if (oldImage.getWidth() > oldImage.getHeight())
         {
             width = THUMBNAIL_MAX;
             height = THUMBNAIL_MIN;
         }
 
-        Transform resize = ImagesServiceFactory.makeResize( width , height );
+        Transform resize = ImagesServiceFactory.makeResize(width, height);
 
         Image newImage = imagesService.applyTransform(resize, oldImage);
+
+        return newImage.getImageData();
+    }
+
+    private byte[] rotate(byte[] image)
+    {
+        ImagesService imagesService = ImagesServiceFactory.getImagesService();
+
+        Image oldImage = ImagesServiceFactory.makeImage(image);
+
+        Transform rotate = ImagesServiceFactory.makeRotate(-90);
+
+        Image newImage = imagesService.applyTransform(rotate, oldImage);
 
         return newImage.getImageData();
     }
