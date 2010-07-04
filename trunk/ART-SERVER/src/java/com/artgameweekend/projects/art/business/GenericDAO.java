@@ -58,7 +58,7 @@ public class GenericDAO<E>
     public List<E> findAll()
     {
         PersistenceManager pm = PMF.get().getPersistenceManager();
-        Query query = pm.newQuery("SELECT FROM " + Tag.class.getName());
+        Query query = pm.newQuery("SELECT FROM " + _entityClass.getName());
         return (List<E>) query.execute();
 
     }

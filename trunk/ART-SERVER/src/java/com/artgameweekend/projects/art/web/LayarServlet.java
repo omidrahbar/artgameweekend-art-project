@@ -54,16 +54,16 @@ public class LayarServlet extends HttpServlet
             poi.accumulate("imageUrl", null );
             poi.accumulate("lat", tag.getLat10e6() );
             poi.accumulate("lon", tag.getLon10e6() );
-            poi.accumulate("line2", "line2");
-            poi.accumulate("line3", "line3");
-            poi.accumulate("line4", "line4");
+            poi.accumulate("line2", "Posted : " + tag.getFormatedDate(req.getLocale()));
+            poi.accumulate("line3", "Provided by : ARt project");
+            poi.accumulate("line4", "Application platform : Android");
             poi.accumulate("type", 0);
             poi.accumulate("dimension", 2);
             
             // Actions
             JSONArray actions = new JSONArray();
             JSONObject action1 = new JSONObject();
-            action1.accumulate("uri", "http://art-server.appspot.com/display?id=" + tag.getId());
+            action1.accumulate("uri", "http://art-server.appspot.com/display?id=" + tag.getKeyImage().getId());
             action1.accumulate("label", "View tag");
             actions.add(action1);
             poi.accumulate("actions", actions);
@@ -72,13 +72,15 @@ public class LayarServlet extends HttpServlet
             JSONObject transform = new JSONObject();
             transform.accumulate("rel", true );
             transform.accumulate("angle", 0 );
-            transform.accumulate("scale", 3.0 );
+            transform.accumulate("scale", 1.0 );
             poi.accumulate("transform", transform);
 
             // Transform values
             JSONObject object = new JSONObject();
             object.accumulate("baseURL", "http://art-server.appspot.com/thumbnail" );
             object.accumulate("full", "?id=" + tag.getKeyThumbnail().getId() );
+            object.accumulate("reduced", "?id=" + tag.getKeyThumbnail().getId() );
+            object.accumulate("icon", "?id=" + tag.getKeyThumbnail().getId() );
             object.accumulate("size", 1);
             poi.accumulate("object", object);
 

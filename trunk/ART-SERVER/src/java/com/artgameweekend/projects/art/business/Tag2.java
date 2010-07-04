@@ -31,7 +31,7 @@ import javax.persistence.Id;
  * @author pierre
  */
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
-public class Tag implements Serializable
+public class Tag2 implements Serializable
 {
 
     private static final double X10E6 = 1000000.0;
@@ -56,11 +56,11 @@ public class Tag implements Serializable
     @Persistent
     private long date;
 
-    public Tag()
+    public Tag2()
     {
     }
 
-    public Tag(String name, double lat, double lon)
+    public Tag2(String name, double lat, double lon)
     {
         this.name = name;
         this.lat = lat;
@@ -70,7 +70,7 @@ public class Tag implements Serializable
         this.date = new Date().getTime();
     }
 
-    public Tag( Tag2 tag )
+    public Tag2( Tag tag )
     {
         name = tag.getName();
         lat = tag.getLat();
@@ -204,7 +204,7 @@ public class Tag implements Serializable
     /**
      * @param date the date to set
      */
-   public void setDate(long date)
+    public void setDate(long date)
     {
         this.date = date;
     }
@@ -214,6 +214,4 @@ public class Tag implements Serializable
         DateFormat format = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.FULL, locale);
         return format.format(new Date(date));
     }
-
-
 }

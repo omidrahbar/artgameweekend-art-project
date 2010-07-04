@@ -12,25 +12,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-package com.artgameweekend.projects.art.web;
+package com.artgameweekend.projects.art.service;
 
 /**
  *
  * @author pierre
  */
-public final class Constants
-{
-    public static final String PARAMATER_ID = "id";
-    public static final String PARAMATER_NAME = "name";
-    public static final String PARAMATER_LAT = "lat";
-    public static final String PARAMATER_LON = "lon";
-    public static final String PARAMATER_LANDSCAPE = "landscape";
+public class LayarParamsService {
 
-    public static final String CONTENT_TYPE_TEXT = "text/plain";
-    public static final String CONTENT_TYPE_XML = "application/xml";
-    public static final String CONTENT_TYPE_JPEG = "image/jpeg";
-    public static final String CONTENT_TYPE_JSON = "application/javascript";
 
-    public static final String URL_VIEW_TAGS = "/viewTags.jsp";
+
 }

@@ -13,7 +13,7 @@
         <a href="tags">Get tags (XML format)</a>
     </li>
     <li>
-        <a href="tags">Get tags (KML format) [todo]</a>
+        <a href="layar">Flux Layar</a>
     </li>
 </ul>
 </div>
