@@ -13,7 +13,10 @@
         <a href="tags">Get tags (XML format)</a>
     </li>
     <li>
-        <a href="layar">Flux Layar</a>
+        <a href="layar">Layar </a>
+    </li>
+    <li>
+        <a href="layarParams.jsp">Layar params</a>
     </li>
 </ul>
 </div>

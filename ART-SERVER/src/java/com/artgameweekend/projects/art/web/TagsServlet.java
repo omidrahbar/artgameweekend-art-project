@@ -70,6 +70,12 @@ public class TagsServlet extends HttpServlet
                 out.write("" + tag.getKeyThumbnail().getId());
                 out.write("</thumbnail-id>");
             }
+            out.write("<date>");
+            out.write(tag.getFormatedDate(req.getLocale()));
+            out.write("</date>");
+            out.write("<rating>");
+            out.write(tag.getRating());
+            out.write("</rating>");
             out.write("</tag>");
         }
 

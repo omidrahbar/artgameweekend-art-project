@@ -18,8 +18,123 @@ package com.artgameweekend.projects.art.service;
  *
  * @author pierre
  */
-public class LayarParamsService {
+public class LayarParamsService
+{
+    private int distance = 100;
+    private int type = 0;
+    private int dimension = 2;
+    private boolean rel =  true;
+    private int angle = 0;
+    private double scale = 1.0;
 
+    private static LayarParamsService instance = new LayarParamsService();
+    
+    private LayarParamsService()
+    {
+        
+    }
+    
+    public static LayarParamsService instance()
+    {
+        return instance;
+    }
 
+    /**
+     * @return the distance
+     */
+    public int getDistance()
+    {
+        return distance;
+    }
+
+    /**
+     * @param distance the distance to set
+     */
+    public void setDistance(int distance)
+    {
+        this.distance = distance;
+    }
+
+    /**
+     * @return the type
+     */
+    public int getType()
+    {
+        return type;
+    }
+
+    /**
+     * @param type the type to set
+     */
+    public void setType(int type)
+    {
+        this.type = type;
+    }
+
+    /**
+     * @return the dimension
+     */
+    public int getDimension()
+    {
+        return dimension;
+    }
+
+    /**
+     * @param dimension the dimension to set
+     */
+    public void setDimension(int dimension)
+    {
+        this.dimension = dimension;
+    }
+
+    /**
+     * @return the rel
+     */
+    public boolean getRel()
+    {
+        return rel;
+    }
+
+    /**
+     * @param rel the rel to set
+     */
+    public void setRel(boolean rel)
+    {
+        this.rel = rel;
+    }
+
+    /**
+     * @return the angle
+     */
+    public int getAngle()
+    {
+        return angle;
+    }
+
+    /**
+     * @param angle the angle to set
+     */
+    public void setAngle(int angle)
+    {
+        this.angle = angle;
+    }
+
+    /**
+     * @return the scale
+     */
+    public double getScale()
+    {
+        return scale;
+    }
+
+    /**
+     * @param scale the scale to set
+     */
+    public void setScale(double scale)
+    {
+        this.scale = scale;
+    }
+    
+    
 
 }

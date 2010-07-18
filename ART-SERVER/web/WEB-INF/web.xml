@@ -40,6 +40,15 @@
         <servlet-name>layar</servlet-name>
         <url-pattern>/layar</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateLayarParams</servlet-name>
+        <servlet-class>com.artgameweekend.projects.art.web.LayarParamsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateLayarParams</servlet-name>
+        <url-pattern>/updateLayarParams</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>delete</servlet-name>
         <servlet-class>com.artgameweekend.projects.art.web.DeleteServlet</servlet-class>
