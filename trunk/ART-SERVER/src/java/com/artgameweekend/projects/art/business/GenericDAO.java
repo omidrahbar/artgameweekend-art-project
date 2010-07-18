@@ -48,6 +48,7 @@ public class GenericDAO<E>
         try
         {
             entity = pm.getObjectById(_entityClass, id);
+            entity = pm.detachCopy(entity);
         } catch (JDOObjectNotFoundException e)
         {
             _logger.log(Level.SEVERE, "Error findById" + e.getMessage(), e);
@@ -95,4 +96,20 @@ public class GenericDAO<E>
         }
 
     }
+
+    public void update(E entity)
+    {
+        PersistenceManager pm = PMF.get().getPersistenceManager();
+
+        try
+        {
+            pm.makePersistent(entity);
+        } finally
+        {
+            pm.close();
+        }
+
+    }
+
+
 }

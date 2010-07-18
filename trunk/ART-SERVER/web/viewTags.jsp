@@ -30,13 +30,13 @@
     var markers = Array();
     var bounds = new google.maps.LatLngBounds();
 
-    function addMarker( id, lat, lng, title, date, image , thumbnail ) {
+    function addMarker( id, lat, lng, title, date, image , thumbnail, rating ) {
         var myLatlng = new google.maps.LatLng(lat, lng);
         bounds.extend( myLatlng );
         var marker = new google.maps.Marker({ position: myLatlng, map: MAP });
         markers.push( marker );
         google.maps.event.addListener(marker, 'click', function ( event ) {
-            var content = "<div id=\"marker\">ID #" + id + "<br />" + title + "<br />" + "<img src=\"thumbnail?id="+thumbnail+"\" /><br/>"+ date + "<br/><a href=\"delete?id=" + id +"\">Delete</a></div>";
+            var content = "<div id=\"marker\">ID #" + id + "<br />" + title + "<br />" + "<img src=\"thumbnail?id="+thumbnail+"\" /><br/>"+ date + "<br/>Rating : " + rating + "<br/><a href=\"delete?id=" + id +"\">Delete</a></div>";
             var myInfoWindow = new google.maps.InfoWindow( { content: content } );
             if( THE_INFO_WINDOW != null ) { THE_INFO_WINDOW.close(); }
             myInfoWindow.open( MAP, marker );
@@ -68,8 +68,9 @@
                 var title = $(this).find("name").text();
                 var image = $(this).find("image-id").text();
                 var thumbnail = $(this).find("thumbnail-id").text();
-                var date = "11/06/2006";
-                addMarker( id, lat, lng, title, date , image, thumbnail );
+                var date = $(this).find("date").text();
+                var rating = $(this).find("rating").text();
+                addMarker( id, lat, lng, title, date , image, thumbnail, rating );
             });
         });
     }

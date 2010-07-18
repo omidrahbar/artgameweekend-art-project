@@ -55,6 +55,14 @@ public class Tag implements Serializable
     private long lon10e6;
     @Persistent
     private long date;
+    @Persistent
+    private int ratingSum;
+    @Persistent
+    private int ratingCount;
+    @Persistent
+    private int inappropriate;
+
+
 
     public Tag()
     {
@@ -213,6 +221,64 @@ public class Tag implements Serializable
     {
         DateFormat format = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.FULL, locale);
         return format.format(new Date(date));
+    }
+
+        /**
+     * @return the ratingSum
+     */
+    public int getRatingSum()
+    {
+        return ratingSum;
+    }
+
+    /**
+     * @param ratingSum the ratingSum to set
+     */
+    public void setRatingSum(int ratingSum)
+    {
+        this.ratingSum = ratingSum;
+    }
+
+    /**
+     * @return the ratingCount
+     */
+    public int getRatingCount()
+    {
+        return ratingCount;
+    }
+
+    /**
+     * @param ratingCount the ratingCount to set
+     */
+    public void setRatingCount(int ratingCount)
+    {
+        this.ratingCount = ratingCount;
+    }
+
+    /**
+     * @return the inappropriate
+     */
+    public int getInappropriate()
+    {
+        return inappropriate;
+    }
+
+    /**
+     * @param inappropriate the inappropriate to set
+     */
+    public void setInappropriate(int inappropriate)
+    {
+        this.inappropriate = inappropriate;
+    }
+
+    public String getRating()
+    {
+        if( ratingCount == 0 )
+        {
+            return "No rating yet";
+        }
+        double rating = (double) ratingSum / (double) ratingCount;
+        return String.format("%.2f/5", rating );
     }
 
 

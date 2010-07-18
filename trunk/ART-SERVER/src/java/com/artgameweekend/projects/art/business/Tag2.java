@@ -56,6 +56,14 @@ public class Tag2 implements Serializable
     @Persistent
     private long date;
 
+    @Persistent
+    private int ratingSum;
+    @Persistent
+    private int ratingCount;
+    @Persistent
+    private int inappropriate;
+
+
     public Tag2()
     {
     }
@@ -214,4 +222,60 @@ public class Tag2 implements Serializable
         DateFormat format = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.FULL, locale);
         return format.format(new Date(date));
     }
+
+        /**
+     * @return the ratingSum
+     */
+    public int getRatingSum()
+    {
+        return ratingSum;
+    }
+
+    /**
+     * @param ratingSum the ratingSum to set
+     */
+    public void setRatingSum(int ratingSum)
+    {
+        this.ratingSum = ratingSum;
+    }
+
+    /**
+     * @return the ratingCount
+     */
+    public int getRatingCount()
+    {
+        return ratingCount;
+    }
+
+    /**
+     * @param ratingCount the ratingCount to set
+     */
+    public void setRatingCount(int ratingCount)
+    {
+        this.ratingCount = ratingCount;
+    }
+
+    /**
+     * @return the inappropriate
+     */
+    public int getInappropriate()
+    {
+        return inappropriate;
+    }
+
+    /**
+     * @param inappropriate the inappropriate to set
+     */
+    public void setInappropriate(int inappropriate)
+    {
+        this.inappropriate = inappropriate;
+    }
+
+    public String getRating()
+    {
+        double rating = (double) ratingSum / (double) ratingCount;
+        return String.format("%2f", rating );
+    }
+
+
 }
