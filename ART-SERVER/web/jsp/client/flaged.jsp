@@ -4,6 +4,8 @@
     Author     : pierre
 --%>
 
+<jsp:useBean id="flag" scope="session" class="com.artgameweekend.projects.art.web.RatingJspBean" />
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,6 +19,9 @@
     <body>
        <div class="box">
             <h1>Thanks for helping us!</h1>
+            <p>
+                <%= flag.doFlag(request) %>
+            </p>
             <p>
                 Press the Back button to go back to Layar.
             </p>
