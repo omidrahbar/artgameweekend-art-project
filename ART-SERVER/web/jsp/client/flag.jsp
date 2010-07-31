@@ -22,6 +22,7 @@
         <div class="box">
             <form action="flaged.jsp" >
                 <input name="id" type="hidden" value="<%= tagId%>" />
+                <input name="flag" type="hidden" value="1" />
                 <h1>Flag this tag as inappropriate</h1>
                 <img src="/thumbnail?id=<%= thumbnailId %>" alt="thumbnail" />
                 <p>

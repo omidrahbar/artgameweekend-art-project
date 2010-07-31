@@ -18,6 +18,9 @@
     <li>
         <a href="layarParams.jsp">Layar params</a>
     </li>
+    <li>
+        <a href="arml">ARML </a>
+    </li>
 </ul>
 </div>
 
