@@ -40,6 +40,14 @@
         <servlet-name>layar</servlet-name>
         <url-pattern>/layar</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>arml</servlet-name>
+        <servlet-class>com.artgameweekend.projects.art.web.ArmlServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>arml</servlet-name>
+        <url-pattern>/arml</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>updateLayarParams</servlet-name>

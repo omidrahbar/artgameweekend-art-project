@@ -15,10 +15,10 @@
 package com.artgameweekend.projects.art.web;
 
 import com.artgameweekend.projects.art.business.Tag;
-import com.artgameweekend.projects.art.business.TagDAO;
+import com.artgameweekend.projects.art.service.TagService;
+import com.artgameweekend.projects.art.web.Utils;
 import java.io.IOException;
 import java.io.Writer;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,15 +34,17 @@ public class TagsServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
+
+        double latitude = Utils.getDouble( req , "lat" , 48.8);
+        double longitude = Utils.getDouble( req , "lon" , 2.3);
+        int max = Utils.getInt(req, "max", 100 );
+
         Writer out = resp.getWriter();
         resp.setContentType(Constants.CONTENT_TYPE_XML);
         out.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         out.write("<tags>");
 
-        TagDAO dao = new TagDAO();
-
-        List<Tag> list = dao.findAll();
-        for (Tag tag : list)
+        for (Tag tag : TagService.getNearestTags(latitude, longitude, max))
         {
             out.write("<tag>");
 

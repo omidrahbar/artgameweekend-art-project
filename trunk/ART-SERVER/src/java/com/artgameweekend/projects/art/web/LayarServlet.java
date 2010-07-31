@@ -17,9 +17,9 @@ package com.artgameweekend.projects.art.web;
 import com.artgameweekend.projects.art.business.Tag;
 import com.artgameweekend.projects.art.business.TagDAO;
 import com.artgameweekend.projects.art.service.LayarParamsService;
+import com.artgameweekend.projects.art.service.TagService;
 import java.io.IOException;
 import java.io.Writer;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,6 +38,10 @@ public class LayarServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
+        double latitude = Utils.getDouble( req , "lat" , 48.8);
+        double longitude = Utils.getDouble( req , "lon" , 2.3);
+        int max = Utils.getInt(req, "max", 50 ); // not provided by Layar
+
         Writer out = resp.getWriter();
         resp.setContentType(Constants.CONTENT_TYPE_JSON);
 
@@ -45,8 +49,7 @@ public class LayarServlet extends HttpServlet
 
         JSONObject layer = new JSONObject();
         JSONArray hotspots = new JSONArray();
-        List<Tag> list = dao.findAll();
-        for (Tag tag : list)
+        for (Tag tag : TagService.getNearestTags(latitude, longitude, max))
         {
             JSONObject poi = new JSONObject();
             poi.accumulate("distance", LayarParamsService.instance().getDistance());

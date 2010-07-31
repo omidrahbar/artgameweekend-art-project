@@ -8,7 +8,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
-<jsp:useBean id="rating" scope="session" class="com.artgameweekend.projects.art.web.RatingJspBean" />
+<jsp:useBean id="rating" scope="request" class="com.artgameweekend.projects.art.web.RatingJspBean" />
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
