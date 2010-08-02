@@ -72,15 +72,15 @@ public class LayarServlet extends HttpServlet
             action1.accumulate("label", "View tag");
             actions.add(action1);
             JSONObject action2 = new JSONObject();
-            action2.accumulate("uri", SERVER_URL + "/jsp/client/rate.jsp?id=" + tag.getId()+"&id_thumbnail=" + tag.getKeyThumbnail().getId());
+            action2.accumulate("uri", SERVER_URL + "/client/rate.jsp?id=" + tag.getId()+"&id_thumbnail=" + tag.getKeyThumbnail().getId());
             action2.accumulate("label", "Rate this tag");
             actions.add(action2);
             JSONObject action3 = new JSONObject();
-            action3.accumulate("uri", SERVER_URL + "/jsp/client/flag.jsp?id=" + tag.getId()+"&id_thumbnail=" + tag.getKeyThumbnail().getId());
+            action3.accumulate("uri", SERVER_URL + "/client/flag.jsp?id=" + tag.getId()+"&id_thumbnail=" + tag.getKeyThumbnail().getId());
             action3.accumulate("label", "Flag as inappropriate");
             actions.add(action3);
             JSONObject action4 = new JSONObject();
-            action4.accumulate("uri", SERVER_URL + "/jsp/client/getdraw.jsp");
+            action4.accumulate("uri", SERVER_URL + "/client/getdraw.jsp");
             action4.accumulate("label", "Get ARt Draw");
             actions.add(action4);
             poi.accumulate("actions", actions);

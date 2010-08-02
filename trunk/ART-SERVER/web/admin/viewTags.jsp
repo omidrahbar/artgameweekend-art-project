@@ -36,7 +36,7 @@
         var marker = new google.maps.Marker({ position: myLatlng, map: MAP });
         markers.push( marker );
         google.maps.event.addListener(marker, 'click', function ( event ) {
-            var content = "<div id=\"marker\">ID #" + id + "<br />" + title + "<br />" + "<img src=\"thumbnail?id="+thumbnail+"\" /><br/>"+ date + "<br/>Rating : " + rating + "<br/><a href=\"delete?id=" + id +"\">Delete</a></div>";
+            var content = "<div id=\"marker\">ID #" + id + "<br />" + title + "<br />" + "<img src=\"/thumbnail?id="+thumbnail+"\" /><br/>"+ date + "<br/>Rating : " + rating + "<br/><a href=\"delete?id=" + id +"\">Delete</a></div>";
             var myInfoWindow = new google.maps.InfoWindow( { content: content } );
             if( THE_INFO_WINDOW != null ) { THE_INFO_WINDOW.close(); }
             myInfoWindow.open( MAP, marker );
@@ -55,7 +55,7 @@
     }
 
  
-    var URL_GET = "tags";
+    var URL_GET = "/tags";
 
     function getTagsFromWebService( _lat, _lng, _zoom ) {
 

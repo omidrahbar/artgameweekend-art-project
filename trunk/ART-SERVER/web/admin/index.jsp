@@ -10,16 +10,16 @@
         <a href="createTag.jsp">Create a tag from this web interface</a>
     </li>
     <li>
-        <a href="tags">Get tags (XML format)</a>
+        <a href="/tags">Get tags (XML format)</a>
     </li>
     <li>
-        <a href="layar">Layar </a>
+        <a href="/layar">Layar </a>
     </li>
     <li>
         <a href="layarParams.jsp">Layar params</a>
     </li>
     <li>
-        <a href="arml">ARML </a>
+        <a href="/arml">ARML </a>
     </li>
 </ul>
 </div>

@@ -1,6 +1,6 @@
 <%@include file="header.jsp" %>
 
-<form action="upload" method="post" enctype="multipart/form-data">
+<form action="/upload" method="post" enctype="multipart/form-data">
     <div style="float:left; width:50%">
         <div class="box">
             <h2>Create a Tag</h2>
