@@ -14,7 +14,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Thanks for helping us!</title>
-        <link href="/css/client.css" type="text/css" rel="stylesheet"/>
+        <link href="css/client.css" type="text/css" rel="stylesheet"/>
     </head>
     <body>
        <div class="box">
