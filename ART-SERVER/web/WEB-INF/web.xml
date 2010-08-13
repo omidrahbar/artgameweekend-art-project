@@ -63,7 +63,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>delete</servlet-name>
-        <url-pattern>/delete</url-pattern>
+        <url-pattern>/admin/delete</url-pattern>
     </servlet-mapping>
 
     <security-constraint>
