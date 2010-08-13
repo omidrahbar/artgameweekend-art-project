@@ -13,7 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Thanks for rating this tag!</title>
-        <link href="/css/client.css" type="text/css" rel="stylesheet"/>
+        <link href="css/client.css" type="text/css" rel="stylesheet"/>
     </head>
     <body>
         <div class="box">
@@ -22,7 +22,7 @@
                 <%= rating.doRating(request) %>
             </p>
             <p>
-                Press the Back button to go back to Layar.
+                Press the Back button to go back to your reality browser.
             </p>
         </div>
     </body>

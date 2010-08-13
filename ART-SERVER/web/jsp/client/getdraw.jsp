@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Get ARt Draw</title>
-        <link href="/css/client.css" type="text/css" rel="stylesheet"/>
+        <link href="css/client.css" type="text/css" rel="stylesheet"/>
     </head>
     <body>
         <div class="box">
@@ -22,7 +22,7 @@
             <a href="http://artgameweekend-art-project.googlecode.com/svn/trunk/ART/releases/ART-009.apk" >
             -->
             <a href="market://search?q=pub:androidsoft.org" >
-                <img src="/images/download-apk.png" alt="download" />
+                <img src="images/download-apk.png" alt="download" />
             </a>
         </div>
     </body>

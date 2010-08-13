@@ -1,8 +1,11 @@
-<%-- 
-    Document   : rate.jsp
+<%--
+    Document   : wikitude.jsp
     Created on : 16 juil. 2010, 15:24:00
     Author     : pierre
 --%>
+<%@page import="com.artgameweekend.projects.art.business.TagDAO" %>
+<%@page import="com.artgameweekend.projects.art.business.Tag" %>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -10,12 +13,14 @@
 
 <%
     String tagId = request.getParameter("id");
-    String thumbnailId = request.getParameter("id_thumbnail");
+    TagDAO dao = new TagDAO();
+    Tag tag = dao.findById( Long.parseLong( tagId ));
+
 %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Rate this tag</title>
+        <title>ARt Wikitude</title>
         <script src="js/jquery/jquery-1.4.2.min.js" type="text/javascript" language="javascript"></script>
         <script src="js/jquery/rating/jquery.rating.pack.js" type="text/javascript" language="javascript"></script>
         <link href="js/jquery/rating/jquery.rating.css" type="text/css" rel="stylesheet"/>
@@ -27,9 +32,9 @@
         <div class="box">
             <form name="formRating" action="rated.jsp" >
                 <input name="id" type="hidden" value="<%= tagId%>" />
-                <h1>Rate this tag</h1>
-                <img src="/thumbnail?id=<%= thumbnailId %>" alt="thumbnail" />
+                <img src="/display?id=<%= tagId %>" alt="thumbnail" />
                 <br/>
+                <h1>Rate this tag</h1>
                 <br/>
                 <div align="center">
                     <input name="rating" type="radio" class="star" value="1"/>
