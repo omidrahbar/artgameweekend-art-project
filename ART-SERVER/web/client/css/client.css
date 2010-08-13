@@ -1,0 +1,26 @@
+html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+    font-family:Arial, sans-serif;
+    font-size:100%;
+    font-weight:normal;
+    background-color: #000;
+    color:#eee;
+}
+
+div.box {
+    border: 1x solid #eee;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    margin: 15%;
+    padding: 15px;
+    background-color: #111;
+    text-align: center;
+
+
+}
+
+.box img {
+    width: 90%;
+}
