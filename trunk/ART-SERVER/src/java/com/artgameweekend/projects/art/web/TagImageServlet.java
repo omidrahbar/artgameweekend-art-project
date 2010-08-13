@@ -14,6 +14,8 @@
  */
 package com.artgameweekend.projects.art.web;
 
+import com.artgameweekend.projects.art.business.Tag;
+import com.artgameweekend.projects.art.business.TagDAO;
 import com.artgameweekend.projects.art.business.TagImage;
 import com.artgameweekend.projects.art.business.TagImageDAO;
 import java.io.IOException;
@@ -35,8 +37,10 @@ public class TagImageServlet extends HttpServlet
     {
         String sId = req.getParameter( Constants.PARAMATER_ID );
         long id = Long.parseLong(sId);
+        TagDAO daoTag = new TagDAO();
+        Tag tag = daoTag.findById(id);
         TagImageDAO dao = new TagImageDAO();
-        TagImage tagImage= dao.findById(id);
+        TagImage tagImage= dao.findById( tag.getKeyImage().getId() );
             if (tagImage != null)
             {
                 resp.setContentType( tagImage.getContentType() );

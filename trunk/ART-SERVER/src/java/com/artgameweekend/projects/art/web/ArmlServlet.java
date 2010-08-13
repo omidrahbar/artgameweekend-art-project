@@ -69,13 +69,13 @@ public class ArmlServlet extends HttpServlet
             out.write( "http://art-server.appspot.com/thumbnail?id=" + tag.getKeyThumbnail().getId());
             out.write("</wikitude:thumbnail>");
             out.write("<wikitude:url>");
-            out.write( "http://art-server.appspot.com/display?id=" + tag.getId());
+            out.write( "http://art-server.appspot.com/client/wikitude.jsp?id=" + tag.getId());
             out.write("</wikitude:url>");
             out.write("</wikitude:info>");
 
             out.write("<Point>");
             out.write("<coordinates>");
-            out.write(Double.toString(tag.getLat()) + "," + Double.toString(tag.getLon()));
+            out.write(Double.toString(tag.getLon()) + "," + Double.toString(tag.getLat()));
             out.write("</coordinates>");
             out.write("</Point>");
 

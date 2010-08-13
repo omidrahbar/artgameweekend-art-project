@@ -36,7 +36,7 @@ public class DeleteServlet extends HttpServlet
         TagDAO dao = new TagDAO();
         dao.remove(id);
 
-        resp.sendRedirect(Constants.URL_VIEW_TAGS);
+        resp.sendRedirect(Constants.URL_VIEWTAGS);
 
     }
 }
