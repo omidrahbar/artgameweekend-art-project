@@ -68,7 +68,7 @@ public class LayarServlet extends HttpServlet
             // Actions
             JSONArray actions = new JSONArray();
             JSONObject action1 = new JSONObject();
-            action1.accumulate("uri", SERVER_URL + "/display?id=" + tag.getKeyImage().getId());
+            action1.accumulate("uri", SERVER_URL + "/display?id=" + tag.getId());
             action1.accumulate("label", "View tag");
             actions.add(action1);
             JSONObject action2 = new JSONObject();
