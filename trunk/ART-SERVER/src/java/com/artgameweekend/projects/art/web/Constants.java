@@ -33,4 +33,5 @@ public final class Constants
     public static final String CONTENT_TYPE_JSON = "application/javascript";
 
     public static final String URL_VIEWTAGS = "/admin/viewTags.jsp";
+    public static final String URL_LISTTAGS = "/admin/listTags.jsp";
 }
