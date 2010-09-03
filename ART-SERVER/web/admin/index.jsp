@@ -4,6 +4,9 @@
     <h2>ARt Server - Administration Home</h2>
 <ul>
     <li>
+        <a href="listTags.jsp">Tag list</a>
+    </li>
+    <li>
         <a href="viewTags.jsp">View tags on the map</a>
     </li>
     <li>
