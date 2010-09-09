@@ -68,8 +68,9 @@ public class JunaioServlet extends HttpServlet
             out.write("<l>" + tag.getLat() + "," + tag.getLon() + ",0</l>");
             out.write("<o>0,0,0</o>");
 
-            out.write("<mime-type>text/plain</mime-type>");
+            out.write("<mime-type>image/png</mime-type>");
 
+            out.write("<mainresource>" + Constants.URL_SERVER + "/thumbnail?id=" + tag.getKeyThumbnail().getId() + "</mainresource>");
             out.write("<thumbnail>" + Constants.URL_SERVER + "/thumbnail?id=" + tag.getKeyThumbnail().getId() + "</thumbnail>");
             out.write("<icon>" + Constants.URL_SERVER + "/images/icon.png</icon>");
 
