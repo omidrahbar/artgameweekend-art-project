@@ -45,17 +45,17 @@ public class ArmlServlet extends HttpServlet
                 " xmlns:wikitude=\"http://www.openarml.org/wikitude/1.0\"> ");
 
         out.write("<Document>");
-            out.write("<ar:provider id=\"ARt\">");
-            out.write("<ar:name>ARt</ar:name>");
-            out.write("<ar:description>Augmented Reality tag - Tags made on smartphones</ar:description>");
-            out.write("<wikitude:icon>http://art-server.appspot.com/images/icon.png</wikitude:icon>");
+            out.write("<ar:provider id=\"ARtags\">");
+            out.write("<ar:name>ARtags</ar:name>");
+            out.write("<ar:description>Augmented Reality tags - Tags made on smartphones</ar:description>");
+            out.write("<wikitude:icon>" + Constants.URL_SERVER + "/images/icon.png</wikitude:icon>");
             out.write("</ar:provider>");
 
         for (Tag tag : TagService.getNearestTags(latitude, longitude, max))
         {
             out.write("<Placemark id=\"" + tag.getId() + "\">");
             out.write("<ar:provider>");
-            out.write("ARt");
+            out.write("ARtags");
             out.write("</ar:provider>");
             out.write("<name>");
             out.write(tag.getName());
@@ -66,10 +66,10 @@ public class ArmlServlet extends HttpServlet
 
             out.write("<wikitude:info>");
             out.write("<wikitude:thumbnail>");
-            out.write( "http://art-server.appspot.com/thumbnail?id=" + tag.getKeyThumbnail().getId());
+            out.write( Constants.URL_SERVER + "/thumbnail?id=" + tag.getKeyThumbnail().getId());
             out.write("</wikitude:thumbnail>");
             out.write("<wikitude:url>");
-            out.write( "http://art-server.appspot.com/client/wikitude.jsp?id=" + tag.getId());
+            out.write( Constants.URL_SERVER + "/client/wikitude.jsp?id=" + tag.getId());
             out.write("</wikitude:url>");
             out.write("</wikitude:info>");
 

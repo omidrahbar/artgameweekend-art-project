@@ -24,6 +24,9 @@
     <li>
         <a href="/arml">ARML </a>
     </li>
+    <li>
+        <a href="/junaio/pois/search/?">Junaio </a>
+    </li>
 </ul>
 </div>
 
