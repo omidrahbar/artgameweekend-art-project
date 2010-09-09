@@ -33,7 +33,6 @@ import net.sf.json.JSONObject;
  */
 public class LayarServlet extends HttpServlet
 {
-    private static final String SERVER_URL = "http://art-server.appspot.com";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
@@ -53,10 +52,10 @@ public class LayarServlet extends HttpServlet
         {
             JSONObject poi = new JSONObject();
             poi.accumulate("distance", LayarParamsService.instance().getDistance());
-            poi.accumulate("attribution", "ARt test layer");
+            poi.accumulate("attribution", "ARtags");
             poi.accumulate("id", tag.getId());
             poi.accumulate("title", tag.getName());
-            poi.accumulate("imageUrl", SERVER_URL + "/thumbnail?id=" + tag.getKeyThumbnail().getId() );
+            poi.accumulate("imageUrl", Constants.URL_SERVER + "/thumbnail?id=" + tag.getKeyThumbnail().getId() );
             poi.accumulate("lat", tag.getLat10e6() );
             poi.accumulate("lon", tag.getLon10e6() );
             poi.accumulate("line2", "Posted : " + tag.getFormatedDate(req.getLocale()));
@@ -68,20 +67,20 @@ public class LayarServlet extends HttpServlet
             // Actions
             JSONArray actions = new JSONArray();
             JSONObject action1 = new JSONObject();
-            action1.accumulate("uri", SERVER_URL + "/display?id=" + tag.getId());
+            action1.accumulate("uri", Constants.URL_SERVER + "/display?id=" + tag.getId());
             action1.accumulate("label", "View tag");
             actions.add(action1);
             JSONObject action2 = new JSONObject();
-            action2.accumulate("uri", SERVER_URL + "/client/rate.jsp?id=" + tag.getId()+"&id_thumbnail=" + tag.getKeyThumbnail().getId());
+            action2.accumulate("uri", Constants.URL_SERVER + "/client/rate.jsp?id=" + tag.getId()+"&id_thumbnail=" + tag.getKeyThumbnail().getId());
             action2.accumulate("label", "Rate this tag");
             actions.add(action2);
             JSONObject action3 = new JSONObject();
-            action3.accumulate("uri", SERVER_URL + "/client/flag.jsp?id=" + tag.getId()+"&id_thumbnail=" + tag.getKeyThumbnail().getId());
+            action3.accumulate("uri", Constants.URL_SERVER + "/client/flag.jsp?id=" + tag.getId()+"&id_thumbnail=" + tag.getKeyThumbnail().getId());
             action3.accumulate("label", "Flag as inappropriate");
             actions.add(action3);
             JSONObject action4 = new JSONObject();
-            action4.accumulate("uri", SERVER_URL + "/client/getdraw.jsp");
-            action4.accumulate("label", "Get ARt Draw");
+            action4.accumulate("uri", Constants.URL_SERVER + "/client/getdraw.jsp");
+            action4.accumulate("label", "Get ARtags Draw");
             actions.add(action4);
             poi.accumulate("actions", actions);
 
@@ -94,7 +93,7 @@ public class LayarServlet extends HttpServlet
 
             // Transform values
             JSONObject object = new JSONObject();
-            object.accumulate("baseURL", SERVER_URL + "/thumbnail" );
+            object.accumulate("baseURL", Constants.URL_SERVER + "/thumbnail" );
             object.accumulate("full", "?id=" + tag.getKeyThumbnail().getId() );
             object.accumulate("reduced", "?id=" + tag.getKeyThumbnail().getId() );
             object.accumulate("icon", "?id=" + tag.getKeyThumbnail().getId() );

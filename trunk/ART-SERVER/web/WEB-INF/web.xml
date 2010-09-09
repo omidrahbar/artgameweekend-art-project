@@ -48,6 +48,14 @@
         <servlet-name>arml</servlet-name>
         <url-pattern>/arml</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>junaio</servlet-name>
+        <servlet-class>com.artgameweekend.projects.art.web.JunaioServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>junaio</servlet-name>
+        <url-pattern>/junaio/pois/search/</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>updateLayarParams</servlet-name>

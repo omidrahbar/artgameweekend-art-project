@@ -32,6 +32,9 @@ public final class Constants
     public static final String CONTENT_TYPE_JPEG = "image/jpeg";
     public static final String CONTENT_TYPE_JSON = "application/javascript";
 
+    public static final String URL_SERVER = "http://art-server.appspot.com";
     public static final String URL_VIEWTAGS = "/admin/viewTags.jsp";
     public static final String URL_LISTTAGS = "/admin/listTags.jsp";
+
+
 }
