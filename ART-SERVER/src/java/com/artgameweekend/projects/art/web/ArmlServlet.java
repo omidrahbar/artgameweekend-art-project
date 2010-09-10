@@ -69,7 +69,7 @@ public class ArmlServlet extends HttpServlet
             out.write( Constants.URL_SERVER + "/thumbnail?id=" + tag.getKeyThumbnail().getId());
             out.write("</wikitude:thumbnail>");
             out.write("<wikitude:url>");
-            out.write( Constants.URL_SERVER + "/client/wikitude.jsp?id=" + tag.getId());
+            out.write( Constants.URL_SERVER + "/client/tag.jsp?id=" + tag.getId());
             out.write("</wikitude:url>");
             out.write("</wikitude:info>");
 
