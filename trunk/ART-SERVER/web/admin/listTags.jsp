@@ -1,5 +1,5 @@
-<%@page import="com.artgameweekend.projects.art.business.TagDAO" %>
-<%@page import="com.artgameweekend.projects.art.business.Tag" %>
+<%@page import="org.artags.server.business.TagDAO" %>
+<%@page import="org.artags.server.business.Tag" %>
 <%@page import="java.util.List" %>
 <%@include file="header.jsp" %>
 

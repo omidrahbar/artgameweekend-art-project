@@ -2,7 +2,7 @@
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <servlet>
         <servlet-name>upload</servlet-name>
-        <servlet-class>com.artgameweekend.projects.art.web.TagUploadServlet</servlet-class>
+        <servlet-class>org.artags.server.web.TagUploadServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>upload</servlet-name>
@@ -10,7 +10,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>display</servlet-name>
-        <servlet-class>com.artgameweekend.projects.art.web.TagImageServlet</servlet-class>
+        <servlet-class>org.artags.server.web.TagImageServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>display</servlet-name>
@@ -18,7 +18,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>thumbnail</servlet-name>
-        <servlet-class>com.artgameweekend.projects.art.web.TagThumbnailServlet</servlet-class>
+        <servlet-class>org.artags.server.web.TagThumbnailServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>thumbnail</servlet-name>
@@ -26,7 +26,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>tags</servlet-name>
-        <servlet-class>com.artgameweekend.projects.art.web.TagsServlet</servlet-class>
+        <servlet-class>org.artags.server.web.TagsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>tags</servlet-name>
@@ -34,7 +34,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>layar</servlet-name>
-        <servlet-class>com.artgameweekend.projects.art.web.LayarServlet</servlet-class>
+        <servlet-class>org.artags.server.web.LayarServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>layar</servlet-name>
@@ -42,7 +42,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>arml</servlet-name>
-        <servlet-class>com.artgameweekend.projects.art.web.ArmlServlet</servlet-class>
+        <servlet-class>org.artags.server.web.ArmlServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>arml</servlet-name>
@@ -50,16 +50,15 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>junaio</servlet-name>
-        <servlet-class>com.artgameweekend.projects.art.web.JunaioServlet</servlet-class>
+        <servlet-class>org.artags.server.web.JunaioServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>junaio</servlet-name>
         <url-pattern>/junaio/pois/search/</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>updateLayarParams</servlet-name>
-        <servlet-class>com.artgameweekend.projects.art.web.LayarParamsServlet</servlet-class>
+        <servlet-class>org.artags.server.web.LayarParamsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>updateLayarParams</servlet-name>
@@ -67,13 +66,12 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>delete</servlet-name>
-        <servlet-class>com.artgameweekend.projects.art.web.DeleteServlet</servlet-class>
+        <servlet-class>org.artags.server.web.DeleteServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>delete</servlet-name>
         <url-pattern>/admin/delete</url-pattern>
     </servlet-mapping>
-
     <security-constraint>
         <web-resource-collection>
             <url-pattern>/admin/*</url-pattern>
@@ -82,8 +80,6 @@
             <role-name>*</role-name>
         </auth-constraint>
     </security-constraint>
-
-
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
