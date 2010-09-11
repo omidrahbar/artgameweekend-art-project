@@ -4,10 +4,10 @@
     Author     : pierre
 --%>
 
-<%@page import="com.artgameweekend.projects.art.business.Tag" %>
-<%@page import="com.artgameweekend.projects.art.business.Tag2" %>
-<%@page import="com.artgameweekend.projects.art.business.TagDAO" %>
-<%@page import="com.artgameweekend.projects.art.business.Tag2DAO" %>
+<%@page import="org.artags.server.business.Tag" %>
+<%@page import="org.artags.server.business.Tag2" %>
+<%@page import="org.artags.server.business.TagDAO" %>
+<%@page import="org.artags.server.business.Tag2DAO" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">

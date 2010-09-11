@@ -3,8 +3,8 @@
     Created on : 16 juil. 2010, 15:24:00
     Author     : pierre
 --%>
-<%@page import="com.artgameweekend.projects.art.business.TagDAO" %>
-<%@page import="com.artgameweekend.projects.art.business.Tag" %>
+<%@page import="org.artags.server.business.TagDAO" %>
+<%@page import="org.artags.server.business.Tag" %>
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -4,7 +4,7 @@
     Author     : pierre
 --%>
 
-<jsp:useBean id="flag" scope="request" class="com.artgameweekend.projects.art.web.RatingJspBean" />
+<jsp:useBean id="flag" scope="request" class="org.artags.server.web.RatingJspBean" />
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
