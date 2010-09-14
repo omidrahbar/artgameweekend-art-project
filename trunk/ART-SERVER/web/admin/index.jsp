@@ -22,7 +22,7 @@
         <a href="layarParams.jsp">Layar params</a>
     </li>
     <li>
-        <a href="/arml">ARML </a>
+        <a href="/arml">ARML (Wikitude)</a>
     </li>
     <li>
         <a href="/junaio/pois/search/?">Junaio </a>

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  *
- * @author pierre
+ * @author pierre@artags.org
  */
 public class Utils
 {

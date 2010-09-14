@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARt Project owners
+/* Copyright (c) 2010 ARtags project owners (see http://artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -28,7 +28,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author pierre
+ * @author pierre@artags.org
  */
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class Tag2 implements Serializable
