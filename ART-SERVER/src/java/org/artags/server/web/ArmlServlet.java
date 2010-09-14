@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARt Project owners
+/* Copyright (c) 2010 ARtags project owners (see http://artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author pierre
+ * @author pierre@artags.org
  */
 public class ArmlServlet extends HttpServlet
 {
@@ -45,7 +45,7 @@ public class ArmlServlet extends HttpServlet
                 " xmlns:wikitude=\"http://www.openarml.org/wikitude/1.0\"> ");
 
         out.write("<Document>");
-            out.write("<ar:provider id=\"ARtags\">");
+            out.write("<ar:provider id=\"ARt\">");
             out.write("<ar:name>ARtags</ar:name>");
             out.write("<ar:description>Augmented Reality tags - Tags made on smartphones</ar:description>");
             out.write("<wikitude:icon>" + Constants.URL_SERVER + "/images/icon.png</wikitude:icon>");
@@ -55,10 +55,10 @@ public class ArmlServlet extends HttpServlet
         {
             out.write("<Placemark id=\"" + tag.getId() + "\">");
             out.write("<ar:provider>");
-            out.write("ARtags");
+            out.write("ARt");
             out.write("</ar:provider>");
             out.write("<name>");
-            out.write(tag.getName());
+            out.write( "<![CDATA[" + tag.getName() + "]]>");
             out.write("</name>");
             out.write("<description>");
             out.write("Date : " + tag.getFormatedDate(req.getLocale()) + " Rating : " + tag.getRating());

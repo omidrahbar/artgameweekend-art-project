@@ -7,7 +7,7 @@ package org.artags.server.business;
 
 /**
  *
- * @author pierre
+ * @author pierre@artags.org
  */
 public class Tag2DAO extends GenericDAO<Tag2>
 {

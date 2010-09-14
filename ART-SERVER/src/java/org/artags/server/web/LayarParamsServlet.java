@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author pierre
+ * @author pierre@artags.org
  */
 public class LayarParamsServlet extends HttpServlet
 {
