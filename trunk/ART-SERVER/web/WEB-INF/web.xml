@@ -34,7 +34,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>layar</servlet-name>
-        <servlet-class>org.artags.server.web.LayarServlet</servlet-class>
+        <servlet-class>org.artags.server.web.layar.LayarServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>layar</servlet-name>
@@ -66,7 +66,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>updateLayarParams</servlet-name>
-        <servlet-class>org.artags.server.web.LayarParamsServlet</servlet-class>
+        <servlet-class>org.artags.server.web.layar.LayarParamsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>updateLayarParams</servlet-name>
@@ -85,12 +85,16 @@
             <url-pattern>/admin/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>*</role-name>
+            <role-name>admin</role-name>
         </auth-constraint>
     </security-constraint>
+
+
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+
+
     <!-- Appstats -->
     <filter>
         <filter-name>appstats</filter-name>

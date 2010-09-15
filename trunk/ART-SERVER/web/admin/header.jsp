@@ -8,12 +8,12 @@
         <meta name="viewport" content="width=device-width" />
         <link href="css/style.css" rel="stylesheet" type="text/css" />
 
-        <title>ARt project</title>
+        <title>ARtags project - Administration module</title>
         <style>
         </style>
 
     </head>
     <body>
         <div class="box">
-            <h1><a href="/admin/"><img src="images/icon.png" alt="logo" align="bottom"/></a> ARt Project - augmented reality tag</h1>
+            <h1><a href="/admin/"><img src="images/icon.png" alt="logo" align="bottom"/></a> ARtags Project - Augmented Reality tags</h1>
         </div>

@@ -3,9 +3,8 @@
  * and open the template in the editor.
  */
 
-package org.artags.server.web;
+package org.artags.server.web.layar;
 
-import org.artags.server.service.LayarParamsService;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
