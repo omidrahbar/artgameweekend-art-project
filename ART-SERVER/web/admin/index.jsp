@@ -1,7 +1,8 @@
+<%@page import="org.artags.server.web.Security" %>
 <%@include file="header.jsp" %>
 
 <div class="box">
-    <h2>ARt Server - Administration Home</h2>
+    <h2>ARtags Server - Administration Home</h2>
 <ul>
     <li>
         <a href="listTags.jsp">Tag list</a>
@@ -16,16 +17,22 @@
         <a href="/tags">Get tags (XML format)</a>
     </li>
     <li>
-        <a href="/layar">Layar </a>
+        <a href="/layar?developerId=<%=Security.LAYAR_DEVELOPER_ID%>">Layar </a>
     </li>
     <li>
         <a href="layarParams.jsp">Layar params</a>
     </li>
     <li>
+        <a href="http://publishing.layar.com/publishing/test/artags" target="Layar">Test at Layar</a>
+    </li>
+    <li>
         <a href="/arml">ARML (Wikitude)</a>
     </li>
     <li>
-        <a href="/junaio/pois/search/?">Junaio </a>
+        <a href="/junaio/pois/search/?adminKey=<%=Security.ADMIN_KEY%>">Junaio </a>
+    </li>
+    <li>
+        <a href="http://www.junaio.com/publisher/mychannels" target="Junaio">Test at Junaio</a>
     </li>
 </ul>
 </div>

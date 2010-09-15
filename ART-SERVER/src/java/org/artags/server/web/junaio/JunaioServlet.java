@@ -37,11 +37,16 @@ public class JunaioServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        String adminKey = request.getParameter( "adminKey" );
+
         if (!JunaioUtils.isAuthorized(request) || !JunaioUtils.isValidSignature(request, Security.JUNAIO_KEY))
         {
-            // Returns Unauthorized 401
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            return;
+            if( adminKey == null || ! adminKey.equals( Security.ADMIN_KEY ))
+            {
+                // Returns Unauthorized 401
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                return;
+            }
         }
 
         double latitude = 48.8;

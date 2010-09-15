@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.artags.server.service;
+package org.artags.server.web.layar;
 
 /**
  *
@@ -26,6 +26,7 @@ public class LayarParamsService
     private boolean rel =  true;
     private int angle = 0;
     private double scale = 1.0;
+    private int maxPOIs = 20;
 
     private static LayarParamsService instance = new LayarParamsService();
     
@@ -133,6 +134,22 @@ public class LayarParamsService
     public void setScale(double scale)
     {
         this.scale = scale;
+    }
+
+    /**
+     * @return the maxPOIs
+     */
+    public int getMaxPOIs()
+    {
+        return maxPOIs;
+    }
+
+    /**
+     * @param maxPOIs the maxPOIs to set
+     */
+    public void setMaxPOIs(int maxPOIs)
+    {
+        this.maxPOIs = maxPOIs;
     }
     
     
