@@ -130,7 +130,7 @@ public class TagUploadServlet extends HttpServlet
                         + e.getActualSize() + ")");
             }
 
-            contentType = (contentType != null) ? contentType : "image/png";
+            contentType = (contentType != null) ? contentType : "image/jpeg";
 
             if (bLandscape)
             {

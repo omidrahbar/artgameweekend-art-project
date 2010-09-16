@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.artags.server.web;
+package org.artags.server.web.wikitude;
 
 import org.artags.server.business.Tag;
 import org.artags.server.service.TagService;
@@ -22,6 +22,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.artags.server.web.Constants;
+import org.artags.server.web.Utils;
 
 /**
  *
