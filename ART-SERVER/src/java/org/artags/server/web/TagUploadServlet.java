@@ -61,6 +61,7 @@ public class TagUploadServlet extends HttpServlet
             res.setContentType(Constants.CONTENT_TYPE_TEXT);
             PrintWriter out = res.getWriter();
             byte[] image = null;
+            byte[] thumbnail = null;
 
             Tag tag = new Tag();
             TagImage tagImage = new TagImage();
@@ -108,7 +109,13 @@ public class TagUploadServlet extends HttpServlet
 
                         try
                         {
-                            image = IOUtils.toByteArray(in);
+                            if (fieldName.equals("thumbnail"))
+                            {
+                                thumbnail = IOUtils.toByteArray(in);
+                            } else
+                            {
+                                image = IOUtils.toByteArray(in);
+                            }
                         } finally
                         {
                             IOUtils.closeQuietly(in);
@@ -123,15 +130,26 @@ public class TagUploadServlet extends HttpServlet
                         + e.getActualSize() + ")");
             }
 
-            contentType = (contentType != null) ? contentType : "image/jpeg";
+            contentType = (contentType != null) ? contentType : "image/png";
 
-            if( bLandscape )
+            if (bLandscape)
             {
-                image = rotate( image );
+                image = rotate(image);
+                if( thumbnail != null )
+                {
+                    thumbnail = rotate( thumbnail );
+                }
             }
             tagImage.setImage(image);
             tagImage.setContentType(contentType);
-            tagThumbnail.setImage(createThumbnail(image));
+            if (thumbnail != null)
+            {
+                tagThumbnail.setImage(thumbnail);
+            } else
+            {
+                tagThumbnail.setImage(createThumbnail(image));
+            }
+
             tagThumbnail.setContentType(contentType);
 
             TagImageDAO daoImage = new TagImageDAO();
