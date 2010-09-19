@@ -16,7 +16,6 @@ package org.artags.server.web;
 
 import org.artags.server.business.Tag;
 import org.artags.server.service.TagService;
-import org.artags.server.web.Utils;
 import java.io.IOException;
 import java.io.Writer;
 import javax.servlet.ServletException;
@@ -75,9 +74,18 @@ public class TagsServlet extends HttpServlet
             out.write("<date>");
             out.write(tag.getFormatedDate(req.getLocale()));
             out.write("</date>");
+            out.write("<date-value>");
+            out.write("" + tag.getDate());
+            out.write("</date-value>");
             out.write("<rating>");
             out.write(tag.getRating());
             out.write("</rating>");
+            out.write("<rating-value>");
+            out.write("" + (int) ( (float) tag.getRatingSum() * 100 / (float) tag.getRatingCount() ));
+            out.write("</rating-value>");
+            out.write("<rating-count>");
+            out.write("" + tag.getRatingCount() );
+            out.write("</rating-count>");
             out.write("</tag>");
         }
 
