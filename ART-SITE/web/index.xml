@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content>
+    
+    <settings>
+        <logo X="10" Y="0">content/logo.png</logo>
+        <footer><![CDATA[<font color="#888888">Copyright © 2010 ARtags</font>]]></footer>
+    </settings>
+
+    <menu Y="7" MenuSpacing="25" LinkColour="#FFFFFF" SubSelectColour="#FFFFFF" EasingType="Strong" EasingSpeed="20">
+        <main TopLeft="false" bgID="0" Name="HOME" Colour="#ff0033" Link="home.swf" SWFAddressURL="Home"/>
+        <main Name="THE PROJECT" SWFAddressURL="EMPTY">
+            <sub TopLeft="true" bgID="7" Name="OVERVIEW" Colour="#00cc66" Link="content.swf" toLoad="content/overview.xml" SWFAddressURL="Overview"/>
+            <sub TopLeft="true" bgID="7" Name="TEASER" Colour="#00cc66" Link="video_player.swf" toLoad="showreel/video.flv" Width="840" Height="472" goingTo="2" SWFAddressURL="Teaser"/>
+            <sub TopLeft="false" bgID="3" Name="NEWS" Colour="#9900FF" Link="news.swf" toLoad="news/content.xml" SWFAddressURL="News"/>
+            <sub TopLeft="false" bgID="2" Name="AWARDS" Colour="#cc00cc" Link="slideshow.swf" toLoad="slideshow/content.xml" SWFAddressURL="Slideshow"/>
+        </main>
+        <main Name="TAG GALLERY" SWFAddressURL="EMPTY">
+            <sub TopLeft="true" bgID="6" Name="BEST RATED" Colour="#99cc00" Link="media_gallery.swf" toLoad="gallery?selection=bestrated" SWFAddressURL="BestRated"/>
+            <sub TopLeft="true" bgID="6" Name="LATEST" Colour="#99cc00" Link="media_gallery.swf" toLoad="gallery?selection=latest" SWFAddressURL="Latest"/>
+            <sub TopLeft="true" bgID="6" Name="OUR SELECTION" Colour="#99cc00" Link="media_gallery.swf" toLoad="gallery?selection=ourselection" SWFAddressURL="OurSelection"/>
+        </main>
+        <main Name="SEE TAGS" SWFAddressURL="EMPTY">
+            <sub TopLeft="false" bgID="3" Name="AUGMENTED REALITY BROWSERS" Colour="#9900FF" Link="news.swf" toLoad="browsers/content.xml" SWFAddressURL="Browsers"/>
+        </main>
+        <main Name="DRAW TAGS" SWFAddressURL="EMPTY">
+            <sub TopLeft="true" bgID="6" Name="SCREENSHOTS" Colour="#99cc00" Link="media_gallery.swf" toLoad="screenshots/content.xml" SWFAddressURL="Sreenshots"/>
+        </main>
+        <main Name="ABOUT US" SWFAddressURL="EMPTY">
+            <sub TopLeft="false" bgID="5" Name="THE TEAM" Colour="#cc9900" Link="team.swf" toLoad="team/content.xml" SWFAddressURL="Team"/>
+            <sub TopLeft="true" bgID="6" Name="THE TEAM'S GALLERY" Colour="#99cc00" Link="media_gallery.swf" toLoad="team_gallery/content.xml" SWFAddressURL="TeamGallery"/>
+        </main>
+
+        <main TopLeft="false" bgID="8" Name="CONTACT" Colour="#00cccc" Link="contact.swf" SWFAddressURL="Contact"/>
+        <!--
+        <main TopLeft="true" bgID="1" Name="SHOWREEL" Colour="#cc0066" Link="video_player.swf" toLoad="showreel/video.flv" Width="840" Height="472" goingTo="2" SWFAddressURL="Showreel"/>
+        <main TopLeft="true" bgID="4" Name="SERVICES" Colour="#3333cc" Link="content.swf" toLoad="content/content.xml" SWFAddressURL="Services"/>
+        <main TopLeft="false" bgID="2" Name="SLIDESHOW" Colour="#cc00cc" Link="slideshow.swf" toLoad="slideshow/content.xml" SWFAddressURL="Slideshow"/>
+        <main TopLeft="false" bgID="3" Name="NEWS" Colour="#9900FF" Link="news.swf" toLoad="news/content.xml" SWFAddressURL="News"/>
+        <main TopLeft="true" Name="LINK" Link="http://www.activeden.net" SWFAddressURL="EMPTY"/>
+        <main TopLeft="true" bgID="6" Name="MEDIA" Colour="#99cc00" Link="media_gallery.swf" toLoad="media_gallery/content.xml" SWFAddressURL="Portfolio"/>
+        <main Name="GALLERIES" SWFAddressURL="EMPTY">
+            <sub TopLeft="true" bgID="7" Name="IMAGE GALLERY" Colour="#00cc66" Link="media_gallery.swf" toLoad="media_gallery/standalone_image.xml" SWFAddressURL="Galleries/Image"/>
+            <sub TopLeft="true" bgID="7" Name="AUDIO GALLERY" Colour="#00cc66" Link="media_gallery.swf" toLoad="media_gallery/standalone_audio.xml" SWFAddressURL="Galleries/Audio"/>
+            <sub TopLeft="true" bgID="7" Name="VIDEO GALLERY" Colour="#00cc66" Link="media_gallery.swf" toLoad="media_gallery/standalone_video.xml" SWFAddressURL="Galleries/Video"/>
+            <sub TopLeft="true" bgID="7" Name="FLASH GALLERY" Colour="#00cc66" Link="media_gallery.swf" toLoad="media_gallery/standalone_swf.xml" SWFAddressURL="Galleries/SWF"/>
+            <sub TopLeft="true" bgID="7" Name="MIXED MEDIA GALLERY" Colour="#00cc66" Link="media_gallery.swf" toLoad="media_gallery/standalone_mixed.xml" SWFAddressURL="Galleries/Mixed"/>
+        </main>
+        -->
+    </menu>
+
+    <background>
+        <bg Image="backgrounds/image1.jpg"/>
+        <bg Image="backgrounds/image2.jpg"/>
+        <bg Image="backgrounds/image3.jpg"/>
+        <bg Image="backgrounds/image4.jpg"/>
+        <bg Image="backgrounds/image5.jpg"/>
+        <bg Image="backgrounds/image6.jpg"/>
+        <bg Image="backgrounds/image7.jpg"/>
+        <bg Image="backgrounds/image8.jpg"/>
+        <bg Image="backgrounds/image9.jpg"/>
+    </background>
+
+    <music DefaultVolume="100">
+        <mp3 Thumb="playlist/thumb1.jpg" Artist="BRANDTZ" Title="EAVES DROP" Path="playlist/track1.mp3"/>
+        <mp3 Thumb="playlist/thumb2.jpg" Artist="BRANDTZ" Title="DISTANT" Path="playlist/track2.mp3"/>
+        <mp3 Thumb="playlist/thumb3.jpg" Artist="BRANDTZ" Title="MEDITARI" Path="playlist/track3.mp3"/>
+        <mp3 Thumb="playlist/thumb4.jpg" Artist="BRANDTZ" Title="DISPERSE" Path="playlist/track4.mp3"/>
+    </music>
+
+    <social Target="_blank">
+        <icon Icon="1" Title="RSS" Link="http://activeden.net"/>
+        <icon Icon="2" Title="TWITTER" Link="http://activeden.net"/>
+        <icon Icon="3" Title="FACEBOOK" Link="http://activeden.net"/>
+        <icon Icon="4" Title="LINKDIN" Link="http://activeden.net"/>
+    </social>
+
+</content>
+
+

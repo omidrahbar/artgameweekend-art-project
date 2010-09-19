@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <servlet>
+        <servlet-name>gallery</servlet-name>
+        <servlet-class>org.artags.site.web.GalleryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>gallery</servlet-name>
+        <url-pattern>/gallery</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>thumbnail</servlet-name>
+        <servlet-class>org.artags.site.web.ThumbnailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>thumbnail</servlet-name>
+        <url-pattern>/thumbnail</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>image</servlet-name>
+        <servlet-class>org.artags.site.web.ImageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>image</servlet-name>
+        <url-pattern>/display</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+</web-app>
