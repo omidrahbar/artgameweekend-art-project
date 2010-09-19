@@ -1,6 +1,6 @@
 <%@include file="header.jsp" %>
 
-<%@page import="org.artags.server.service.LayarParamsService" %>
+<%@page import="org.artags.server.web.layar.LayarParamsService" %>
 
 
 <%

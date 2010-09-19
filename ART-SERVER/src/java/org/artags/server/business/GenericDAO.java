@@ -15,6 +15,7 @@
 package org.artags.server.business;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -60,7 +61,15 @@ public class GenericDAO<E>
     {
         PersistenceManager pm = PMF.get().getPersistenceManager();
         Query query = pm.newQuery("SELECT FROM " + _entityClass.getName());
-        return (List<E>) query.execute();
+        List<E> list = (List<E>) query.execute();
+        E[] array = (E[]) pm.detachCopyAll( list.toArray());
+        List<E> listDetached = new ArrayList<E>();
+        for( int i = 0 ; i < array.length ; i++ )
+        {
+            listDetached.add( array[i]);
+        }
+
+        return  listDetached;
 
     }
 
