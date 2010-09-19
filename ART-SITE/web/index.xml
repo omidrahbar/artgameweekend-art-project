@@ -60,7 +60,7 @@
         <bg Image="backgrounds/image9.jpg"/>
     </background>
 
-    <music DefaultVolume="100">
+    <music DefaultVolume="0">
         <mp3 Thumb="playlist/thumb1.jpg" Artist="BRANDTZ" Title="EAVES DROP" Path="playlist/track1.mp3"/>
         <mp3 Thumb="playlist/thumb2.jpg" Artist="BRANDTZ" Title="DISTANT" Path="playlist/track2.mp3"/>
         <mp3 Thumb="playlist/thumb3.jpg" Artist="BRANDTZ" Title="MEDITARI" Path="playlist/track3.mp3"/>

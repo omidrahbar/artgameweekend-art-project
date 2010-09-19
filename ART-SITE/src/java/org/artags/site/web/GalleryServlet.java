@@ -91,7 +91,7 @@ public class GalleryServlet extends HttpServlet
         out.write("<content Title=\"TAG GALLERY - ");
         out.write(title);
         out.write("\" TitleColour=\"#FFFFFF\" CategoryLinkColour=\"#99cc00\" CategorySelectColour=\"#FFFFFF\" LinkColour=\"#99cc00\" HoverColour=\"#99cc00\" ");
-        out.write(" MaxRows=\"1\" MaxColumns=\"6\" ItemSpace=\"10\" ThumbWidth=\"120\" ThumbHeight=\"120\" ThumbBorder=\"10\" ThumbBgColour=\"#000000\" ThumbBgAlpha=\"70\" ThumbZoomAmount=\"110\" ThumbZoomSpeed=\"20\" ");
+        out.write(" MaxRows=\"1\" MaxColumns=\"4\" ItemSpace=\"10\" ThumbWidth=\"200\" ThumbHeight=\"200\" ThumbBorder=\"10\" ThumbBgColour=\"#000000\" ThumbBgAlpha=\"70\" ThumbZoomAmount=\"110\" ThumbZoomSpeed=\"20\" ");
         out.write(" SummaryHeight=\"30\" SummaryBorder=\"10\" SummaryBorderColour=\"#000000\" SummaryBgAlpha=\"50\" ContentBgColour=\"#000000\" ContentBgAlpha=\"70\" ContentBgBorder=\"20\"");
         out.write(" PageBttnSpace=\"30\" InfoWidth=\"500\" InfoHeight=\"300\" InfoBorder=\"10\" InfoBgColour=\"#000000\" InfoBgAlpha=\"90\" ");
         out.write(" ScrollBttnColour=\"#99cc00\" ScrollBarColour=\"#99cc00\" ScrollBarAlpha=\"10\"> ");
