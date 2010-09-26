@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARtags project owners (see http://artags.org)
+/* Copyright (c) 2010 ARTags project owners (see http://artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -64,7 +64,7 @@ public class LayarServlet extends HttpServlet
         {
             JSONObject poi = new JSONObject();
             poi.accumulate("distance", params.getDistance());
-            poi.accumulate("attribution", "ARtags");
+            poi.accumulate("attribution", "ARTags");
             poi.accumulate("id", tag.getId());
             poi.accumulate("title", tag.getName());
             poi.accumulate("imageUrl", Constants.URL_SERVER + "/thumbnail?id=" + tag.getKeyThumbnail().getId() );
@@ -93,7 +93,7 @@ public class LayarServlet extends HttpServlet
             /*
             JSONObject action4 = new JSONObject();
             action4.accumulate("uri", Constants.URL_SERVER + "/client/getdraw.jsp");
-            action4.accumulate("label", "Get ARtags Draw");
+            action4.accumulate("label", "Get ARTags Draw");
             actions.add(action4);
              */
 

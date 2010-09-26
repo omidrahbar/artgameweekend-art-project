@@ -2,7 +2,7 @@
 <%@include file="header.jsp" %>
 
 <div class="box">
-    <h2>ARtags Server - Administration Home</h2>
+    <h2>ARTags Server - Administration Home</h2>
 <ul>
     <li>
         <a href="listTags.jsp">Tag list</a>
