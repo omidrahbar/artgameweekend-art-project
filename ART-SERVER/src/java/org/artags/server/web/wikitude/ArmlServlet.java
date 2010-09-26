@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARtags project owners (see http://artags.org)
+/* Copyright (c) 2010 ARTags project owners (see http://artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -48,7 +48,7 @@ public class ArmlServlet extends HttpServlet
 
         out.write("<Document>");
             out.write("<ar:provider id=\"ARt\">");
-            out.write("<ar:name>ARtags</ar:name>");
+            out.write("<ar:name>ARTags</ar:name>");
             out.write("<ar:description>Augmented Reality tags - Tags made on smartphones</ar:description>");
             out.write("<wikitude:icon>" + Constants.URL_SERVER + "/images/icon.png</wikitude:icon>");
             out.write("</ar:provider>");

@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARtags project owners (see http://artags.org)
+/* Copyright (c) 2010 ARTags project owners (see http://artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -43,8 +43,9 @@ public class TagImageServlet extends HttpServlet
         TagImage tagImage= dao.findById( tag.getKeyImage().getId() );
             if (tagImage != null)
             {
-                resp.setContentType( tagImage.getContentType() );
-                OutputStream out = resp.getOutputStream();
+//                resp.setContentType( tagImage.getContentType() );
+                resp.setContentType( "image/png" );
+                  OutputStream out = resp.getOutputStream();
                 out.write(tagImage.getImage());
                 out.close();
             }
