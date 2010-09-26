@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content SlideShow="true" Title="OVERVIEW" TitleColour="#FFFFFF" TitleYPos="-40" LinkColour="#3333cc" HoverColour="#3333cc" ImageWidth="700" ImageHeight="300" ImageBorder="10" ImageBgColour="#000000" ImageBgAlpha="70" ArticleWidth="840" ArticleBorder="10" ArticleBgColour="#000000" ArticleBgAlpha="60" ScrollBttnColour="#3333cc" ScrollBarColour="#3333cc" ScrollBarAlpha="10">
+    <image>
+         <img Large ="content/overview/large1.jpg" LinkLarge="" Delay="5000"/>
+         <img Large ="content/overview/large2.jpg" LinkLarge="" Delay="5000"/>
+         <img Large ="content/overview/large3.jpg" LinkLarge="" Delay="5000"/>
+         <img Large ="content/overview/large4.jpg" LinkLarge="" Delay="5000"/>
+         <img Large ="content/overview/large5.jpg" LinkLarge="" Delay="5000"/>
+    </image>
+    <article>
+        <copy_full><![CDATA[<br><font color="#FFFFFF" size="20">TAG YOUR REALITY</font><br><br><font color="#999999" size="11">
+ARTags is the first application that lets you draw wherever and whenever you want leaving your mark in augmented reality.
+Thanks to a simple and intuitive drawing application, you can express your skills on your own mobile phone. Once your "tag" is completed you can drop it in one of our Aumengted
+Reality Browsers (Layar, Wikitude, Junaio) and leave your mark without altering reality.
+This incredible technology is now available for your Android smartphone. Try it now!
+
+        </font>]]></copy_full>
+    </article>
+</content>

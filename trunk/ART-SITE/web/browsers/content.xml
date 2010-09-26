@@ -2,37 +2,35 @@
 <content ImageTop="yes" Title="AUGMENTED REALITY BROWSERS" TitleColour="#FFFFFF" TitleYPos="-50" CategoryLinkColour="#9900ff" CategorySelectColour="#FFFFFF" LinkColour="#9900ff" HoverColour="#9900ff" MaxItems="3" ItemSpace="10" ThumbWidth="260" ThumbHeight="160" ThumbBorder="10" ThumbBgAlpha="70" ThumbZoomAmount="120" ThumbZoomSpeed="20" SummaryHeight="145" SummaryBorder="10" SummaryBgAlpha="60" PageBttnSpace="10" ImageWidth="600" ImageHeight="230" ImageBorder="10" ImageBgAlpha="70" ArticleWidth="400" ArticleHeight="300" ArticleBorder="10" ArticleBgAlpha="60" ScrollBttnColour="#6600cc" ScrollBarColour="#6600cc" ScrollBarAlpha="25">
     <category Title="Browsers">
 	<article Thumb="browsers/layar/layar_thumb.jpg" Large ="browsers/layar/layar_large.jpg" LinkThumb="" LinkLarge="" LinkBttn="READ MORE">
-		<copy_intro><![CDATA[<font color="#FFFFFF" size="15">LAYAR</font><br><font color="#9900ff" size="10"><b>Android and iPhone</b></font><br><br><font color="#999999" size="10">This is HTML formatted text. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</font>]]></copy_intro>
-		<copy_full><![CDATA[<font color="#FFFFFF" size="20">LAYAR</font><br><font color="#9900ff" size="10"><b>1 NOVEMBER 2009</b></font><br><br><font color="#999999" size="10">Layar has two parts: the browser to experience the content layers, and the platform to serve and publish the content layers.
+		<copy_intro><![CDATA[<font color="#FFFFFF" size="15">LAYAR</font><br><font color="#9900ff" size="12"><b>Android and iPhone</b></font><br><br><font color="#FFFFFF" size="13">Layer : ARTags</font>]]></copy_intro>
+		<copy_full><![CDATA[<font color="#FFFFFF" size="20">LAYAR</font><br><font color="#9900ff" size="12"><b>Android and iPhone</b></font><br><br><font color="#999999" size="12">
+Web site : <a href="http://www.layar.com/" target="_blank">http://www.layar.com/</a>
+<b>Layer : ARTags</b>
+A beautiful, fun augmented reality app that shows you things you can't see !
 
-The platform is where content layers are defined and acts as the link to the actual publisher who hosts its data. The content layer definition is a key component of your layer. This definition gives the viewer the title and look-and-feel of the layer, plus the meta-tags and the web service location (where the data is hosted). There is no charge for using the Layar platform.
-Discover the many great features and capabilities that can be used to create great layers in the development wiki, including:
-<b>Points-of-interest publishing</b>
-The basic function of Layar: serving data in the form of information concerning specific locations.
-<b>3D</b>
-Instead of simple icons, you can use 3D objects. Any object can be placed at any location. This is where you start to build your own world…
-<b>Proximity triggers</b>
-These triggers help do many things. They define an action that will occur when the user comes in proximity to a location. For example, an Easter eggs that only appears on a main town square when you are within 10 meters of it.
-<b>Audio</b>
-Any point of interest can have an audio element assigned to it. So, for example, an accompanying song could play when the Easter egg appears.
-<b>Authentication</b>
-Authentication lets you develop personal services. An example is the Tweepsaround layer. Only when logged in is it possible to see your friends around you or tweet from within the content layer.
-
-<b>More, more and much more</b>
-There are lots more features available with which great layers can be developed. Details can be found in the layar documentation in the wiki.</font>]]></copy_full>
+</font>]]></copy_full>
 	</article>
-	<article Thumb="browsers/wikitude/wikitude_thumb.png" Large ="browsers/wikitude/wikitude_large.png" LinkThumb="" LinkLarge="" LinkBttn="READ MORE">
-		<copy_intro><![CDATA[<font color="#FFFFFF" size="15">WIKITUDE</font><br><font color="#9900ff" size="10"><b>Android and iPhone</b></font><br><br><font color="#999999" size="10">This is HTML formatted text. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</font>]]></copy_intro>
-		<copy_full><![CDATA[<font color="#FFFFFF" size="20">WIKITUDE</font><br><font color="#9900ff" size="10"><b>Android and iPhone</b></font><br><br><font color="#999999" size="10">This is HTML formatted text which can support <a href="http://activeden.net" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</font>]]></copy_full>
+	<article Thumb="browsers/wikitude/wikitude_thumb.jpg" Large ="browsers/wikitude/wikitude_large.jpg" LinkThumb="" LinkLarge="" LinkBttn="READ MORE">
+		<copy_intro><![CDATA[<font color="#FFFFFF" size="15">WIKITUDE</font><br><font color="#9900ff" size="12"><b>Android and iPhone</b></font><br><br><font color="#FFFFFF" size="13">World : ARTags</font>]]></copy_intro>
+		<copy_full><![CDATA[<font color="#FFFFFF" size="20">WIKITUDE</font><br><font color="#9900ff" size="12"><b>Android and iPhone</b></font><br><br>
+                <font color="#999999" size="12">
+Web site : <a href="http://www.wikitude.org/" target="_blank">http://www.wikitude.org/</a>
+<b>World : ARTags</b>
+Discover the world around you with Wikitude World Browser. Open Wikitude's camera view
+to see fun content and information projected onto your screen.
+
+
+</font>]]></copy_full>
 	</article>
 	<article Thumb="browsers/junaio/junaio_thumb.jpg" Large ="browsers/junaio/junaio_large.jpg" LinkThumb="" LinkLarge="" LinkBttn="READ MORE">
-		<copy_intro><![CDATA[<font color="#FFFFFF" size="15">JUNAIO</font><br><font color="#9900ff" size="10"><b>Android and iPhone</b></font><br><br><font color="#999999" size="10">This is HTML formatted text. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</font>]]></copy_intro>
-		<copy_full><![CDATA[<font color="#FFFFFF" size="20">JUNAIO</font><br><font color="#9900ff" size="10"><b>Android and iPhone</b></font><br><br><font color="#999999" size="10">This is HTML formatted text which can support <a href="http://activeden.net" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.</font>]]></copy_full>
+		<copy_intro><![CDATA[<font color="#FFFFFF" size="15">JUNAIO</font><br><font color="#9900ff" size="12"><b>Android and iPhone</b></font><br><br><font color="#FFFFFF" size="13">Channel : ARTags</font>]]></copy_intro>
+		<copy_full><![CDATA[<font color="#FFFFFF" size="20">JUNAIO</font><br><font color="#9900ff" size="12"><b>Android and iPhone</b></font><br><br><font color="#999999" size="12">
+Web site : <a href="http://www.junaio.com/" target="_blank">http://www.junaio.com/</a>
+<b>Channel : ARTags</b>
+
+Make the world yours !
+
+                </font>]]></copy_full>
 	</article>
     </category>
 </content>
