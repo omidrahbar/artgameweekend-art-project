@@ -5,16 +5,16 @@
 	    <copy><![CDATA[<font color="#999999" size="11">Welcome screen</font>]]></copy>
 	</item>
 	<item Title="MENU SCREEN" Thumb="screenshots/artags-draw-display.resized.png" LinkThumb="" Content="screenshots/artags-draw-display.resized.png">
-	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="http://activeden.net" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
 	</item>
 	<item Title="DRAW SCREEN" Thumb="screenshots/artags-draw.resized.png" LinkThumb="" Content="screenshots/artags-draw.resized.png">
-	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="http://activeden.net" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
 	</item>
 	<item Title="BRUSH PARAMETERS" Thumb="screenshots/artags-brush-params.resized.png" LinkThumb="" Content="screenshots/artags-brush-params.resized.png">
-	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="http://activeden.net" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
 	</item>
 	<item Title="DISPLAY USING LAYAR" Thumb="screenshots/artags-display.resized.png" LinkThumb="" Content="screenshots/artags-display.resized.png">
-	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="http://activeden.net" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
 	</item>
     </category>
 </content>

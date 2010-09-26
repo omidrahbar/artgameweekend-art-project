@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<content Title="MEDIA GALLERY" TitleColour="#FFFFFF" CategoryLinkColour="#99cc00" CategorySelectColour="#FFFFFF" LinkColour="#99cc00" HoverColour="#99cc00" MaxRows="3" MaxColumns="4" ItemSpace="10" ThumbWidth="190" ThumbHeight="110" ThumbBorder="10" ThumbBgColour="#000000" ThumbBgAlpha="70" ThumbZoomAmount="110" ThumbZoomSpeed="20" SummaryHeight="30" SummaryBorder="10" SummaryBorderColour="#000000" SummaryBgAlpha="50" ContentBgColour="#000000" ContentBgAlpha="70" ContentBgBorder="20" PageBttnSpace="30" InfoWidth="500" InfoHeight="300" InfoBorder="10" InfoBgColour="#000000" InfoBgAlpha="90" ScrollBttnColour="#99cc00" ScrollBarColour="#99cc00" ScrollBarAlpha="10">
+    <category Title="IMAGE">
+	<item Title="CINDY" Thumb="media_gallery/image/thumb1.jpg" LinkThumb="" Content="media_gallery/image/image1.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</font>]]></copy>
+	</item>
+	<item Title="AMANDA" Thumb="media_gallery/image/thumb2.jpg" LinkThumb="" Content="media_gallery/image/image2.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="REBECCA" Thumb="media_gallery/image/thumb3.jpg" LinkThumb="" Content="media_gallery/image/image3.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="CAROLINE" Thumb="media_gallery/image/thumb4.jpg" LinkThumb="" Content="media_gallery/image/image4.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="TRACY" Thumb="media_gallery/image/thumb5.jpg" LinkThumb="" Content="media_gallery/image/image5.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="SAMANTHA" Thumb="media_gallery/image/thumb6.jpg" LinkThumb="" Content="media_gallery/image/image6.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="AMY" Thumb="media_gallery/image/thumb7.jpg" LinkThumb="" Content="media_gallery/image/image7.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="RACHAEL" Thumb="media_gallery/image/thumb8.jpg" LinkThumb="" Content="media_gallery/image/image8.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="NICOLE" Thumb="media_gallery/image/thumb9.jpg" LinkThumb="" Content="media_gallery/image/image9.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="LISA" Thumb="media_gallery/image/thumb10.jpg" LinkThumb="" Content="media_gallery/image/image10.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="SUE" Thumb="media_gallery/image/thumb1.jpg" LinkThumb="" Content="media_gallery/image/image1.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="MONICA" Thumb="media_gallery/image/thumb2.jpg" LinkThumb="" Content="media_gallery/image/image2.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="STACEY" Thumb="media_gallery/image/thumb3.jpg" LinkThumb="" Content="media_gallery/image/image3.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="JENNIFER" Thumb="media_gallery/image/thumb4.jpg" LinkThumb="" Content="media_gallery/image/image4.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="LINDSAY" Thumb="media_gallery/image/thumb5.jpg" LinkThumb="" Content="media_gallery/image/image5.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="CAMERON" Thumb="media_gallery/image/thumb6.jpg" LinkThumb="" Content="media_gallery/image/image6.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="VERONICA" Thumb="media_gallery/image/thumb7.jpg" LinkThumb="" Content="media_gallery/image/image7.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="LUCY" Thumb="media_gallery/image/thumb8.jpg" LinkThumb="" Content="media_gallery/image/image8.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="BIANCA" Thumb="media_gallery/image/thumb9.jpg" LinkThumb="" Content="media_gallery/image/image9.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="ANGELA" Thumb="media_gallery/image/thumb10.jpg" LinkThumb="" Content="media_gallery/image/image10.jpg">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+    </category>
+    <category Title="AUDIO">
+	<item Title="AUDIO 1" Artist="ARTIST 1" Thumb="media_gallery/audio/thumb1.jpg" AlbumArt="media_gallery/audio/image1.jpg" LinkThumb="" Content="media_gallery/audio/track1.mp3">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="AUDIO 2" Artist="ARTIST 2" Thumb="media_gallery/audio/thumb2.jpg" AlbumArt="media_gallery/audio/image2.jpg" LinkThumb="" Content="media_gallery/audio/track2.mp3">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="AUDIO 3" Artist="ARTIST 3" Thumb="media_gallery/audio/thumb3.jpg" AlbumArt="media_gallery/audio/image3.jpg" LinkThumb="" Content="media_gallery/audio/track3.mp3">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="AUDIO 4" Artist="ARTIST 4" Thumb="media_gallery/audio/thumb4.jpg" AlbumArt="media_gallery/audio/image4.jpg" LinkThumb="" Content="media_gallery/audio/track4.mp3">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+    </category>
+    <category Title="VIDEO">
+	<item Title="4:3 VIDEO" Thumb="media_gallery/video/thumb1.jpg" LinkThumb="" Content="media_gallery/video/video.flv" Width="600" Height="450">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="16:9 VIDEO" Thumb="media_gallery/video/thumb2.jpg" LinkThumb="" Content="media_gallery/video/video.flv" Width="800" Height="450">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+    </category>
+    <category Title="SWF">
+	<item Title="FLASH SWF 1" Thumb="media_gallery/swf/thumb1.jpg" LinkThumb="" Content="media_gallery/swf/flash1.swf" Width="590" Height="300">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="FLASH SWF 2" Thumb="media_gallery/swf/thumb2.jpg" LinkThumb="" Content="media_gallery/swf/flash2.swf" Width="400" Height="400">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+	<item Title="FLASH SWF 3" Thumb="media_gallery/swf/thumb3.jpg" LinkThumb="" Content="media_gallery/swf/flash3.swf" Width="300" Height="200">
+	    <copy><![CDATA[<font color="#999999" size="11">This is HTML formatted text which can support <a href="" target="_blank">hyperlinks</a>. Special characters supported such as: ßøÇÜÖÀÁÂÃÄÈÉÊËàáâãäåæèéêëìíîïòóôõçüöi©®™ Lorem ipsum dolor sit amet, consectetur adipisicing elit</font>]]></copy>
+	</item>
+    </category>
+</content>

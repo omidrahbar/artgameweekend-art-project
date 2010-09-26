@@ -12,16 +12,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.artags.site.web;
 
-package org.artags.site.service;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.artags.site.service.CacheService;
 
 /**
  *
- * @author pierre
+ * @author pierre@artags.org
  */
-public class Constants {
+public class CacheServlet extends HttpServlet
+{
 
-    public static final String SERVER = "http://art-server.appspot.com";
-    public static final String CONTENT_TYPE_XML = "application/xml";
-
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException
+    {
+        CacheService.instance().clear();
+    }
 }

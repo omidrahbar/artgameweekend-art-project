@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content Title="CONTACT" TitleColour="#FFFFFF" BgHeight="410" BgColour="#000000" BgAlpha="70" FormName="QUICK CONTACT" MapName="" LinkColour="#00FFFF" HoverColour="#00FFFF">
+    <copy><![CDATA[<font color="#FFFFFF"></font><br>]]></copy>
+    <copy><![CDATA[<font color="#FFFFFF"> </font><br>]]></copy>
+    <map Image="contact/map.jpg"/>
+    <email SendTo="artag@googlegroups.com"/>
+</content>

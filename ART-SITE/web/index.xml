@@ -3,34 +3,35 @@
     
     <settings>
         <logo X="10" Y="0">content/logo.png</logo>
-        <footer><![CDATA[<font color="#888888">Copyright © 2010 ARtags</font>]]></footer>
+        <footer><![CDATA[<font color="#888888">Copyright © 2010 ARTags</font>]]></footer>
     </settings>
 
     <menu Y="7" MenuSpacing="25" LinkColour="#FFFFFF" SubSelectColour="#FFFFFF" EasingType="Strong" EasingSpeed="20">
-        <main TopLeft="false" bgID="0" Name="HOME" Colour="#ff0033" Link="home.swf" SWFAddressURL="Home"/>
+        <main TopLeft="false" bgID="0" Name="HOME" Colour="#00cccc" Link="artags.swf" SWFAddressURL="Home"/>
         <main Name="THE PROJECT" SWFAddressURL="EMPTY">
-            <sub TopLeft="true" bgID="7" Name="OVERVIEW" Colour="#00cc66" Link="content.swf" toLoad="content/overview.xml" SWFAddressURL="Overview"/>
-            <sub TopLeft="true" bgID="7" Name="TEASER" Colour="#00cc66" Link="video_player.swf" toLoad="showreel/video.flv" Width="840" Height="472" goingTo="2" SWFAddressURL="Teaser"/>
-            <sub TopLeft="false" bgID="3" Name="NEWS" Colour="#9900FF" Link="news.swf" toLoad="news/content.xml" SWFAddressURL="News"/>
-            <sub TopLeft="false" bgID="2" Name="AWARDS" Colour="#cc00cc" Link="slideshow.swf" toLoad="slideshow/content.xml" SWFAddressURL="Slideshow"/>
+            <sub TopLeft="true" bgID="1" Name="OVERVIEW" Colour="#00cc66" Link="content.swf" toLoad="content/overview/overview.xml" SWFAddressURL="Overview"/>
+            <sub TopLeft="true" bgID="2" Name="TEASER" Colour="#00cc66" Link="video_player.swf" toLoad="showreel/video.flv" Width="840" Height="472" goingTo="2" SWFAddressURL="Teaser"/>
+ <!--           <sub TopLeft="false" bgID="3" Name="NEWS" Colour="#9900FF" Link="news.swf" toLoad="news/content.xml" SWFAddressURL="News"/> -->
+            <sub TopLeft="false" bgID="1" Name="AWARDS" Colour="#cc00cc" Link="slideshow.swf" toLoad="slideshow/content.xml" SWFAddressURL="Slideshow"/>
         </main>
         <main Name="TAG GALLERY" SWFAddressURL="EMPTY">
-            <sub TopLeft="true" bgID="6" Name="BEST RATED" Colour="#99cc00" Link="media_gallery.swf" toLoad="gallery?selection=bestrated" SWFAddressURL="BestRated"/>
-            <sub TopLeft="true" bgID="6" Name="LATEST" Colour="#99cc00" Link="media_gallery.swf" toLoad="gallery?selection=latest" SWFAddressURL="Latest"/>
-            <sub TopLeft="true" bgID="6" Name="OUR SELECTION" Colour="#99cc00" Link="media_gallery.swf" toLoad="gallery?selection=ourselection" SWFAddressURL="OurSelection"/>
+            <sub TopLeft="true" bgID="1" Name="BEST RATED" Colour="#99cc00" Link="media_gallery.swf" toLoad="gallery?selection=bestrated" SWFAddressURL="BestRated"/>
+            <sub TopLeft="true" bgID="2" Name="LATEST" Colour="#99cc00" Link="media_gallery.swf" toLoad="gallery?selection=latest" SWFAddressURL="Latest"/>
+    <!--        <sub TopLeft="true" bgID="3" Name="OUR SELECTION" Colour="#99cc00" Link="media_gallery.swf" toLoad="gallery?selection=ourselection" SWFAddressURL="OurSelection"/> -->
+        </main>
+        <main Name="DRAW TAGS" SWFAddressURL="EMPTY">
+            <sub TopLeft="true" bgID="1" Name="THE ANDROID APP" Colour="#00cc66" Link="content.swf" toLoad="content/android/android.xml" SWFAddressURL="Android"/>
+            <sub TopLeft="true" bgID="2" Name="SCREENSHOTS" Colour="#99cc00" Link="media_gallery.swf" toLoad="screenshots/content.xml" SWFAddressURL="Sreenshots"/>
         </main>
         <main Name="SEE TAGS" SWFAddressURL="EMPTY">
             <sub TopLeft="false" bgID="3" Name="AUGMENTED REALITY BROWSERS" Colour="#9900FF" Link="news.swf" toLoad="browsers/content.xml" SWFAddressURL="Browsers"/>
         </main>
-        <main Name="DRAW TAGS" SWFAddressURL="EMPTY">
-            <sub TopLeft="true" bgID="6" Name="SCREENSHOTS" Colour="#99cc00" Link="media_gallery.swf" toLoad="screenshots/content.xml" SWFAddressURL="Sreenshots"/>
-        </main>
         <main Name="ABOUT US" SWFAddressURL="EMPTY">
-            <sub TopLeft="false" bgID="5" Name="THE TEAM" Colour="#cc9900" Link="team.swf" toLoad="team/content.xml" SWFAddressURL="Team"/>
-            <sub TopLeft="true" bgID="6" Name="THE TEAM'S GALLERY" Colour="#99cc00" Link="media_gallery.swf" toLoad="team_gallery/content.xml" SWFAddressURL="TeamGallery"/>
+            <sub TopLeft="false" bgID="1" Name="THE TEAM" Colour="#cc9900" Link="team.swf" toLoad="team/content.xml" SWFAddressURL="Team"/>
+            <sub TopLeft="true" bgID="2" Name="THE TEAM'S GALLERY" Colour="#99cc00" Link="media_gallery.swf" toLoad="team_gallery/content.xml" SWFAddressURL="TeamGallery"/> 
         </main>
 
-        <main TopLeft="false" bgID="8" Name="CONTACT" Colour="#00cccc" Link="contact.swf" SWFAddressURL="Contact"/>
+        <main TopLeft="false" bgID="3" Name="CONTACT" Colour="#00cccc" Link="contact.swf" SWFAddressURL="Contact"/>
         <!--
         <main TopLeft="true" bgID="1" Name="SHOWREEL" Colour="#cc0066" Link="video_player.swf" toLoad="showreel/video.flv" Width="840" Height="472" goingTo="2" SWFAddressURL="Showreel"/>
         <main TopLeft="true" bgID="4" Name="SERVICES" Colour="#3333cc" Link="content.swf" toLoad="content/content.xml" SWFAddressURL="Services"/>
@@ -60,6 +61,7 @@
         <bg Image="backgrounds/image9.jpg"/>
     </background>
 
+
     <music DefaultVolume="0">
         <mp3 Thumb="playlist/thumb1.jpg" Artist="BRANDTZ" Title="EAVES DROP" Path="playlist/track1.mp3"/>
         <mp3 Thumb="playlist/thumb2.jpg" Artist="BRANDTZ" Title="DISTANT" Path="playlist/track2.mp3"/>
@@ -68,10 +70,10 @@
     </music>
 
     <social Target="_blank">
-        <icon Icon="1" Title="RSS" Link="http://activeden.net"/>
-        <icon Icon="2" Title="TWITTER" Link="http://activeden.net"/>
-        <icon Icon="3" Title="FACEBOOK" Link="http://activeden.net"/>
-        <icon Icon="4" Title="LINKDIN" Link="http://activeden.net"/>
+        <icon Icon="1" Title="RSS" Link=""/>
+        <icon Icon="2" Title="TWITTER" Link=""/>
+        <icon Icon="3" Title="FACEBOOK" Link="http://www.facebook.com/pages/ARTags/153851294639822?v=wall"/>
+<!--        <icon Icon="4" Title="LINKDIN" Link=""/>  -->
     </social>
 
 </content>
