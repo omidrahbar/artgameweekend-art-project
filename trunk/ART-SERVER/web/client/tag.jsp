@@ -20,7 +20,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ARt Wikitude</title>
+        <title>ARTags</title>
         <script src="js/jquery/jquery-1.4.2.min.js" type="text/javascript" language="javascript"></script>
         <script src="js/jquery/rating/jquery.rating.pack.js" type="text/javascript" language="javascript"></script>
         <link href="js/jquery/rating/jquery.rating.css" type="text/css" rel="stylesheet"/>
