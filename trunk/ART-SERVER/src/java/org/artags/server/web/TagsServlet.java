@@ -22,6 +22,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.lang.StringEscapeUtils;
 
 /**
  *
@@ -57,7 +58,7 @@ public class TagsServlet extends HttpServlet
             out.write(Double.toString(tag.getLon()));
             out.write("</lon>");
             out.write("<name>");
-            out.write(tag.getName());
+            out.write( StringEscapeUtils.escapeXml( tag.getName()));
             out.write("</name>");
             if (tag.getKeyImage() != null)
             {

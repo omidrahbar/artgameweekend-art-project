@@ -281,5 +281,10 @@ public class Tag implements Serializable
         return String.format("%.2f/5", rating );
     }
 
+    public long getDistance( long lat10e6 , long lon10e6 )
+    {
+        return (long) ( 0.08 * Math.sqrt( (double )( (this.lat10e6 - lat10e6)*(this.lat10e6 - lat10e6) + (this.lon10e6 - lon10e6)* (this.lon10e6 - lon10e6))));
+    }
+
 
 }

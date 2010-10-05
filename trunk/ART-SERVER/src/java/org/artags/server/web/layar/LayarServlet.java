@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.artags.server.web.Constants;
 import org.artags.server.web.Security;
 import org.artags.server.web.Utils;
@@ -60,13 +61,15 @@ public class LayarServlet extends HttpServlet
 
         JSONObject layer = new JSONObject();
         JSONArray hotspots = new JSONArray();
+        long lat10e6 = (long) (latitude * 1000000 );
+        long lon10e6 = (long) (longitude * 1000000 );
         for (Tag tag : TagService.getNearestTags(latitude, longitude, max))
         {
             JSONObject poi = new JSONObject();
-            poi.accumulate("distance", params.getDistance());
+            poi.accumulate("distance", tag.getDistance( lat10e6 , lon10e6 ));
             poi.accumulate("attribution", "ARTags");
             poi.accumulate("id", tag.getId());
-            poi.accumulate("title", tag.getName());
+            poi.accumulate("title", StringEscapeUtils.escapeJava(tag.getName()));
             poi.accumulate("imageUrl", Constants.URL_SERVER + "/thumbnail?id=" + tag.getKeyThumbnail().getId() );
             poi.accumulate("lat", tag.getLat10e6() );
             poi.accumulate("lon", tag.getLon10e6() );
