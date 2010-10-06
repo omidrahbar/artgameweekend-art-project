@@ -18,6 +18,7 @@ import org.artags.server.business.Tag;
 import org.artags.server.business.TagDAO;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -27,7 +28,7 @@ import java.util.List;
 public class TagService
 {
 
-    public static synchronized List<Tag> getNearestTags(double latitude, double longitude, int max)
+    public static List<Tag> getNearestTags(double latitude, double longitude, int max)
     {
         TagDAO dao = new TagDAO();
         List<Tag> list = dao.findAll();
@@ -53,6 +54,27 @@ public class TagService
             listNearest.add(listSort.get(i).tag);
         }
         return listNearest;
+
+    }
+
+    public static List<Tag> getTagsByCriteria( )
+    {
+        TagDAO dao = new TagDAO();
+        List<Tag> list = dao.findAll();
+        Collections.sort( list , new DateComparator() );
+        return list;
+      }
+
+    static class DateComparator implements Comparator
+    {
+
+        public int compare( Object t1, Object t2)
+        {
+            long date1 = ((Tag) t1).getDate();
+            long date2 = ((Tag) t2).getDate();
+
+            return  (date2 < date1) ? -1 : 1 ;
+        }
 
     }
 }
