@@ -12,33 +12,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.artags.server.web;
 
-package org.artags.server.service;
-
-import org.artags.server.business.Tag;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.artags.server.service.CacheService;
+import org.artags.server.service.TagService;
 
 /**
  *
  * @author pierre@artags.org
  */
-public class SortTag implements Comparable
+public class CacheServlet extends HttpServlet
 {
-    Tag tag;
-    long dist;
 
-    SortTag( Tag tag , double lat , double lon )
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException
     {
-        this.tag = tag;
-        long lat10e6 = (long) (lat * 1000000.0);
-        long lon10e6 = (long) (lon * 1000000.0);
-        dist = (tag.getLat10e6() - lat10e6)*(tag.getLat10e6() - lat10e6) + (tag.getLon10e6() - lon10e6)*(tag.getLon10e6() - lon10e6);
-        dist = dist / 1000000;
+        // Clear the cache
+        CacheService.instance().clear();
+
+        // Fetch all tags to populate the cache with fresh tags
+        TagService.getAllTags();
 
     }
-
-    public int compareTo(Object t)
-    {
-        return (int) ( this.dist - ((SortTag) t).dist );
-    }
-
 }
