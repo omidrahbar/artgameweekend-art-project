@@ -7,7 +7,7 @@
             String startParam = request.getParameter("start");
             int start = (startParam != null) ? Integer.parseInt(startParam) : 0;
             String countParam = request.getParameter("count");
-            int count = (countParam != null) ? Integer.parseInt(countParam) : 3;
+            int count = (countParam != null) ? Integer.parseInt(countParam) : 20;
             List<Tag> list = TagService.getTagsByCriteria();
             int end = start + count;
             int max = (end > list.size()) ? list.size() : end;
@@ -24,6 +24,7 @@
                     <input type="hidden" name="start" value="0" />
                     Items per page : <select name="count">
                         <option>10</option>
+                        <option>20</option>
                         <option>50</option>
                         <option>100</option>
                     </select>

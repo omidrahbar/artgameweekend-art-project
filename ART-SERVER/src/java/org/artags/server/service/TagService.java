@@ -28,23 +28,63 @@ import java.util.List;
 public class TagService
 {
 
+    private static final String CACHE_KEY_ALL_TAGS = "alltags";
+
     public static List<Tag> getNearestTags(double latitude, double longitude, int max)
     {
-        TagDAO dao = new TagDAO();
-        List<Tag> list = dao.findAll();
-        return getNearestTags(list, latitude, longitude, max);
+        List<Tag> list = filter( getAllTags(), latitude, longitude);
+
+        if( list.size() > max )
+        {
+            list = getNearestTags(list, latitude, longitude, max);
+        }
+
+        return list;
+    }
+
+    private static List<Tag> filter(List<Tag> list, double latitude, double longitude)
+    {
+        List<Tag> listFiltered = new ArrayList<Tag>();
+        long lat = Tag.get10e6(latitude);
+        long lon = Tag.get10e6(longitude);
+        long latmin = lat - 100000;
+        long latmax = lat + 100000;
+        long lonmin = lon - 100000;
+        long lonmax = lon + 100000;
+        for (Tag t : list)
+        {
+            if ((t.getLat10e6() < latmin) || (t.getLat10e6() > latmax)
+                    || (t.getLon10e6() < lonmin) || (t.getLon10e6() > lonmax))
+            {
+                continue;
+            }
+            listFiltered.add(t);
+        }
+        return listFiltered;
     }
 
     static List<Tag> getNearestTags(List<Tag> list, double latitude, double longitude, int max)
     {
+        return getNearestTags(list, latitude, longitude, max, 10000L);
+    }
+
+    static List<Tag> getNearestTags(List<Tag> list, double latitude, double longitude, int max, long radius)
+    {
+        long r = radius * radius / 10000;
         List<SortTag> listSort = new ArrayList<SortTag>();
         for (Tag tag : list)
         {
             SortTag t = new SortTag(tag, latitude, longitude);
-            listSort.add(t);
+            if (t.dist < r)
+            {
+                listSort.add(t);
+            }
         }
 
-        Collections.sort(listSort);
+        if( listSort.size() > max )
+        {
+            Collections.sort(listSort);
+        }
 
         List<Tag> listNearest = new ArrayList<Tag>();
 
@@ -57,24 +97,37 @@ public class TagService
 
     }
 
-    public static List<Tag> getTagsByCriteria( )
+    public static List<Tag> getTagsByCriteria()
     {
         TagDAO dao = new TagDAO();
         List<Tag> list = dao.findAll();
-        Collections.sort( list , new DateComparator() );
+        Collections.sort(list, new DateComparator());
         return list;
-      }
+    }
 
     static class DateComparator implements Comparator
     {
 
-        public int compare( Object t1, Object t2)
+        public int compare(Object t1, Object t2)
         {
             long date1 = ((Tag) t1).getDate();
             long date2 = ((Tag) t2).getDate();
 
-            return  (date2 < date1) ? -1 : 1 ;
+            return (date2 < date1) ? -1 : 1;
         }
+    }
+
+    public static List<Tag> getAllTags()
+    {
+        List<Tag> allTags = (List<Tag>) CacheService.instance().get(CACHE_KEY_ALL_TAGS);
+        if (allTags == null)
+        {
+            TagDAO dao = new TagDAO();
+            allTags = dao.findAll();
+            CacheService.instance().put(CACHE_KEY_ALL_TAGS , allTags );
+
+        }
+        return allTags;
 
     }
 }

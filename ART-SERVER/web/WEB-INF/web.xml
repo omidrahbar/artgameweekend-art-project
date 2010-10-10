@@ -80,6 +80,15 @@
         <servlet-name>delete</servlet-name>
         <url-pattern>/admin/delete</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>cache</servlet-name>
+        <servlet-class>org.artags.server.web.CacheServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cache</servlet-name>
+        <url-pattern>/admin/clearcache</url-pattern>
+    </servlet-mapping>
+
     <security-constraint>
         <web-resource-collection>
             <url-pattern>/admin/*</url-pattern>

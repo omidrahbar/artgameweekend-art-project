@@ -286,5 +286,9 @@ public class Tag implements Serializable
         return (long) ( 0.08 * Math.sqrt( (double )( (this.lat10e6 - lat10e6)*(this.lat10e6 - lat10e6) + (this.lon10e6 - lon10e6)* (this.lon10e6 - lon10e6))));
     }
 
+    public static long get10e6( double coord )
+    {
+        return (long) ( coord * X10E6 );
+    }
 
 }
