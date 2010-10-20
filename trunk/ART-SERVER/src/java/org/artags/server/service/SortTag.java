@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://artags.org)
+/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -19,7 +19,7 @@ import org.artags.server.business.Tag;
 
 /**
  *
- * @author pierre@artags.org
+ * @author Pierre Levy
  */
 public class SortTag implements Comparable
 {

@@ -15,7 +15,7 @@ import org.artags.server.web.Security;
 
 /**
  *
- * @author pierre@artags.org
+ * @author Pierre Levy
  */
 public class JunaioAuthServlet extends HttpServlet
 {

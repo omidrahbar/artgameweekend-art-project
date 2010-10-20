@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  *
- * @author pierre@artags.org
+ * @author Pierre Levy
  */
 public class RatingJspBean implements Serializable
 {

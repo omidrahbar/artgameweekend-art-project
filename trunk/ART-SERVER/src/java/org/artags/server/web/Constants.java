@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://artags.org)
+/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -17,7 +17,7 @@ package org.artags.server.web;
 
 /**
  *
- * @author pierre@artags.org
+ * @author Pierre Levy
  */
 public final class Constants
 {
@@ -31,6 +31,7 @@ public final class Constants
     public static final String CONTENT_TYPE_XML = "application/xml";
     public static final String CONTENT_TYPE_JPEG = "image/jpeg";
     public static final String CONTENT_TYPE_JSON = "application/javascript";
+    public static final String CONTENT_TYPE_KML = "application/vnd.google-earth.kml+xml";
 
     public static final String URL_SERVER = "http://art-server.appspot.com";
     public static final String URL_VIEWTAGS = "/admin/viewTags.jsp";

@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://artags.org)
+/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -18,15 +18,17 @@ import org.artags.server.business.Tag;
 import org.artags.server.service.TagService;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang.StringEscapeUtils;
+import org.artags.server.business.TagDAO;
 
 /**
  *
- * @author pierre@artags.org
+ * @author Pierre Levy
  */
 public class TagsServlet extends HttpServlet
 {
@@ -38,13 +40,25 @@ public class TagsServlet extends HttpServlet
         double latitude = Utils.getDouble( req , "lat" , 48.8);
         double longitude = Utils.getDouble( req , "lon" , 2.3);
         int max = Utils.getInt(req, "max", 100 );
+        String all = req.getParameter( "all" );
 
         Writer out = resp.getWriter();
         resp.setContentType(Constants.CONTENT_TYPE_XML);
         out.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         out.write("<tags>");
 
-        for (Tag tag : TagService.getNearestTags(latitude, longitude, max))
+        List<Tag> list;
+        if( (all != null) && ( all.equals("true")))
+        {
+            TagDAO dao = new TagDAO();
+            list = dao.findAll();
+        }
+        else
+        {
+            list = TagService.getNearestTags(latitude, longitude, max);
+        }
+
+        for (Tag tag : list )
         {
             out.write("<tag>");
 
