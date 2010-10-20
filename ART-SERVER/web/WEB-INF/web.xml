@@ -49,6 +49,14 @@
         <url-pattern>/arml</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>kml</servlet-name>
+        <servlet-class>org.artags.server.web.KmlServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>kml</servlet-name>
+        <url-pattern>/admin/kml</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>junaio</servlet-name>
         <servlet-class>org.artags.server.web.junaio.JunaioServlet</servlet-class>
     </servlet>

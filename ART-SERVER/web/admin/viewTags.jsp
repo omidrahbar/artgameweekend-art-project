@@ -55,7 +55,7 @@
     }
 
  
-    var URL_GET = "/tags";
+    var URL_GET = "/tags?all=true";
 
     function getTagsFromWebService( _lat, _lng, _zoom ) {
 
