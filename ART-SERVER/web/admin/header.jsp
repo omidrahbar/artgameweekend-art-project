@@ -15,5 +15,5 @@
     </head>
     <body>
         <div class="box">
-            <h1><a href="/admin/"><img src="images/icon.png" alt="logo" align="bottom"/></a> ARTags Project - Augmented Reality tags</h1>
+            <h1><a href="/admin/"><img src="images/icon.png" alt="logo" align="middle"/></a> ARTags Project - Augmented Reality Tags</h1>
         </div>

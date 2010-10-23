@@ -219,7 +219,7 @@ public class Tag implements Serializable
 
     public String getFormatedDate(Locale locale)
     {
-        DateFormat format = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.FULL, locale);
+        DateFormat format = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
         return format.format(new Date(date));
     }
 

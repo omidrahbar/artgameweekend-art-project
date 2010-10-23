@@ -64,8 +64,7 @@
             <th>Nom</th>
             <th>Date</th>
             <th>Rating</th>
-            <th>Latitude</th>
-            <th>Longitude</th>
+            <th>Location</th>
             <th>Preview</th>
             <th>Actions</th>
         </tr>
@@ -76,14 +75,25 @@
         <tr>
             <td><%= tag.getName()%></td>
             <td align="center"><%= tag.getFormatedDate(request.getLocale())%></td>
-            <td align="center"><%= tag.getRating()%></td>
-            <td align="center"><%= tag.getLat()%></td>
-            <td align="center"><%= tag.getLon()%></td>
+            <td align="center">
+                <%= tag.getRating()%>
+                <a href="/client/rate.jsp?id=<%= tag.getId()%>&id_thumbnail=<%= tag.getKeyThumbnail().getId()%>">Rate</a>
+            </td>
+            <td align="left">
+                <a class="mapinfo" href="javascript:void;">
+                <span>
+                    <img src="http://maps.google.com/maps/api/staticmap?zoom=6&size=500x500&markers=<%= tag.getLat()%>,<%= tag.getLon()%>&sensor=false"
+                </span>
+                </a>
+                <div class="location">
+                Latitude : <%= tag.getLat()%><br/>Longitude : <%= tag.getLon()%>
+                </div>
+            </td>
             <td align="center">
                 <a href="/display?id=<%= tag.getId()%>">
                 <img src="/thumbnail?id=<%= tag.getKeyThumbnail().getId()%>" alt="thumbnail" height="64"/></td>
             </a>
-            <td><a href="delete?id=<%=tag.getId()%>">delete</a>
+            <td><a href="delete?id=<%=tag.getId()%>">Delete</a>
         </tr>
         <%
                     }

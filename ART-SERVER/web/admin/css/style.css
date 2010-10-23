@@ -30,8 +30,8 @@ div.box {
     border: 1x solid #aaa;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
-    margin: 20px;
-    padding: 10px;
+    margin: 15px;
+    padding: 5px;
     padding-left: 40px;
     background-color: #222;
 
@@ -40,7 +40,7 @@ div.box {
 
 label {
     font-weight: bold;
-    color: #364C5E;
+    color: #66AADD;
     margin: 0;
     padding-right: 5px;
     display: block;
@@ -51,17 +51,56 @@ label {
 
 a {
     font-weight: bold;
-    color: #364C5E;
-
-
+    color: #66AADD;
 }
 
 h1 {
-    color: #364C5E;
-    font-size: 250%;
+    margin:0;
+    padding:0;
+    color: #66AADD;
+    font-size: 200%;
 
 }
 
 h2 {
-    color: #ccc;
+    color: #66DD66;
+}
+
+th {
+    color: #66DD66;
+}
+
+img {
+    border: 0;
+}
+
+a.mapinfo {
+    background:url("../images/map.jpg") no-repeat scroll left center transparent;
+    cursor:pointer;
+    padding:0 0 33px 33px;
+    position:relative;
+    z-index:24;
+}
+a.mapinfo:hover {
+    color:#EE9C00;
+    text-decoration:none;
+    z-index:25;
+}
+a.mapinfo span {
+    display:none;
+}
+a.mapinfo:hover span {
+    border:1px solid #395E7D;
+    color:#000000;
+    display:block;
+    position:absolute;
+    right:10em;
+    text-decoration:none;
+    top:-10em;
+}
+
+div.location
+{
+    margin-left: 50px;
+    margin-top: -10px;
 }
