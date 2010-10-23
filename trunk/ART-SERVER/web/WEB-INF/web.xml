@@ -25,6 +25,14 @@
         <url-pattern>/thumbnail</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>new</servlet-name>
+        <servlet-class>org.artags.server.web.NewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>new</servlet-name>
+        <url-pattern>/new/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>tags</servlet-name>
         <servlet-class>org.artags.server.web.TagsServlet</servlet-class>
     </servlet>

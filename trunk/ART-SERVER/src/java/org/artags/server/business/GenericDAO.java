@@ -73,17 +73,18 @@ public class GenericDAO<E>
 
     }
 
-    public void create(E entity)
+    public <E> E create(E entity)
     {
         PersistenceManager pm = PMF.get().getPersistenceManager();
-
+        E persisted = null;
         try
         {
-            pm.makePersistent(entity);
+            persisted = pm.makePersistent(entity);
         } finally
         {
             pm.close();
         }
+        return persisted;
 
     }
 

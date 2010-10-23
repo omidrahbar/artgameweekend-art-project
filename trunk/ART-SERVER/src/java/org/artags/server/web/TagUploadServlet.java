@@ -79,13 +79,10 @@ public class TagUploadServlet extends HttpServlet
 
                     if (item.isFormField())
                     {
-                        out.println("Got a form field: " + item.getFieldName());
                         if (Constants.PARAMATER_NAME.equals(item.getFieldName()))
                         {
-                            String name1 = IOUtils.toString(in , "UTF-8");
-                            out.println(name1);
-
-                            tag.setName(name1);
+                            String name = IOUtils.toString(in , "UTF-8");
+                            tag.setName(name);
                         }
                         if (Constants.PARAMATER_LAT.equals(item.getFieldName()))
                         {
@@ -105,10 +102,6 @@ public class TagUploadServlet extends HttpServlet
                         String fileName = item.getName();
                         contentType = item.getContentType();
 
-                        out.println("--------------");
-                        out.println("fileName = " + fileName);
-                        out.println("field name = " + fieldName);
-                        out.println("contentType = " + contentType);
 
                         try
                         {
@@ -165,7 +158,9 @@ public class TagUploadServlet extends HttpServlet
             tag.setKeyImage(tagImage.getKey());
             tag.setKeyThumbnail(tagThumbnail.getKey());
             tag.setDate(new Date().getTime());
-            dao.create(tag);
+            Tag newTag = dao.create(tag);
+            out.print( "" + newTag.getKey().getId());
+            out.close();
 
 
         } catch (Exception ex)
