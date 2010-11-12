@@ -1,0 +1,121 @@
+/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+ body {
+    margin: 0;
+    padding: 0;
+    font-family: 'helvetica', sans-serif;
+    background: #000;
+}
+
+img {
+    border: 0px;
+}
+
+.header {
+    min-height: 80px;
+    padding-bottom: 10px;
+    text-align:center;
+    background: url('../images/gradient.png');
+}
+.intro {
+    padding: 15px;
+    font-size: 13px;
+    color: #d6e3ec;
+}
+a {
+    color: #d6e3ec;
+}
+.buttons a {
+    display: block;
+    margin: 10px 0;
+    padding: 0 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ccc;
+    text-decoration: none;
+    background: #333;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+.buttons a span {
+    display: block;
+    line-height: 60px;
+    background: url('../images/arrow.png') right center no-repeat;
+}
+
+.items ul {
+    margin: 0px;
+    padding: 0px;
+}
+.items li {
+    list-style: none;
+    margin: 0px;
+}
+
+.items a {
+    height: 200px;
+    display: block;
+    margin: 15px 0;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ccc;
+    text-decoration: none;
+    background: #333;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+
+.items a span {
+    display: block;
+/*    line-height: 200px; */
+    background: url('../images/arrow.png') right center no-repeat;
+}
+
+.items img {
+    height: 180px;
+    margin-right: 20px;
+    border:black 1px solid;
+}
+
+
+
+.preview {
+    width: 400px;
+    margin: 10px;
+    text-align:center;
+}
+
+.map{
+    width: 400px;
+    height: 400px;
+    margin: 10px;
+    text-align:center;
+}
+
+div.rating{
+    margin: 30px;
+}
+
+div.stars{
+    margin-left: 40%;
+}
+
+input.button{
+    width: 150px;
+    height: 50px;
+}
