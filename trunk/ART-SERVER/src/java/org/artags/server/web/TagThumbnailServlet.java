@@ -29,6 +29,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class TagThumbnailServlet extends HttpServlet
 {
+    private static final long EXPIRES = 36000000L * 24L; // one day
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
@@ -40,6 +41,8 @@ public class TagThumbnailServlet extends HttpServlet
             if (tagThumbnail != null)
             {
                 resp.setContentType( tagThumbnail.getContentType() );
+                long now = System.currentTimeMillis();
+                resp.setDateHeader("Expires", now + EXPIRES);
                 OutputStream out = resp.getOutputStream();
                 out.write(tagThumbnail.getImage());
                 out.close();

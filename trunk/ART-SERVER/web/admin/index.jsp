@@ -34,6 +34,9 @@
     <li>
         <a href="http://www.junaio.com/publisher/mychannels" target="Junaio">Test at Junaio</a>
     </li>
+    <li>
+        <a href="kml">KML Export</a>
+    </li>
 </ul>
 </div>
 
