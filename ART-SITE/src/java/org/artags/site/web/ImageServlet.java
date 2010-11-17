@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://artags.org)
+/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -36,12 +36,15 @@ import org.artags.site.service.Constants;
  */
 public class ImageServlet extends HttpServlet
 {
+    private static final long EXPIRES = 36000000L * 24L; // one day
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException
     {
         Writer out = resp.getWriter();
         resp.setContentType("image/png");
+        long now = System.currentTimeMillis();
+        resp.setDateHeader("Expires", now + EXPIRES );
 
         String id = request.getParameter("id");
         if( id == null ) id = "120002";
