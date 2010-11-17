@@ -7,10 +7,10 @@
     </settings>
 
     <menu Y="7" MenuSpacing="25" LinkColour="#FFFFFF" SubSelectColour="#FFFFFF" EasingType="Strong" EasingSpeed="20">
-        <main TopLeft="false" bgID="0" Name="HOME" Colour="#00cccc" Link="artags.swf" SWFAddressURL="Home"/>
+        <main TopLeft="false" bgID="0" Name="HOME" Colour="#00cccc" Link="null.swf" SWFAddressURL="Home"/>
         <main Name="THE PROJECT" SWFAddressURL="EMPTY">
             <sub TopLeft="true" bgID="1" Name="OVERVIEW" Colour="#00cc66" Link="content.swf" toLoad="content/overview/overview.xml" SWFAddressURL="Overview"/>
-            <sub TopLeft="true" bgID="2" Name="TEASER" Colour="#00cc66" Link="video_player.swf" toLoad="showreel/video.flv" Width="840" Height="472" goingTo="2" SWFAddressURL="Teaser"/>
+ <!--           <sub TopLeft="true" bgID="2" Name="TEASER" Colour="#00cc66" Link="video_player.swf" toLoad="showreel/video.flv" Width="840" Height="472" goingTo="2" SWFAddressURL="Teaser"/>-->
  <!--           <sub TopLeft="false" bgID="3" Name="NEWS" Colour="#9900FF" Link="news.swf" toLoad="news/content.xml" SWFAddressURL="News"/> -->
             <sub TopLeft="false" bgID="1" Name="AWARDS" Colour="#cc00cc" Link="slideshow.swf" toLoad="slideshow/content.xml" SWFAddressURL="Slideshow"/>
         </main>
@@ -50,28 +50,25 @@
     </menu>
 
     <background>
-        <bg Image="backgrounds/image1.jpg"/>
+        <bg Image="backgrounds/home.jpg"/>
         <bg Image="backgrounds/image2.jpg"/>
         <bg Image="backgrounds/image3.jpg"/>
         <bg Image="backgrounds/image4.jpg"/>
-        <bg Image="backgrounds/image5.jpg"/>
-        <bg Image="backgrounds/image6.jpg"/>
-        <bg Image="backgrounds/image7.jpg"/>
-        <bg Image="backgrounds/image8.jpg"/>
-        <bg Image="backgrounds/image9.jpg"/>
     </background>
 
 
     <music DefaultVolume="0">
+        <!--
         <mp3 Thumb="playlist/thumb1.jpg" Artist="BRANDTZ" Title="EAVES DROP" Path="playlist/track1.mp3"/>
         <mp3 Thumb="playlist/thumb2.jpg" Artist="BRANDTZ" Title="DISTANT" Path="playlist/track2.mp3"/>
         <mp3 Thumb="playlist/thumb3.jpg" Artist="BRANDTZ" Title="MEDITARI" Path="playlist/track3.mp3"/>
         <mp3 Thumb="playlist/thumb4.jpg" Artist="BRANDTZ" Title="DISPERSE" Path="playlist/track4.mp3"/>
+        -->
     </music>
 
     <social Target="_blank">
-        <icon Icon="1" Title="RSS" Link=""/>
-        <icon Icon="2" Title="TWITTER" Link=""/>
+        <icon Icon="1" Title="RSS" Link="http://twitter.com/favorites/195477198.rss"/>
+        <icon Icon="2" Title="TWITTER" Link="http://twitter.com/ARtagsnews"/>
         <icon Icon="3" Title="FACEBOOK" Link="http://www.facebook.com/pages/ARTags/153851294639822?v=wall"/>
 <!--        <icon Icon="4" Title="LINKDIN" Link=""/>  -->
     </social>

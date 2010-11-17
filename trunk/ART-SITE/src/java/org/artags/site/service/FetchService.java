@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://artags.org)
+/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -42,7 +42,7 @@ public class FetchService
         SAXParserFactory spf = SAXParserFactory.newInstance();
         SAXParser sp = spf.newSAXParser();
         TagParser parser = new TagParser();
-        String xml = fetchUrl( Constants.SERVER + "/tags" );
+        String xml = fetchUrl( Constants.SERVER + "/tags?all=true" );
 
         sp.parse( new InputSource( new StringReader( xml )), parser);
         return parser.getTags();

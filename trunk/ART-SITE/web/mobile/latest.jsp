@@ -43,6 +43,7 @@
                 <ul>
                     <%
                                 List<Tag> list = TagService.instance().getLatestTags();
+                                list = list.subList(0, 100);
                                 for (Tag t : list)
                                 {
                     %>

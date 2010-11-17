@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://artags.org)
+/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -67,7 +67,7 @@ public class TagService
         if (latestTags == null)
         {
             latestTags = new ArrayList<Tag>(getAllTags());
-            removeNotRated( latestTags );
+//            removeNotRated( latestTags );
             Collections.sort(latestTags, new RecentnessComparator());
             CacheService.instance().put(CACHE_KEY_LATEST, latestTags  );
         }
@@ -75,7 +75,7 @@ public class TagService
 
     }
 
-    private List<Tag> getAllTags()
+    public List<Tag> getAllTags()
     {
         List<Tag> allTags = (List<Tag>) CacheService.instance().get(CACHE_KEY_ALL_TAGS);
         if (allTags == null)
@@ -100,6 +100,15 @@ public class TagService
         }
         return allTags;
 
+    }
+
+    public Tag getTag( String id )
+    {
+        for( Tag t : getAllTags() )
+        {
+            if( t.getId().equals( id )) return t;
+        }
+        return null;
     }
 
     private void removeNotRated(List<Tag> list)
