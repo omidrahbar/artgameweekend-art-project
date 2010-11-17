@@ -32,23 +32,27 @@ import javax.servlet.http.HttpServletResponse;
 public class TagImageServlet extends HttpServlet
 {
 
+    private static final long EXPIRES = 36000000L * 24L; // one day
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        String sId = req.getParameter( Constants.PARAMATER_ID );
+        String sId = req.getParameter(Constants.PARAMATER_ID);
         long id = Long.parseLong(sId);
         TagDAO daoTag = new TagDAO();
         Tag tag = daoTag.findById(id);
         TagImageDAO dao = new TagImageDAO();
-        TagImage tagImage= dao.findById( tag.getKeyImage().getId() );
-            if (tagImage != null)
-            {
+        TagImage tagImage = dao.findById(tag.getKeyImage().getId());
+        if (tagImage != null)
+        {
 //                resp.setContentType( tagImage.getContentType() );
-                resp.setContentType( "image/png" );
-                  OutputStream out = resp.getOutputStream();
-                out.write(tagImage.getImage());
-                out.close();
-            }
+            resp.setContentType("image/png");
+            long now = System.currentTimeMillis();
+            resp.setDateHeader("Expires", now + EXPIRES);
+            OutputStream out = resp.getOutputStream();
+            out.write(tagImage.getImage());
+            out.close();
+        }
 
     }
 }

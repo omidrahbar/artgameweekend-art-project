@@ -17,15 +17,59 @@ div.box {
     padding: 15px;
     background-color: #111;
     text-align: center;
-
+    clear: both;
 
 }
+
 
 .box img {
     width: 90%;
     margin: 5px;
+    border: 1px solid #ccc;
 }
 
 img.logo {
-    width: 64px;
+    width: 100px;
+    border: 0px;
+}
+
+div.title {
+    width: 100%;
+    margin: 30px;
+}
+
+div.group {
+    margin-left: 10%;
+}
+
+div.thumbnail {
+    width: 400px;
+    height: 400px;
+    float: left;
+}
+
+div.preview {
+    width: 400px;
+    height: 710px;
+    float: left;
+}
+
+div.map{
+    width: 400px;
+    height: 400px;
+    float: left;
+}
+
+div.rating{
+    margin: 30px;
+    clear: both
+}
+
+div.stars{
+    margin-left: 40%;
+}
+
+input.button{
+    width: 150px;
+    height: 50px;
 }
