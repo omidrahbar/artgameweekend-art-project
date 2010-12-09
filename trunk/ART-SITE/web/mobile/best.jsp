@@ -32,7 +32,7 @@
     </head>
     <body>
         <div class="header">
-            <a href="index.html" alt="home"
+            <a href="index.jsp" alt="home"
             <img src="images/logo.png" alt="logo" />
             </a>
         </div>

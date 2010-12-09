@@ -16,39 +16,26 @@
 
  Author     : Pierre LEVY
 --%>
+
+
 <%@page import="org.artags.site.business.Tag" %>
 <%@page import="org.artags.site.service.TagService" %>
 <%@page import="java.util.List" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
+<%@include file="header.jsp" %>
 
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta id="viewport" name="viewport" content="width=400;"/>
-        <title>Best rated tags</title>
-        <link href="css/mobile.css" type="text/css" rel="stylesheet"/>
-    </head>
-    <body>
-        <div class="header">
-            <a href="index.jsp" alt="home"
-               <img src="images/logo.png" alt="logo" />
-            </a>
-        </div>
+
         <div class="intro">
             <div class="items">
 
                 <ul>
                     <%
-                                List<Tag> list = TagService.instance().getLatestTags();
-                                list = list.subList(0, 100);
+                                List<Tag> list = TagService.instance().getBestRatedTags();
                                 for (Tag t : list)
                                 {
                     %>
                     <li><a href="tag.jsp?id=<%= t.getId()%>">
-                            <img src="/thumbnail?id=<%= t.getThumbnailId()%>" alt="thumbnail" align="left" />
+                           <img src="/thumbnail?id=<%= t.getThumbnailId()%>" alt="thumbnail" align="left" />
                             <%= t.getName()%><br />
                             <%= t.getRating()%><br />
                             <%= t.getDate()%><br />
@@ -62,5 +49,4 @@
                 </ul>
             </div>
         </div>
-    </body>
-</html>
+<%@include file="footer.jsp" %>
