@@ -26,6 +26,14 @@
         <url-pattern>/display</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>tags</servlet-name>
+        <servlet-class>org.artags.site.web.TagsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>tags</servlet-name>
+        <url-pattern>/tags</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>cache</servlet-name>
         <servlet-class>org.artags.site.web.CacheServlet</servlet-class>
     </servlet>
@@ -43,7 +51,7 @@
     </servlet-mapping>
 
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
     <security-constraint>

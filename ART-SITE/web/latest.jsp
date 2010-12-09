@@ -24,20 +24,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta id="viewport" name="viewport" content="width=400;"/>
-        <title>Best rated tags</title>
-        <link href="css/mobile.css" type="text/css" rel="stylesheet"/>
-    </head>
-    <body>
-        <div class="header">
-            <a href="index.jsp" alt="home"
-               <img src="images/logo.png" alt="logo" />
-            </a>
-        </div>
-        <div class="intro">
+<%@include file="header.jsp" %>
+<div class="intro">
             <div class="items">
 
                 <ul>
@@ -62,5 +50,4 @@
                 </ul>
             </div>
         </div>
-    </body>
-</html>
+<%@include file="footer.jsp" %>
