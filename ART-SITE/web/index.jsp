@@ -182,6 +182,9 @@
 					$('#is2').animate({ left: left+'px' }, anim);
 					setTimeout('doSlider()', speed);
 				}
+				$(document).ready(function(){
+					$("a[rel^='prettyPhoto']").prettyPhoto({theme: 'dark_rounded'});
+				});
 			</script>
 
 			<div style="clear: both;"></div>
