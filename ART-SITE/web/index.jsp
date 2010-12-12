@@ -69,15 +69,38 @@
 									<img src="/thumbnail?id=<%= t.getThumbnailId()%>" alt="thumbnail" align="left">
 									<h2>
 
-										<a href="tag.jsp?id=<%= t.getId()%>">
-                                                                                    <%= t.getName()%>
-                                                                                </a>
-										<span class="h4"> <br />
-                                                                                <%= t.getRating()%><br />
-                                                                                <%= t.getDate()%><br />
-                                                                                Votes <%= t.getRatingCount()%><br />
-                                                                                
-                                                                                </span>
+										<a href="#tag_<%= t.getId()%>" rel="prettyPhoto"><%= t.getName()%></a>
+										
+										<div id="tag_<%= t.getId()%>" style="display: none;">
+										       <div class="intro">
+												Title : <strong><%= tag.getName()%></strong><br />
+												Posted : <%= tag.getDate()%><br />
+												Rating : <%= tag.getRating()%><br />
+												Votes : <%= tag.getRatingCount()%><br />
+											</div>
+											<div id="box">
+												<div id="preview">
+													<h2>Preview</h2>
+													<img src="/display?id=<%= tag.getId()%>" alt="thumbnail" width="400"/>
+												</div>
+												<div id="location">
+													<h2>Location</h2>
+													<img src="http://maps.google.com/maps/api/staticmap?zoom=6&size=400x400&markers=<%= tag.getLatitude()%>,<%= tag.getLongitude()%>&sensor=false" alt="map" />
+												</div>
+											</div>
+										</div>
+										
+										<!--<a href="tag.jsp?id=<%= t.getId()%>"><%= t.getName()%> </a>-->
+										<span class="h4">
+											<br />
+											<%= t.getRating()%>
+											<br />
+											<%= t.getDate()%>
+											<br />
+											Votes <%= t.getRatingCount()%>
+											<br />
+										</span>
+										
 									</h2>
 								</div>
                     <%
