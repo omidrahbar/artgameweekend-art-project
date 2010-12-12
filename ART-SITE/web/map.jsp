@@ -5,6 +5,7 @@
 --%>
 <%@include file="header.jsp" %>
 
+
 <div id="map" ></div>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
