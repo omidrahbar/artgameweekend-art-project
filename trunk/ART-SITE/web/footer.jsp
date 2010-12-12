@@ -15,11 +15,11 @@
 			<h3>Download</h3>
 
 			<p align="center">
-                        <img src="images/market_logo.png" width="160" />
+                        <img src="Images/market_logo.png" width="160" />
                         </p>
                         <p align="center">
-                        <a href="market://search?q=pname:org.artags.android">
-                        <img src="images/artags_qr.png" />
+                        <a href="market://search?q=pname:org.artags.android.app">
+                        <img src="Images/artags_qr.png" />
 
                         </a>
 			</p>
@@ -94,10 +94,15 @@
 		</div>
 
 	<!-- /footer-outer -->
-	</div></div>
-
-<!-- /footer -->
+	</div>
+    </div>
 </div>
+<!-- /footer -->
+		<div style="clear: both;"></div>
+
+		</div>
+	
+<div class="main_top center"></div>
 
    <script type="text/javascript">
 
