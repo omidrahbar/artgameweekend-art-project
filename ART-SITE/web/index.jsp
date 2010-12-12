@@ -71,22 +71,24 @@
 
 										<a href="#tag_<%= t.getId()%>" rel="prettyPhoto"><%= t.getName()%></a>
 										
-										<div id="tag_<%= t.getId()%>" style="display: none;">
+										<div id="tag_<%= t.getId()%>" style="display: none;"  >
+
 										       <div class="intro">
-												Title : <strong><%= tag.getName()%></strong><br />
-												Posted : <%= tag.getDate()%><br />
-												Rating : <%= tag.getRating()%><br />
-												Votes : <%= tag.getRatingCount()%><br />
+												Title : <strong><%= t.getName()%></strong><br />
+												Posted : <%= t.getDate()%><br />
+												Rating : <%= t.getRating()%><br />
+												Votes : <%= t.getRatingCount()%><br />
 											</div>
-											<div id="box">
-												<div id="preview">
+											<div class="detail-box">
+												<div class="detail-preview">
 													<h2>Preview</h2>
-													<img src="/display?id=<%= tag.getId()%>" alt="thumbnail" width="400"/>
+													<img src="/display?id=<%= t.getId()%>" alt="thumbnail" width="300" />
 												</div>
-												<div id="location">
+												<div class="detail-location">
 													<h2>Location</h2>
-													<img src="http://maps.google.com/maps/api/staticmap?zoom=6&size=400x400&markers=<%= tag.getLatitude()%>,<%= tag.getLongitude()%>&sensor=false" alt="map" />
+													<img src="http://maps.google.com/maps/api/staticmap?zoom=6&size=300x300&markers=<%= t.getLatitude()%>,<%= t.getLongitude()%>&sensor=false" alt="map" />
 												</div>
+                                                                                                <div class="detail-end"></div>
 											</div>
 										</div>
 										
@@ -135,20 +137,21 @@
 										
 										<div id="tag_<%= t.getId()%>" style="display: none;">
 										       <div class="intro">
-												Title : <strong><%= tag.getName()%></strong><br />
-												Posted : <%= tag.getDate()%><br />
-												Rating : <%= tag.getRating()%><br />
-												Votes : <%= tag.getRatingCount()%><br />
+												Title : <strong><%= t.getName()%></strong><br />
+												Posted : <%= t.getDate()%><br />
+												Rating : <%= t.getRating()%><br />
+												Votes : <%= t.getRatingCount()%><br />
 											</div>
-											<div id="box">
-												<div id="preview">
+											<div class="detail-box">
+												<div class="detail-preview">
 													<h2>Preview</h2>
-													<img src="/display?id=<%= tag.getId()%>" alt="thumbnail" width="400"/>
+													<img src="/display?id=<%= t.getId()%>" alt="thumbnail" width="300"/>
 												</div>
-												<div id="location">
+												<div class="detail-location">
 													<h2>Location</h2>
-													<img src="http://maps.google.com/maps/api/staticmap?zoom=6&size=400x400&markers=<%= tag.getLatitude()%>,<%= tag.getLongitude()%>&sensor=false" alt="map" />
+													<img src="http://maps.google.com/maps/api/staticmap?zoom=6&size=300x300&markers=<%= t.getLatitude()%>,<%= t.getLongitude()%>&sensor=false" alt="map" />
 												</div>
+                                                                                                <div class="detail-end"></div>
 											</div>
 										</div>
 										
@@ -205,7 +208,7 @@
 					setTimeout('doSlider()', speed);
 				}
 				$(document).ready(function(){
-					$("a[rel^='prettyPhoto']").prettyPhoto({theme: 'dark_rounded'});
+					$("a[rel^='prettyPhoto']").prettyPhoto({theme: 'dark_rounded', default_width: 700});
 				});
 			</script>
 
