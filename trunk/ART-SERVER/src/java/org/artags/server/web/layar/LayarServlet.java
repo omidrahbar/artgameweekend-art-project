@@ -122,7 +122,7 @@ public class LayarServlet extends HttpServlet
                 object.accumulate("full", "?id=" + tag.getKeyThumbnail().getId());
                 object.accumulate("reduced", "?id=" + tag.getKeyThumbnail().getId());
                 object.accumulate("icon", "?id=" + tag.getKeyThumbnail().getId());
-                object.accumulate("size", 1);
+                object.accumulate("size", 200);
                 poi.accumulate("object", object);
 
 
