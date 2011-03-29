@@ -36,10 +36,13 @@
                     %>
                     <li><a href="tag.jsp?id=<%= t.getId()%>">
                            <img src="/thumbnail?id=<%= t.getThumbnailId()%>" alt="thumbnail" align="left" />
-                            <%= t.getName()%><br />
+                           <br />
+                           <h1><%= t.getName()%></h1>
+                           <br />
+
                             <%= t.getRating()%><br />
                             <%= t.getDate()%><br />
-                            Votes <%= t.getRatingCount()%><br />
+                            Votes : <%= t.getRatingCount()%><br />
                         </a>
                     </li>
                     <%

@@ -28,7 +28,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta id="viewport" name="viewport" content="width=400;"/>
-        <title>Best rated tags</title>
+        <title>Latest tags</title>
         <link href="css/mobile.css" type="text/css" rel="stylesheet"/>
     </head>
     <body>

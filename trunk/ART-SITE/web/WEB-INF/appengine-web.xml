@@ -5,4 +5,14 @@
     <system-properties>
         <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
     </system-properties>
+    <static-files>
+        <include path="/**.png" expiration="10d" />
+        <include path="/**.jpg" expiration="10d" />
+        <include path="/**.jpeg" expiration="10d" />
+        <include path="/**.swf" expiration="10d" />
+        <include path="/**.css" expiration="10d" />
+        <include path="/**.js" expiration="10d" />
+        <include path="/**.xml" expiration="10d" />
+    </static-files>
+
 </appengine-web-app>

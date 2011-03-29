@@ -141,6 +141,10 @@ p				{ text-align: justify; }
     clear: both;
 }
 
+.fix {
+    clear: both;
+}
+
 #footer {
  /*   background: url("../Images/footer-bg.png") repeat-x scroll 0 0 transparent;*/
     float: left;
@@ -233,4 +237,67 @@ p				{ text-align: justify; }
 #footer-bottom a.back-to-top {
     background: url("../Images/arrow-up.gif") no-repeat scroll right center transparent;
     padding-right: 20px;
+}
+
+
+#map {
+    padding:0;
+    width: 100%;
+    min-height: 85%;
+}
+#message {
+    background-color:#000;
+    color:#fff;
+    min-height: 15%;
+    padding:0.4em 1em;
+}
+
+#marker {
+    color: #000;
+    font-size:75%;
+
+}
+
+.items ul {
+    margin: 0px;
+    padding: 0px;
+}
+.items li {
+    list-style: none;
+    margin: 0px;
+}
+
+.items a {
+    height: 200px;
+    display: block;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 15px;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #fff;
+    text-decoration: none;
+    background: #000;
+    border: 1px solid #666;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+
+.items a span {
+    display: block;
+/*    line-height: 200px; */
+    background: url('../images/arrow.png') right center no-repeat;
+}
+
+.items img {
+    height: 180px;
+    margin-right: 30px;
+    border:black 1px solid;
+}
+
+#box {
+    margin-left: 200px;
+    width: 450px;
 }

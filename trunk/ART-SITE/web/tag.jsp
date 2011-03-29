@@ -28,22 +28,26 @@
 
 %>
 <%@include file="header.jsp" %>
+<div class="inner center">
+    <div class="center">
+
         <div class="intro">
-            Title : <strong><%= tag.getName()%></strong><br />
+            <h1>Title : <strong><%= tag.getName()%></strong><br /></h1>
+            <br/>
             Posted : <%= tag.getDate()%><br />
             Rating : <%= tag.getRating()%><br />
             Votes : <%= tag.getRatingCount()%><br />
         </div>
         <div id="box">
-            
-        <div id="preview">
-            <h2>Preview</h2>
-            <img src="/display?id=<%= tag.getId()%>" alt="thumbnail" width="400"/>
-        </div>
-        <div id="location">
-            <h2>Location</h2>
-            <img src="http://maps.google.com/maps/api/staticmap?zoom=6&size=400x400&markers=<%= tag.getLatitude()%>,<%= tag.getLongitude()%>&sensor=false" alt="map" />
-        </div>
-        </div>
 
+            <div id="preview">
+                <img src="/display?id=<%= tag.getId()%>" alt="thumbnail" width="400"/>
+            </div>
+            <div id="location">
+                <h2>Location</h2>
+                <img src="http://maps.google.com/maps/api/staticmap?zoom=6&size=400x400&markers=<%= tag.getLatitude()%>,<%= tag.getLongitude()%>&sensor=false" alt="map" />
+            </div>
+        </div>
+    </div>
+</div>
 <%@include file="footer.jsp" %>

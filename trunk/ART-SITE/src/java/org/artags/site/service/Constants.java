@@ -23,5 +23,6 @@ public class Constants {
 
     public static final String SERVER = "http://art-server.appspot.com";
     public static final String CONTENT_TYPE_XML = "application/xml";
+    public static String SERVER_URL="http://artags-site.appspot.com";
 
 }
