@@ -41,6 +41,7 @@ public class TagsServlet extends HttpServlet
         out.write("<tags>");
 
         List<Tag> list = TagService.instance().getAllTags();
+//        list = list.subList( 0, 500 );
         for (Tag tag : list )
         {
             out.write("<tag>");

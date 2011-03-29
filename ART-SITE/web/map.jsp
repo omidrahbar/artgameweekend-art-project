@@ -1,12 +1,30 @@
 <%--
-    Document   : index
-    Created on : 7 déc. 2010, 22:00:06
-    Author     : pierre
+/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+ Author     : Pierre LEVY
 --%>
-<%@include file="header.jsp" %>
+<%@include file="headermap.jsp" %>
+
+<div class="inner center">
 
 
 <div id="map" ></div>
+
+</div>
+
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
