@@ -20,6 +20,12 @@
                 <a href="http://www.artags.org"><span>Visit the Regular Site</span></a>
             </div>
 
+            <center>
+                <a href="http://twitter.com/#!/ARtagsnews"><img src="images/twitter.png"/></a>
+                &nbsp; &nbsp;
+                <a href="https://www.facebook.com/pages/ARTags/146611142055814?v=wall"><img src="images/facebook.png"/></a>
+            </center>
+
             <div style="margin-top: 30px;">
                 You haven't install the Android App yet :
             </div>
