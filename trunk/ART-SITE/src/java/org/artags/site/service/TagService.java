@@ -37,7 +37,11 @@ public class TagService
     private static final String CACHE_KEY_BEST_RATED = "bestrated";
     private static final String CACHE_KEY_LATEST = "latest";
     private static TagService _singleton = new TagService();
+    
+    // Item size of cached object should be < 1 MB so cached lists should be sliced into chunks
+    private static final int CHUNK_SIZE = 2000; 
 
+    
     private TagService()
     {
     }
@@ -55,6 +59,8 @@ public class TagService
             bestRatedTags = new ArrayList<Tag>(getAllTags());
             removeNotRated(bestRatedTags);
             Collections.sort(bestRatedTags, new RatingComparator());
+            int max = ( bestRatedTags.size() < CHUNK_SIZE ) ? bestRatedTags.size() : CHUNK_SIZE;
+            bestRatedTags = getSubList(bestRatedTags, 0 , max );
             CacheService.instance().put(CACHE_KEY_BEST_RATED, bestRatedTags);
         }
         return bestRatedTags;
@@ -69,6 +75,8 @@ public class TagService
             latestTags = new ArrayList<Tag>(getAllTags());
 //            removeNotRated( latestTags );
             Collections.sort(latestTags, new RecentnessComparator());
+            int max = ( latestTags.size() < CHUNK_SIZE ) ? latestTags.size() : CHUNK_SIZE ;
+            latestTags = getSubList(latestTags, 0 , max );
             CacheService.instance().put(CACHE_KEY_LATEST, latestTags  );
         }
         return latestTags;
@@ -77,13 +85,24 @@ public class TagService
 
     public List<Tag> getAllTags()
     {
-        List<Tag> allTags = (List<Tag>) CacheService.instance().get(CACHE_KEY_ALL_TAGS);
+        List<Tag> allTags = (List<Tag>) CacheService.instance().get(CACHE_KEY_ALL_TAGS + 0 );
         if (allTags == null)
         {
             try
             {
                 allTags = new FetchService().getTags();
-                CacheService.instance().put(CACHE_KEY_ALL_TAGS, allTags);
+                int numberOfTags = allTags.size();
+                int numberOfChunks = 1 + numberOfTags / CHUNK_SIZE;
+                for( int i = 0 ; i < numberOfChunks ; i++ )
+                {
+                    int max = (( i + 1 ) * CHUNK_SIZE) - 1;
+                    if( i == (numberOfChunks - 1 ))
+                    {
+                        max = numberOfTags; 
+                    }
+                    CacheService.instance().put(CACHE_KEY_ALL_TAGS + i, getSubList( allTags , i * CHUNK_SIZE , max ));
+                }
+                
             } catch (MalformedURLException ex)
             {
                 Logger.getLogger(TagService.class.getName()).log(Level.SEVERE, null, ex);
@@ -98,10 +117,29 @@ public class TagService
                 Logger.getLogger(TagService.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        else
+        {
+            // get all chunks
+            int i = 1;
+            List<Tag> moreTags = (List<Tag>) CacheService.instance().get(CACHE_KEY_ALL_TAGS + i );
+            while( moreTags != null )
+            {
+                allTags.addAll( moreTags );
+                i++;
+                moreTags = (List<Tag>) CacheService.instance().get(CACHE_KEY_ALL_TAGS + i );
+            }
+        }
         return allTags;
 
     }
-
+    
+    private List<Tag> getSubList( List<Tag> tags , int min , int max )
+    {
+        List<Tag> list = new ArrayList<Tag>( tags.subList( min , max));
+        return list;
+    }
+    
+    
     public Tag getTag( String id )
     {
         for( Tag t : getAllTags() )

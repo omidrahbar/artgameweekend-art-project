@@ -54,6 +54,7 @@
                         <li><a href="mailto:artag@googlegroups.com" class="email">Email</a></li>
                         <li><a href="http://twitter.com/ARtagsnews" class="twitter" target="_blank">Twitter</a></li>
                         <li><a href="http://www.facebook.com/pages/ARTags/146611142055814?v=wall" class="facebook" target="_blank">Facebook</a></li>
+                        <li><a href="http://m.artags.org" >Mobile site</a></li>
                     </ul>
                 </div>
             </div>
