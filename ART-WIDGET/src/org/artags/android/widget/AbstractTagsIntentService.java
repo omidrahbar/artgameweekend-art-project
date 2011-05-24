@@ -30,21 +30,24 @@ import org.json.JSONTokener;
  *
  * @author Pierre Levy
  */
-public class ARTagsIntentService extends IntentService
+public abstract class AbstractTagsIntentService extends IntentService
 {
 
-    private static final String URL_LATEST = "http://artags-site.appspot.com/json?gallery=latest";
     private long mStartTime;
-    private int mRefreshDelay = 10;
-    private static Tag mCurrentTag;
-    private static List<Tag> mTagList;
-    private static int mCurrentTagIndex;
-    private static boolean mRunning;
+    private int mRefreshDelay = 7;
+    private Tag mCurrentTag;
+    private List<Tag> mTagList;
+    private int mCurrentTagIndex;
+    private boolean mRunning;
 
-    public ARTagsIntentService()
+    abstract String getTagListUrl(); 
+    abstract void updateTag( Tag tag );
+    
+    public AbstractTagsIntentService( String name )
     {
-        super("ARTagsIntentService");
+        super( name );
     }
+    
 
     @Override
     protected void onHandleIntent(Intent intent)
@@ -87,7 +90,7 @@ public class ARTagsIntentService extends IntentService
             {
                 mCurrentTag.setBitmap(HttpUtils.loadBitmap( mCurrentTag.getThumbnailUrl()));
             }
-            ARTagsWidget.updateTag(mCurrentTag);
+            updateTag(mCurrentTag);
             mCurrentTagIndex++;
             if (mCurrentTagIndex >= mTagList.size())
             {
@@ -100,10 +103,7 @@ public class ARTagsIntentService extends IntentService
     private List<Tag> getTagList()
     {
         List<Tag> list = new ArrayList<Tag>();
-//        list.add(new Tag(2496053, "cure menetic"));
-//        list.add(new Tag(726001, "Cygne"));
-//        list.add(new Tag(1011001, "twerp"));
-        String jsonflow = HttpUtils.getUrl(URL_LATEST);
+        String jsonflow = HttpUtils.getUrl( getTagListUrl());
 
         try
         {
