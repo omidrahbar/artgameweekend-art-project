@@ -26,7 +26,7 @@ import android.widget.RemoteViews;
  *
  * @author Pierre Levy
  */
-public class ARTagsWidget extends AppWidgetProvider
+public class LatestTagsWidget extends AppWidgetProvider
 {
 
     private static AppWidgetManager mAppWidgetManager;
@@ -41,7 +41,7 @@ public class ARTagsWidget extends AppWidgetProvider
         mAppWidgetManager = appWidgetManager;
         mAppWidgetIds = appWidgetIds;
         
-        Intent intent = new Intent( context , ARTagsIntentService.class );
+        Intent intent = new Intent( context , LatestTagsIntentService.class );
         context.startService(intent);
     }
 
