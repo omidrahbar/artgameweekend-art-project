@@ -25,6 +25,7 @@ public class LatestTagsIntentService extends AbstractTagsIntentService
     private static final String URL = "http://artags-site.appspot.com/json?gallery=latest";
 
 
+   
     public LatestTagsIntentService()
     {
         super( NAME );

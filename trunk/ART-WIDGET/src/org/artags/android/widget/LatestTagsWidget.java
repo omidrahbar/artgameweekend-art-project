@@ -19,7 +19,6 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import android.view.View;
 import android.widget.RemoteViews;
 
 /**
@@ -40,8 +39,8 @@ public class LatestTagsWidget extends AppWidgetProvider
         mContext = context;
         mAppWidgetManager = appWidgetManager;
         mAppWidgetIds = appWidgetIds;
-        
-        Intent intent = new Intent( context , LatestTagsIntentService.class );
+
+        Intent intent = new Intent(context, LatestTagsIntentService.class);
         context.startService(intent);
     }
 
@@ -51,17 +50,13 @@ public class LatestTagsWidget extends AppWidgetProvider
         updateWidget();
     }
 
+   
     private static void updateWidget()
     {
-        RemoteViews remoteViews = new RemoteViews( mContext.getPackageName(), R.layout.main);
-        remoteViews.setViewVisibility(R.id.progressBar, View.GONE);
+        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.main);
         remoteViews.setImageViewBitmap(R.id.thumbnail, mCurrentTag.getBitmap());
-        remoteViews.setViewVisibility(R.id.thumbnail, View.VISIBLE);
         remoteViews.setTextViewText(R.id.text, mCurrentTag.getText());
-        Log.d("ARTags Widget", mAppWidgetIds.toString() + " - " + remoteViews.toString());
-
         mAppWidgetManager.updateAppWidget(mAppWidgetIds, remoteViews);
         Log.d("ARTags Widget", "Widget updated");
     }
-
 }
