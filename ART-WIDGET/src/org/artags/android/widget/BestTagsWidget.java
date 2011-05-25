@@ -19,7 +19,6 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import android.view.View;
 import android.widget.RemoteViews;
 
 /**
@@ -54,16 +53,10 @@ public class BestTagsWidget extends AppWidgetProvider
     private static void updateWidget()
     {
         RemoteViews remoteViews = new RemoteViews( mContext.getPackageName(), R.layout.main);
-        remoteViews.setViewVisibility(R.id.progressBar, View.GONE);
         remoteViews.setImageViewBitmap(R.id.thumbnail, mCurrentTag.getBitmap());
-        remoteViews.setViewVisibility(R.id.thumbnail, View.VISIBLE);
         remoteViews.setTextViewText(R.id.text, mCurrentTag.getText());
-        Log.d("ARTags Widget", mAppWidgetIds.toString() + " - " + remoteViews.toString());
-
         mAppWidgetManager.updateAppWidget(mAppWidgetIds, remoteViews);
         Log.d("ARTags Widget", "Widget updated");
-    }
-    
-    
+    } 
 
 }

@@ -16,6 +16,7 @@ package org.artags.android.widget;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.util.Log;
@@ -74,9 +75,9 @@ public abstract class AbstractTagsIntentService extends IntentService
             Log.d("ARTags Widget", "Run update thread");
 
             final long start = mStartTime;
-            long millis = SystemClock.uptimeMillis() - start;
+            final long millis = SystemClock.uptimeMillis() - start;
             int seconds = (int) (millis / 1000);
-            int minutes = seconds / 60;
+            final int minutes = seconds / 60;
             seconds = seconds % 60;
             nextTag();
             mHandler.postAtTime(this, start + (((minutes * 60) + seconds + mRefreshDelay) * 1000));
@@ -88,9 +89,13 @@ public abstract class AbstractTagsIntentService extends IntentService
 
             if (mCurrentTag.getBitmap() == null)
             {
-                mCurrentTag.setBitmap(HttpUtils.loadBitmap( mCurrentTag.getThumbnailUrl()));
+                Bitmap bitmap = HttpUtils.loadBitmap( mCurrentTag.getThumbnailUrl());
+                mCurrentTag.setBitmap( bitmap );
             }
-            updateTag(mCurrentTag);
+            if( mCurrentTag.getBitmap() != null )
+            {
+                updateTag(mCurrentTag);
+            }
             mCurrentTagIndex++;
             if (mCurrentTagIndex >= mTagList.size())
             {
