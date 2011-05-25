@@ -5,17 +5,11 @@
     android:layout_height="200dip"
     android:background="@drawable/filled_box"
     >
- <ProgressBar    
-    android:id="@+id/progressBar"
-    android:layout_width="140dip"
-    android:layout_height="140dip"
- />
 <ImageView android:id="@+id/thumbnail"
     android:layout_width="140dip"
     android:layout_height="140dip"
     android:src="@drawable/icon"
     android:gravity="center" 
-    android:visibility="gone"
  />
  <TextView  android:id="@+id/text"
     android:layout_width="fill_parent" 
