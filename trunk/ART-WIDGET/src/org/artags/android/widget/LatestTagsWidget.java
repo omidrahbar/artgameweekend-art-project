@@ -14,8 +14,8 @@
  */
 package org.artags.android.widget;
 
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
-import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -25,7 +25,7 @@ import android.widget.RemoteViews;
  *
  * @author Pierre Levy
  */
-public class LatestTagsWidget extends AppWidgetProvider
+public class LatestTagsWidget extends TagsWidgetProvider
 {
 
     private static AppWidgetManager mAppWidgetManager;
@@ -34,14 +34,23 @@ public class LatestTagsWidget extends AppWidgetProvider
     private static Tag mCurrentTag;
 
     @Override
-    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds)
+    void setStatics(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds)
     {
         mContext = context;
         mAppWidgetManager = appWidgetManager;
         mAppWidgetIds = appWidgetIds;
+    }
 
-        Intent intent = new Intent(context, LatestTagsIntentService.class);
-        context.startService(intent);
+    @Override
+    Tag getCurrentTag()
+    {
+        return mCurrentTag;
+    }
+
+    @Override
+    Class getIntentServiceClass()
+    {
+        return LatestTagsIntentService.class;
     }
 
     public static void updateTag(Tag tag)
@@ -50,13 +59,17 @@ public class LatestTagsWidget extends AppWidgetProvider
         updateWidget();
     }
 
-   
     private static void updateWidget()
     {
-        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.main);
+        RemoteViews remoteViews = new RemoteViews( mContext.getPackageName(), R.layout.main);
         remoteViews.setImageViewBitmap(R.id.thumbnail, mCurrentTag.getBitmap());
         remoteViews.setTextViewText(R.id.text, mCurrentTag.getText());
+        Intent active = new Intent(mContext, LatestTagsIntentService.class );
+        active.setAction(ACTION_SHOW_TAG);
+        PendingIntent actionPendingIntent = PendingIntent.getBroadcast(mContext, 0, active, 0);
+        remoteViews.setOnClickPendingIntent(R.id.thumbnail, actionPendingIntent);
         mAppWidgetManager.updateAppWidget(mAppWidgetIds, remoteViews);
         Log.d("ARTags Widget", "Widget updated");
     }
+
 }

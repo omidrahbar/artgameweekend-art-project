@@ -124,6 +124,7 @@ public class HttpUtils
             final byte[] respBytes = EntityUtils.toByteArray(entity);
             // Decode the bytes and return the bitmap.
             BitmapFactory.Options decodeOptions = new BitmapFactory.Options();
+            decodeOptions.inSampleSize = 1;
             return BitmapFactory.decodeByteArray(respBytes, 0, respBytes.length, decodeOptions);
         } catch (Exception e)
         {

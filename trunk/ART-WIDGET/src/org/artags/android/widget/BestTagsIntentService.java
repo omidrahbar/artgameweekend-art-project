@@ -22,7 +22,6 @@ package org.artags.android.widget;
 public class BestTagsIntentService extends AbstractTagsIntentService
 {
     private static final String NAME = "BestTagsIntentService";
-    private static final String URL = "http://artags-site.appspot.com/json?gallery=best";
 
 
     public BestTagsIntentService()
@@ -33,7 +32,7 @@ public class BestTagsIntentService extends AbstractTagsIntentService
     @Override
     String getTagListUrl()
     {
-        return URL;
+        return Constants.URL_BEST_TAGS;
     }
 
     @Override
