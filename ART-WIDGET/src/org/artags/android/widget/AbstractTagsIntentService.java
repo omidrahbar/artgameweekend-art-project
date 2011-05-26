@@ -55,11 +55,12 @@ public abstract class AbstractTagsIntentService extends IntentService
     {
         Log.d("ARTags Widget", "Handle Intent");
 
-        if (mTagList == null)
-        {
-            mTagList = getTagList();
-        }
+        mTagList = getTagList();
+        mCurrentTagIndex = 0;
+        mCurrentTag = mTagList.get(mCurrentTagIndex);
 
+        mHandler.removeCallbacks(mUpdateTimeTask);
+        
         if (!mRunning)
         {
             mUpdateTimeTask.run();
@@ -116,12 +117,16 @@ public abstract class AbstractTagsIntentService extends IntentService
             JSONTokener tokener = new JSONTokener(jsonflow);
             JSONObject json = (JSONObject) tokener.nextValue();
             JSONArray jsonTags = json.getJSONArray("tags");
-            for (int i = 0; i < jsonTags.length(); i++)
+            
+            int max = ( jsonTags.length() < Constants.MAX_TAGS ) ? jsonTags.length() : Constants.MAX_TAGS;
+            for (int i = 0; i < max ; i++)
             {
                 JSONObject jsonTag = jsonTags.getJSONObject(i);
                 Tag tag = new Tag();
+                tag.setId(jsonTag.getString("id"));
                 tag.setText(jsonTag.getString("title"));
                 tag.setThumbnailUrl(jsonTag.getString("imageUrl"));
+                tag.setRating(jsonTag.getString("rating"));
                 list.add(tag);
             }
         } catch (JSONException e)

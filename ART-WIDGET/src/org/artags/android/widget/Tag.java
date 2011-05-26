@@ -22,10 +22,12 @@ import android.graphics.Bitmap;
  */
 public class Tag
 {
+    private String id;
     private int thumbnailId;
     private String thumbnailUrl;
     private String text;
     private Bitmap bitmap;
+    private String rating;
 
     public Tag()
     {
@@ -99,6 +101,38 @@ public class Tag
     public void setThumbnailUrl(String thumbnailUrl)
     {
         this.thumbnailUrl = thumbnailUrl;
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId()
+    {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id)
+    {
+        this.id = id;
+    }
+
+    /**
+     * @return the rating
+     */
+    public String getRating()
+    {
+        return rating;
+    }
+
+    /**
+     * @param rating the rating to set
+     */
+    public void setRating(String rating)
+    {
+        this.rating = rating;
     }
     
     
