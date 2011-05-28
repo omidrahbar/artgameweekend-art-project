@@ -20,11 +20,12 @@ package org.artags.android.widget;
  */
 public class Constants
 {
-    public static final int MAX_TAGS = 20;
-    public static final int REFRESH_DELAY = 10;
-    public static final String URL_BEST_TAGS = "http://artags-site.appspot.com/json?gallery=best";
-    public static final String URL_LATEST_TAGS = "http://artags-site.appspot.com/json?gallery=latest";
-    public static final String URL_JSP_TAG = "http://artags-site.appspot.com/mobile/tag.jsp?id=";
-    public static final String LOG_TAG = "ARTags Widget";
+    static final String ACTION_SHOW_TAG = "org.artags.android.widget.SHOW_TAG";
+    static final int MAX_TAGS = 20;
+    static final int REFRESH_DELAY = 10;
+    static final String URL_BEST_TAGS = "http://artags-site.appspot.com/json?gallery=best";
+    static final String URL_LATEST_TAGS = "http://artags-site.appspot.com/json?gallery=latest";
+    static final String URL_JSP_TAG = "http://artags-site.appspot.com/mobile/tag.jsp?id=";
+    static final String LOG_TAG = "ARTags Widget";
     
 }

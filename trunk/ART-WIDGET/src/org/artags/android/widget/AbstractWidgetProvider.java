@@ -14,12 +14,17 @@
  */
 package org.artags.android.widget;
 
-import android.app.IntentService;
+import android.app.PendingIntent;
+import android.appwidget.AppWidgetManager;
+import android.appwidget.AppWidgetProvider;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.util.Log;
+import android.widget.RemoteViews;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -29,36 +34,72 @@ import org.json.JSONTokener;
 
 /**
  *
- * @author Pierre Levy
+ * @author Pierre LEVY
  */
-public abstract class AbstractTagsIntentService extends IntentService
+public abstract class AbstractWidgetProvider extends AppWidgetProvider
 {
 
     private long mStartTime;
     private int mRefreshDelay = 7;
-    private Tag mCurrentTag;
     private List<Tag> mTagList;
     private int mCurrentTagIndex;
     private boolean mRunning;
+    private Context mContext;
+    private AppWidgetManager mAppWidgetManager;
+    private int[] mAppWidgetIds;
 
     abstract String getTagListUrl();
 
-    abstract void updateTag(Tag tag);
+    abstract void setCurrentTag(Tag tag);
 
-    public AbstractTagsIntentService(String name)
+    abstract Tag getCurrentTag();
+
+    @Override
+    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds)
     {
-        super(name);
+        mContext = context;
+        mAppWidgetManager = appWidgetManager;
+        mAppWidgetIds = appWidgetIds;
+
+        mFetchingTask.execute();
     }
 
     @Override
-    protected void onHandleIntent(Intent intent)
+    public void onReceive(Context context, Intent intent)
     {
-        Log.d( Constants.LOG_TAG, "onHandleIntent - Starting Fetch Task");
+        super.onReceive(context, intent);
 
-        mFetchingTask.execute();
-
+        if (Constants.ACTION_SHOW_TAG.equals(intent.getAction()))
+        {
+            Log.d(Constants.LOG_TAG, "onReceive - Action : " + intent.getAction());
+            showTag(context);
+        }
     }
+
     
+    private void showTag(Context context)
+    {
+        Tag tag = getCurrentTag();
+        String url = Constants.URL_JSP_TAG + tag.getId();
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+
+    private void updateTag(Tag tag)
+    {
+        setCurrentTag(tag);
+        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.main);
+        remoteViews.setImageViewBitmap(R.id.thumbnail, tag.getBitmap());
+        remoteViews.setTextViewText(R.id.text, tag.getText());
+        Intent active = new Intent(mContext, getClass() /*getWidgetClass() */);
+        active.setAction(Constants.ACTION_SHOW_TAG);
+        PendingIntent actionPendingIntent = PendingIntent.getBroadcast(mContext, 0, active, 0);
+        remoteViews.setOnClickPendingIntent(R.id.thumbnail, actionPendingIntent);
+        mAppWidgetManager.updateAppWidget(mAppWidgetIds, remoteViews);
+        Log.d(Constants.LOG_TAG, "Widget updated");
+    }
     private AsyncTask<Void, Void, Void> mFetchingTask = new AsyncTask<Void, Void, Void>()
     {
 
@@ -74,10 +115,10 @@ public abstract class AbstractTagsIntentService extends IntentService
         }
 
         @Override
-        protected void onPostExecute( Void result )
+        protected void onPostExecute(Void result)
         {
             Log.d(Constants.LOG_TAG, "Asynchronous Fetch Task completed");
-            super.onPostExecute( result );
+            super.onPostExecute(result);
             mCurrentTagIndex = 0;
             mHandler.removeCallbacks(mUpdateTimeTask);
 
@@ -87,9 +128,7 @@ public abstract class AbstractTagsIntentService extends IntentService
                 mRunning = true;
             }
         }
-
     };
-    
     private Handler mHandler = new Handler();
     private Runnable mUpdateTimeTask = new Runnable()
     {
@@ -104,8 +143,7 @@ public abstract class AbstractTagsIntentService extends IntentService
             int seconds = (int) (millis / 1000);
             final int minutes = seconds / 60;
             seconds = seconds % 60;
-            mCurrentTag = mTagList.get(mCurrentTagIndex);
-            updateTag(mCurrentTag);
+            updateTag(mTagList.get(mCurrentTagIndex));
             mCurrentTagIndex++;
             if (mCurrentTagIndex >= mTagList.size())
             {
@@ -113,7 +151,6 @@ public abstract class AbstractTagsIntentService extends IntentService
             }
             mHandler.postAtTime(this, start + (((minutes * 60) + seconds + mRefreshDelay) * 1000));
         }
-
     };
 
     private List<Tag> getTagList()
