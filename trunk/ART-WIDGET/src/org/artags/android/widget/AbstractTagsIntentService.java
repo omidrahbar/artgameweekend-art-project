@@ -53,7 +53,7 @@ public abstract class AbstractTagsIntentService extends IntentService
     @Override
     protected void onHandleIntent(Intent intent)
     {
-        Log.d("ARTags Widget", "Handle Intent");
+        Log.d( Constants.LOG_TAG, "onHandleIntent - Starting Fetch Task");
 
         mFetchingTask.execute();
 
@@ -76,13 +76,14 @@ public abstract class AbstractTagsIntentService extends IntentService
         @Override
         protected void onPostExecute( Void result )
         {
+            Log.d(Constants.LOG_TAG, "Asynchronous Fetch Task completed");
             super.onPostExecute( result );
             mCurrentTagIndex = 0;
             mHandler.removeCallbacks(mUpdateTimeTask);
 
             if (!mRunning)
             {
-                mUpdateTimeTask.start();
+                mUpdateTimeTask.run();
                 mRunning = true;
             }
         }
@@ -90,13 +91,13 @@ public abstract class AbstractTagsIntentService extends IntentService
     };
     
     private Handler mHandler = new Handler();
-    private Thread mUpdateTimeTask = new Thread()
+    private Runnable mUpdateTimeTask = new Runnable()
     {
 
         @Override
         public void run()
         {
-            Log.d("ARTags Widget", "Run update thread");
+            Log.d(Constants.LOG_TAG, "Run update thread");
 
             final long start = mStartTime;
             final long millis = SystemClock.uptimeMillis() - start;

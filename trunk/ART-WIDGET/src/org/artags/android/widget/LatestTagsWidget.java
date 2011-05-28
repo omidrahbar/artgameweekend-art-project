@@ -14,12 +14,8 @@
  */
 package org.artags.android.widget;
 
-import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
-import android.widget.RemoteViews;
 
 /**
  *
@@ -56,20 +52,7 @@ public class LatestTagsWidget extends TagsWidgetProvider
     public static void updateTag(Tag tag)
     {
         mCurrentTag = tag;
-        updateWidget();
-    }
-
-    private static void updateWidget()
-    {
-        RemoteViews remoteViews = new RemoteViews( mContext.getPackageName(), R.layout.main);
-        remoteViews.setImageViewBitmap(R.id.thumbnail, mCurrentTag.getBitmap());
-        remoteViews.setTextViewText(R.id.text, mCurrentTag.getText());
-        Intent active = new Intent(mContext, LatestTagsIntentService.class );
-        active.setAction(ACTION_SHOW_TAG);
-        PendingIntent actionPendingIntent = PendingIntent.getBroadcast(mContext, 0, active, 0);
-        remoteViews.setOnClickPendingIntent(R.id.thumbnail, actionPendingIntent);
-        mAppWidgetManager.updateAppWidget(mAppWidgetIds, remoteViews);
-        Log.d("ARTags Widget", "Widget updated");
+        updateWidget( mContext , mCurrentTag , mAppWidgetManager , mAppWidgetIds ,LatestTagsWidget.class );
     }
 
 }

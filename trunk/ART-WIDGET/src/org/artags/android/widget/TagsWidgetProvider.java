@@ -14,11 +14,14 @@
  */
 package org.artags.android.widget;
 
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
+import android.widget.RemoteViews;
 
 /**
  *
@@ -38,6 +41,7 @@ public abstract class TagsWidgetProvider extends AppWidgetProvider
         setStatics(context, appWidgetManager, appWidgetIds);
         Intent intent = new Intent(context, getIntentServiceClass());
         context.startService(intent);
+        Log.d( Constants.LOG_TAG, "onUpdate - Starting " + getIntentServiceClass() );
     }
     
     @Override
@@ -47,6 +51,7 @@ public abstract class TagsWidgetProvider extends AppWidgetProvider
 
         if (ACTION_SHOW_TAG.equals(intent.getAction()))
         {
+            Log.d( Constants.LOG_TAG, "onReceive - Action : " + intent.getAction() );
             showTag(context);
         }
     }
@@ -59,5 +64,19 @@ public abstract class TagsWidgetProvider extends AppWidgetProvider
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
+    
+    protected static void updateWidget( Context context , Tag tag, AppWidgetManager appWidgetManager , int[] appWidgetIds , Class widgetClass )
+    {
+        RemoteViews remoteViews = new RemoteViews( context.getPackageName(), R.layout.main);
+        remoteViews.setImageViewBitmap(R.id.thumbnail, tag.getBitmap());
+        remoteViews.setTextViewText(R.id.text, tag.getText());
+        Intent active = new Intent( context, widgetClass );
+        active.setAction(ACTION_SHOW_TAG);
+        PendingIntent actionPendingIntent = PendingIntent.getBroadcast( context, 0, active, 0);
+        remoteViews.setOnClickPendingIntent(R.id.thumbnail, actionPendingIntent);
+        appWidgetManager.updateAppWidget( appWidgetIds, remoteViews);
+        Log.d(Constants.LOG_TAG , "Widget updated");
+    }
+
 
 }
