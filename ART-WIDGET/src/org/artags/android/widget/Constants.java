@@ -25,5 +25,6 @@ public class Constants
     public static final String URL_BEST_TAGS = "http://artags-site.appspot.com/json?gallery=best";
     public static final String URL_LATEST_TAGS = "http://artags-site.appspot.com/json?gallery=latest";
     public static final String URL_JSP_TAG = "http://artags-site.appspot.com/mobile/tag.jsp?id=";
+    public static final String LOG_TAG = "ARTags Widget";
     
 }
