@@ -14,45 +14,30 @@
  */
 package org.artags.android.widget;
 
-import android.appwidget.AppWidgetManager;
-import android.content.Context;
-
 /**
  *
  * @author Pierre Levy
  */
-public class BestTagsWidget extends TagsWidgetProvider
+public class BestTagsWidget extends AbstractWidgetProvider
 {
-    private static AppWidgetManager mAppWidgetManager;
-    private static int[] mAppWidgetIds;
-    private static Context mContext;
-
-    private static Tag mCurrentTag;
+    private static Tag mTag;
 
     @Override
-    void setStatics(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds)
+    String getTagListUrl()
     {
-        mContext = context;
-        mAppWidgetManager = appWidgetManager;
-        mAppWidgetIds = appWidgetIds;
+        return Constants.URL_BEST_TAGS;
+    }
+
+    @Override
+    void setCurrentTag(Tag tag)
+    {
+        mTag = tag;
     }
 
     @Override
     Tag getCurrentTag()
     {
-        return mCurrentTag;
-    }
-
-    @Override
-    Class getIntentServiceClass()
-    {
-        return BestTagsIntentService.class;
-    }
-
-    static void updateTag( Tag tag )
-    {
-        mCurrentTag = tag;
-        updateWidget( mContext , mCurrentTag , mAppWidgetManager , mAppWidgetIds , BestTagsWidget.class );
+        return mTag;
     }
     
 }

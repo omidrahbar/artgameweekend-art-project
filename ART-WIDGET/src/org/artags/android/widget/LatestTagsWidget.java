@@ -14,45 +14,29 @@
  */
 package org.artags.android.widget;
 
-import android.appwidget.AppWidgetManager;
-import android.content.Context;
-
 /**
  *
  * @author Pierre Levy
  */
-public class LatestTagsWidget extends TagsWidgetProvider
+public class LatestTagsWidget extends AbstractWidgetProvider
 {
-
-    private static AppWidgetManager mAppWidgetManager;
-    private static int[] mAppWidgetIds;
-    private static Context mContext;
-    private static Tag mCurrentTag;
+    private static Tag mTag;
+    @Override
+    String getTagListUrl()
+    {
+        return Constants.URL_LATEST_TAGS;
+    }
 
     @Override
-    void setStatics(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds)
+    void setCurrentTag(Tag tag)
     {
-        mContext = context;
-        mAppWidgetManager = appWidgetManager;
-        mAppWidgetIds = appWidgetIds;
+        mTag = tag;
     }
 
     @Override
     Tag getCurrentTag()
     {
-        return mCurrentTag;
+        return mTag;
     }
-
-    @Override
-    Class getIntentServiceClass()
-    {
-        return LatestTagsIntentService.class;
-    }
-
-    public static void updateTag(Tag tag)
-    {
-        mCurrentTag = tag;
-        updateWidget( mContext , mCurrentTag , mAppWidgetManager , mAppWidgetIds ,LatestTagsWidget.class );
-    }
-
+ 
 }
