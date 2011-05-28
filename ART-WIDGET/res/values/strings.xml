@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ARTags Widget</string>
-    <string name="app_description">ARTags Widget</string>
-    <string name="widget_latest_tags_name">ARTags Widget (latest tags))</string>
+    <string name="app_name">ARTags Widgets</string>
+    <string name="app_description">ARTags Widgets</string>
+    <string name="widget_latest_tags_name">ARTags Widget (latest tags)</string>
     <string name="widget_best_tags_name">ARTags Widget (best tags)</string>
 </resources>

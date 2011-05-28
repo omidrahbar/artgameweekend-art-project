@@ -16,7 +16,7 @@ package org.artags.android.widget;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.util.Log;
@@ -41,36 +41,59 @@ public abstract class AbstractTagsIntentService extends IntentService
     private int mCurrentTagIndex;
     private boolean mRunning;
 
-    abstract String getTagListUrl(); 
-    abstract void updateTag( Tag tag );
-    
-    public AbstractTagsIntentService( String name )
+    abstract String getTagListUrl();
+
+    abstract void updateTag(Tag tag);
+
+    public AbstractTagsIntentService(String name)
     {
-        super( name );
+        super(name);
     }
-    
 
     @Override
     protected void onHandleIntent(Intent intent)
     {
         Log.d("ARTags Widget", "Handle Intent");
 
-        mTagList = getTagList();
-        mCurrentTagIndex = 0;
-        mCurrentTag = mTagList.get(mCurrentTagIndex);
+        mFetchingTask.execute();
 
-        mHandler.removeCallbacks(mUpdateTimeTask);
-        
-        if (!mRunning)
-        {
-            mUpdateTimeTask.run();
-            mRunning = true;
-        }
     }
-    private Handler mHandler = new Handler();
-    private Runnable mUpdateTimeTask = new Runnable()
+    
+    private AsyncTask<Void, Void, Void> mFetchingTask = new AsyncTask<Void, Void, Void>()
     {
 
+        @Override
+        protected Void doInBackground(Void... args)
+        {
+            mTagList = getTagList();
+            for (Tag tag : mTagList)
+            {
+                tag.setBitmap(HttpUtils.loadBitmap(tag.getThumbnailUrl()));
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute( Void result )
+        {
+            super.onPostExecute( result );
+            mCurrentTagIndex = 0;
+            mHandler.removeCallbacks(mUpdateTimeTask);
+
+            if (!mRunning)
+            {
+                mUpdateTimeTask.start();
+                mRunning = true;
+            }
+        }
+
+    };
+    
+    private Handler mHandler = new Handler();
+    private Thread mUpdateTimeTask = new Thread()
+    {
+
+        @Override
         public void run()
         {
             Log.d("ARTags Widget", "Run update thread");
@@ -80,36 +103,22 @@ public abstract class AbstractTagsIntentService extends IntentService
             int seconds = (int) (millis / 1000);
             final int minutes = seconds / 60;
             seconds = seconds % 60;
-            nextTag();
-            mHandler.postAtTime(this, start + (((minutes * 60) + seconds + mRefreshDelay) * 1000));
-        }
-
-        private void nextTag()
-        {
             mCurrentTag = mTagList.get(mCurrentTagIndex);
-
-            if (mCurrentTag.getBitmap() == null)
-            {
-                Bitmap bitmap = HttpUtils.loadBitmap( mCurrentTag.getThumbnailUrl());
-                mCurrentTag.setBitmap( bitmap );
-            }
-            if( mCurrentTag.getBitmap() != null )
-            {
-                updateTag(mCurrentTag);
-            }
+            updateTag(mCurrentTag);
             mCurrentTagIndex++;
             if (mCurrentTagIndex >= mTagList.size())
             {
                 mCurrentTagIndex = 0;
             }
-
+            mHandler.postAtTime(this, start + (((minutes * 60) + seconds + mRefreshDelay) * 1000));
         }
+
     };
 
     private List<Tag> getTagList()
     {
         List<Tag> list = new ArrayList<Tag>();
-        String jsonflow = HttpUtils.getUrl( getTagListUrl());
+        String jsonflow = HttpUtils.getUrl(getTagListUrl());
 
         try
         {
@@ -117,9 +126,9 @@ public abstract class AbstractTagsIntentService extends IntentService
             JSONTokener tokener = new JSONTokener(jsonflow);
             JSONObject json = (JSONObject) tokener.nextValue();
             JSONArray jsonTags = json.getJSONArray("tags");
-            
-            int max = ( jsonTags.length() < Constants.MAX_TAGS ) ? jsonTags.length() : Constants.MAX_TAGS;
-            for (int i = 0; i < max ; i++)
+
+            int max = (jsonTags.length() < Constants.MAX_TAGS) ? jsonTags.length() : Constants.MAX_TAGS;
+            for (int i = 0; i < max; i++)
             {
                 JSONObject jsonTag = jsonTags.getJSONObject(i);
                 Tag tag = new Tag();
