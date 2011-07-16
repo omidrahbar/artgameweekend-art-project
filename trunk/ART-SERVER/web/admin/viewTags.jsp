@@ -1,7 +1,7 @@
 <%@include file="header.jsp" %>
 
 <div class="box">
-    <h2>View Tags</h2>
+    <h2>World Map</h2>
 </div>
 
 <div id="map" ></div>

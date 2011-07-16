@@ -3,6 +3,6 @@
   <cron>
     <url>/admin/clearcache</url>
     <description>Clear the cache</description>
-    <schedule>every 2 minutes</schedule>
+    <schedule>every 5 minutes</schedule>
   </cron>
 </cronentries>
