@@ -56,7 +56,7 @@ public class TagUploadServlet extends HttpServlet
         {
             // Create a new file upload handler
             ServletFileUpload upload = new ServletFileUpload();
-            upload.setSizeMax(500000);
+            upload.setSizeMax(1000000);
             res.setContentType(Constants.CONTENT_TYPE_TEXT);
             PrintWriter out = res.getWriter();
             

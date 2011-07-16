@@ -1,0 +1,19 @@
+<Ehcache>
+
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="5"
+            timeToLiveSeconds="100000"
+            overflowToDisk="false"
+            />
+
+    <cache name="HeadersPageCache"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="10000"
+           timeToLiveSeconds="10000"
+           overflowToDisk="false">
+    </cache>
+
+</Ehcache>
