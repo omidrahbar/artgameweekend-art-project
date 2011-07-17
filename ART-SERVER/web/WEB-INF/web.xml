@@ -111,7 +111,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>updateLayarParams</servlet-name>
-        <url-pattern>/updateLayarParams</url-pattern>
+        <url-pattern>/admin/updateLayarParams</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>mixare</servlet-name>
