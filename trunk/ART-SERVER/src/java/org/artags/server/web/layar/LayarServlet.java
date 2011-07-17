@@ -100,12 +100,6 @@ public class LayarServlet extends HttpServlet
                 action3.accumulate("uri", Constants.URL_SERVER + "/client/flag.jsp?id=" + tag.getId() + "&id_thumbnail=" + tag.getKeyThumbnail().getId());
                 action3.accumulate("label", "Flag as inappropriate");
                 actions.add(action3);
-                /*
-                JSONObject action4 = new JSONObject();
-                action4.accumulate("uri", Constants.URL_SERVER + "/client/getdraw.jsp");
-                action4.accumulate("label", "Get ARTags Draw");
-                actions.add(action4);
-                 */
 
                 poi.accumulate("actions", actions);
 
@@ -113,7 +107,7 @@ public class LayarServlet extends HttpServlet
                 JSONObject transform = new JSONObject();
                 transform.accumulate("rel", true);
                 transform.accumulate("angle", params.getAngle());
-                transform.accumulate("scale", 1.0);
+                transform.accumulate("scale", params.getScale());
                 poi.accumulate("transform", transform);
 
                 // Transform values
@@ -122,7 +116,7 @@ public class LayarServlet extends HttpServlet
                 object.accumulate("full", "?id=" + tag.getKeyThumbnail().getId());
                 object.accumulate("reduced", "?id=" + tag.getKeyThumbnail().getId());
                 object.accumulate("icon", "?id=" + tag.getKeyThumbnail().getId());
-                object.accumulate("size", 10);
+                object.accumulate("size", params.getSize());
                 poi.accumulate("object", object);
 
 

@@ -35,6 +35,9 @@
         <a href="http://www.junaio.com/publisher/mychannels" target="Junaio">Test at Junaio</a>
     </li>
     <li>
+        <a href="/mixare?latitude=48.82701346168149&longitude=2.361450568455775&altitude=106.0&radius=20.75" target="Mixare">Mixare</a>
+    </li>
+    <li>
         <a href="kml">KML Export</a>
     </li>
 </ul>

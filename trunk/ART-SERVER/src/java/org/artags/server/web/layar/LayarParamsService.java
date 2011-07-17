@@ -20,13 +20,22 @@ package org.artags.server.web.layar;
  */
 public class LayarParamsService
 {
-    private int distance = 100;
-    private int type = 0;
-    private int dimension = 2;
+    public int DEFAULT_DISTANCE = 100;
+    public int DEFAULT_TYPE = 0;
+    public int DEFAULT_DIMENSION = 2;
+    public int DEFAULT_ANGLE = 0;
+    public double DEFAULT_SCALE = 0.5;
+    public int DEFAULT_SIZE = 100;
+    public int DEFAULT_MAX_POI = 20;
+    
+    private int distance = DEFAULT_DISTANCE;
+    private int type = DEFAULT_TYPE;
+    private int dimension = DEFAULT_DIMENSION;
     private boolean rel =  true;
-    private int angle = 0;
-    private double scale = 1.0;
-    private int maxPOIs = 20;
+    private int angle = DEFAULT_ANGLE;
+    private double scale = DEFAULT_SCALE;
+    private int maxPOIs = DEFAULT_MAX_POI;
+    private int size = DEFAULT_SIZE;
 
     private static LayarParamsService instance = new LayarParamsService();
     
@@ -40,21 +49,6 @@ public class LayarParamsService
         return instance;
     }
 
-    /**
-     * @return the distance
-     */
-    public int getDistance()
-    {
-        return distance;
-    }
-
-    /**
-     * @param distance the distance to set
-     */
-    public void setDistance(int distance)
-    {
-        this.distance = distance;
-    }
 
     /**
      * @return the type
@@ -150,6 +144,22 @@ public class LayarParamsService
     public void setMaxPOIs(int maxPOIs)
     {
         this.maxPOIs = maxPOIs;
+    }
+
+    /**
+     * @return the size
+     */
+    public int getSize()
+    {
+        return size;
+    }
+
+    /**
+     * @param size the size to set
+     */
+    public void setSize(int size)
+    {
+        this.size = size;
     }
     
     
