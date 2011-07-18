@@ -19,6 +19,7 @@ import org.artags.server.service.TagService;
 import java.io.IOException;
 import java.io.Writer;
 import java.net.URLEncoder;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +36,7 @@ import org.artags.server.web.Utils;
  */
 public class MixareServlet extends HttpServlet
 {
+    private static Logger logger = Logger.getLogger("MixareServlet");
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -42,7 +44,7 @@ public class MixareServlet extends HttpServlet
         double latitude = Utils.getDouble(request, "latitude", 48.8);
         double longitude = Utils.getDouble(request, "longitude", 2.3);
         double radius = Utils.getDouble(request, "radius", 20);
-        int max = Utils.getInt(request, "max", 30);
+        int max = Utils.getInt(request, "max", 20);
 
         Writer out = response.getWriter();
 
@@ -61,7 +63,8 @@ public class MixareServlet extends HttpServlet
             poi.accumulate("elevation", "0");
             poi.accumulate("title", StringEscapeUtils.escapeJavaScript(tag.getName()));
             poi.accumulate("has_detail_page", "1");
-            poi.accumulate("webpage", URLEncoder.encode( Constants.URL_SERVER + "/thumbnail?id=" + tag.getKeyThumbnail().getId() , "UTF-8"));
+            String webpageUrl = Constants.URL_SERVER + "/client/mixare.jsp?id=" + tag.getId();
+            poi.accumulate("webpage", URLEncoder.encode( webpageUrl , "UTF-8"));
 
             results.add(poi);
         }
