@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
+/* Copyright (c) 2010-2012 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -24,7 +24,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang.StringEscapeUtils;
-import org.artags.server.business.TagDAO;
 
 /**
  *
@@ -41,6 +40,7 @@ public class TagsServlet extends HttpServlet
         double longitude = Utils.getDouble( req , "lon" , 2.3);
         int max = Utils.getInt(req, "max", 100 );
         String all = req.getParameter( "all" );
+        String dateUpdate = req.getParameter("dateUpdate");
 
         Writer out = resp.getWriter();
         resp.setContentType(Constants.CONTENT_TYPE_XML);
@@ -50,8 +50,11 @@ public class TagsServlet extends HttpServlet
         List<Tag> list;
         if( (all != null) && ( all.equals("true")))
         {
-            TagDAO dao = new TagDAO();
-            list = dao.findAll();
+            list = TagService.getAllTags();
+        }
+        else if( dateUpdate != null )
+        {
+            list = TagService.getLastTags( Long.parseLong( dateUpdate ));
         }
         else
         {
@@ -92,6 +95,9 @@ public class TagsServlet extends HttpServlet
             out.write("<date-value>");
             out.write("" + tag.getDate());
             out.write("</date-value>");
+            out.write("<date-update>");
+            out.write("" + tag.getDateUpdate());
+            out.write("</date-update>");
             out.write("<rating>");
             out.write(tag.getRating());
             out.write("</rating>");

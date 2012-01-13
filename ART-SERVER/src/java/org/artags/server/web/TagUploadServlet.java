@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
+/* Copyright (c) 2010-2012 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -37,6 +37,7 @@ import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.FileUploadBase.SizeLimitExceededException;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.IOUtils;
+import org.artags.server.service.CacheService;
 
 /**
  *
@@ -158,9 +159,11 @@ public class TagUploadServlet extends HttpServlet
             tag.setKeyImage(tagImage.getKey());
             tag.setKeyThumbnail(tagThumbnail.getKey());
             tag.setDate(new Date().getTime());
+            tag.setDateUpdate(new Date().getTime());
             Tag newTag = dao.create(tag);
             out.print( "" + newTag.getKey().getId());
             out.close();
+            CacheService.instance().invalidate();
 
 
         } catch (Exception ex)

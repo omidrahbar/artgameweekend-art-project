@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cronentries>
   <cron>
-    <url>/admin/clearcache</url>
+    <url>/admin/updatecache</url>
     <description>Clear the cache</description>
     <schedule>every 5 minutes</schedule>
+  </cron>
+  <cron>
+    <url>/admin/clearcache</url>
+    <description>Clear the cache</description>
+    <schedule>every 12 hours</schedule>
   </cron>
 </cronentries>

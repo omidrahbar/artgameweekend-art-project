@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
+/* Copyright (c) 2010-2012 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -21,7 +21,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.artags.server.business.TagDAO;
+import org.artags.server.service.TagService;
 
 /**
  *
@@ -40,8 +40,7 @@ public class KmlServlet extends HttpServlet
 
         out.write("<Document>");
 
-        TagDAO dao = new TagDAO();
-        for (Tag tag : dao.findAll() )
+        for (Tag tag : TagService.getAllTags() )
         {
             out.write("<Placemark id=\"" + tag.getId() + "\">");
             out.write("<name>");

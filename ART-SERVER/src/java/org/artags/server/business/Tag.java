@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
+/* Copyright (c) 2010-2012 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -50,17 +50,19 @@ public class Tag implements Serializable
     @Persistent
     private Key keyThumbnail;
     @Persistent
-    private long lat10e6;
+    private Long lat10e6;
     @Persistent
-    private long lon10e6;
+    private Long lon10e6;
     @Persistent
-    private long date;
+    private Long date;
     @Persistent
-    private int ratingSum;
+    private Integer ratingSum;
     @Persistent
-    private int ratingCount;
+    private Integer ratingCount;
     @Persistent
-    private int inappropriate;
+    private Integer inappropriate;
+    @Persistent 
+    private Long dateUpdate;
 
 
 
@@ -76,6 +78,7 @@ public class Tag implements Serializable
         this.lat10e6 = (long) (lat * X10E6);
         this.lon10e6 = (long) (lon * X10E6);
         this.date = new Date().getTime();
+        this.dateUpdate = new Date().getTime();
     }
 
     public Tag( Tag2 tag )
@@ -88,6 +91,7 @@ public class Tag implements Serializable
         date = new Date().getTime();
         keyImage = tag.getKeyImage();
         keyThumbnail = tag.getKeyThumbnail();
+        dateUpdate = tag.getDateUpdate();
     }
 
     public Long getId()
@@ -223,12 +227,28 @@ public class Tag implements Serializable
         return format.format(new Date(date));
     }
 
-        /**
+    /**
+     * @return the date
+     */
+    public Long getDateUpdate()
+    {
+        return dateUpdate;
+    }
+
+    /**
+     * @param date the date to set
+     */
+    public void setDateUpdate(long date)
+    {
+        this.dateUpdate = date;
+    }
+
+    /**
      * @return the ratingSum
      */
     public int getRatingSum()
     {
-        return ratingSum;
+        return ( ratingSum == null ) ? 0 : ratingSum.intValue();
     }
 
     /**
@@ -244,7 +264,7 @@ public class Tag implements Serializable
      */
     public int getRatingCount()
     {
-        return ratingCount;
+        return ( ratingCount == null ) ? 0 : ratingCount.intValue();
     }
 
     /**
@@ -273,7 +293,7 @@ public class Tag implements Serializable
 
     public String getRating()
     {
-        if( ratingCount == 0 )
+        if( ratingCount == null )
         {
             return "No rating yet";
         }

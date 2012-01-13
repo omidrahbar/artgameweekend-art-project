@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-
     <!-- Ehcache Headers and Page Filter -->
     <filter>
         <filter-name>SimpleCachingHeadersPageCachingFilter</filter-name>
@@ -15,7 +14,6 @@
             <param-value>HeadersPageCache</param-value>
         </init-param>
     </filter>
-
     <filter-mapping>
         <filter-name>SimpleCachingHeadersPageCachingFilter</filter-name>
         <url-pattern>/thumbnail/*</url-pattern>
@@ -24,7 +22,6 @@
         <url-pattern>/images/*</url-pattern>
         <url-pattern>/tags/*</url-pattern>
     </filter-mapping>
-
     <servlet>
         <servlet-name>upload</servlet-name>
         <servlet-class>org.artags.server.web.TagUploadServlet</servlet-class>
@@ -130,14 +127,21 @@
         <url-pattern>/admin/delete</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>cache</servlet-name>
-        <servlet-class>org.artags.server.web.CacheServlet</servlet-class>
+        <servlet-name>clearcache</servlet-name>
+        <servlet-class>org.artags.server.web.ClearCacheServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>cache</servlet-name>
+        <servlet-name>clearcache</servlet-name>
         <url-pattern>/admin/clearcache</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>updatecache</servlet-name>
+        <servlet-class>org.artags.server.web.UpdateCacheServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updatecache</servlet-name>
+        <url-pattern>/admin/updatecache</url-pattern>
+    </servlet-mapping>
     <security-constraint>
         <web-resource-collection>
             <url-pattern>/admin/*</url-pattern>
@@ -150,6 +154,7 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     <!-- Appstats -->
+    <!--
     <filter>
         <filter-name>appstats</filter-name>
         <filter-class>com.google.appengine.tools.appstats.AppstatsFilter</filter-class>
@@ -178,4 +183,5 @@
             <role-name>admin</role-name>
         </auth-constraint>
     </security-constraint>
+    -->
 </web-app>

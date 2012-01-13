@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
+/* Copyright (c) 2010-2012 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -27,14 +27,13 @@ import java.util.List;
  */
 public class TagService
 {
-
-    private static final String CACHE_KEY_ALL_TAGS = "alltags";
+    private static final LogService log = LogService.getLogger();
 
     public static List<Tag> getNearestTags(double latitude, double longitude, int max)
     {
-        List<Tag> list = filter( getAllTags(), latitude, longitude);
+        List<Tag> list = filter(getAllTags(), latitude, longitude);
 
-        if( list.size() > max )
+        if (list.size() > max)
         {
             list = getNearestTags(list, latitude, longitude, max);
         }
@@ -81,7 +80,7 @@ public class TagService
             }
         }
 
-        if( listSort.size() > max )
+        if (listSort.size() > max)
         {
             Collections.sort(listSort);
         }
@@ -97,6 +96,7 @@ public class TagService
 
     }
 
+
     public static List<Tag> getTagsByCriteria()
     {
         TagDAO dao = new TagDAO();
@@ -104,6 +104,15 @@ public class TagService
         Collections.sort(list, new DateComparator());
         return list;
     }
+
+    
+    public static List<Tag> getLastTags(long lastUpdate)
+    {
+        TagDAO dao = new TagDAO();
+        List<Tag> list = dao.findLast( lastUpdate );
+        return list;
+    }
+
 
     static class DateComparator implements Comparator
     {
@@ -119,13 +128,19 @@ public class TagService
 
     public static List<Tag> getAllTags()
     {
-        List<Tag> allTags = (List<Tag>) CacheService.instance().get(CACHE_KEY_ALL_TAGS);
+        List<Tag> allTags = (List<Tag>) CacheService.instance().getCachedTags();
         if (allTags == null)
         {
+            log.log( "All tags requested. Cache is empty. Fetching tags from the database" );;
             TagDAO dao = new TagDAO();
             allTags = dao.findAll();
-            CacheService.instance().put(CACHE_KEY_ALL_TAGS , allTags );
+            log.log( "{0} tags fetched.", allTags.size() );
+            CacheService.instance().saveTags( allTags );
 
+        }
+        else
+        {
+            log.log( "All tags requested. Tags provided by the cache" );
         }
         return allTags;
 

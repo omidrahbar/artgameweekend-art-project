@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
+/* Copyright (c) 2010-2012 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -21,6 +21,7 @@ import java.util.Date;
 import java.util.Locale;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.NullValue;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
@@ -42,27 +43,29 @@ public class Tag2 implements Serializable
     @Persistent
     private String name;
     @Persistent
-    private double lat;
+    private Double lat;
     @Persistent
-    private double lon;
+    private Double lon;
     @Persistent
     private Key keyImage;
     @Persistent
     private Key keyThumbnail;
     @Persistent
-    private long lat10e6;
+    private Long lat10e6;
     @Persistent
-    private long lon10e6;
+    private Long lon10e6;
     @Persistent
-    private long date;
+    private Long date;
 
     @Persistent
-    private int ratingSum;
+    private Integer ratingSum;
     @Persistent
-    private int ratingCount;
+    private Integer ratingCount;
     @Persistent
-    private int inappropriate;
+    private Integer inappropriate;
 
+    @Persistent 
+    private Long dateUpdate;
 
     public Tag2()
     {
@@ -76,6 +79,7 @@ public class Tag2 implements Serializable
         this.lat10e6 = (long) (lat * X10E6);
         this.lon10e6 = (long) (lon * X10E6);
         this.date = new Date().getTime();
+        this.dateUpdate = new Date().getTime();
     }
 
     public Tag2( Tag tag )
@@ -85,9 +89,10 @@ public class Tag2 implements Serializable
         lat10e6 = tag.getLat10e6();
         lon = tag.getLon();
         lon10e6 = tag.getLon10e6();
-        date = new Date().getTime();
+        date = tag.getDate();
         keyImage = tag.getKeyImage();
         keyThumbnail = tag.getKeyThumbnail();
+        dateUpdate = tag.getDate();
     }
 
     public Long getId()
@@ -215,6 +220,22 @@ public class Tag2 implements Serializable
     public void setDate(long date)
     {
         this.date = date;
+    }
+
+    /**
+     * @return the date
+     */
+    public long getDateUpdate()
+    {
+        return dateUpdate;
+    }
+
+    /**
+     * @param date the date to set
+     */
+    public void setDateUpdate(long date)
+    {
+        this.dateUpdate = date;
     }
 
     public String getFormatedDate(Locale locale)

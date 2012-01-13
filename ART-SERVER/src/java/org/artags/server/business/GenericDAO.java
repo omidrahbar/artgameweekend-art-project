@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
+/* Copyright (c) 2010-2012 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -16,6 +16,7 @@ package org.artags.server.business;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -64,10 +65,20 @@ public class GenericDAO<E>
         List<E> list = (List<E>) query.execute();
         E[] array = (E[]) pm.detachCopyAll( list.toArray());
         List<E> listDetached = new ArrayList<E>();
-        for( int i = 0 ; i < array.length ; i++ )
-        {
-            listDetached.add( array[i]);
-        }
+        listDetached.addAll(Arrays.asList(array));
+
+        return  listDetached;
+
+    }
+
+    public List<E> findLast( long lastUpdate )
+    {
+        PersistenceManager pm = PMF.get().getPersistenceManager();
+        Query query = pm.newQuery("SELECT FROM " + _entityClass.getName()  + " WHERE dateUpdate > " + lastUpdate );
+        List<E> list = (List<E>) query.execute();
+        E[] array = (E[]) pm.detachCopyAll( list.toArray());
+        List<E> listDetached = new ArrayList<E>();
+        listDetached.addAll(Arrays.asList(array));
 
         return  listDetached;
 
