@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
+/* Copyright (c) 2010-2012 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -14,28 +14,32 @@
  */
 package org.artags.server.web;
 
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.artags.server.business.Tag;
 import org.artags.server.service.CacheService;
+import org.artags.server.service.LogService;
 import org.artags.server.service.TagService;
 
 /**
  *
  * @author Pierre Levy
  */
-public class CacheServlet extends HttpServlet
+public class ClearCacheServlet extends HttpServlet
 {
+    private static final LogService log = LogService.getLogger();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException
     {
-        // Clear the cache
-        CacheService.instance().clear();
+            // Clear the cache
+            CacheService.instance().clear();
 
-        // Fetch all tags to populate the cache with fresh tags
-        TagService.getAllTags();
+            log.log( "Cache cleared." );
 
+            CacheService.instance().invalidate(false);
     }
 }

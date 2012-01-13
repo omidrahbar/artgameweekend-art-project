@@ -1,13 +1,23 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/* Copyright (c) 2010-2012 ARTags project owners (see http://www.artags.org)
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package org.artags.server.web;
 
 import org.artags.server.business.Tag;
 import org.artags.server.business.TagDAO;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -34,6 +44,7 @@ public class RatingJspBean implements Serializable
         int ratingCount = tag.getRatingCount();
         tag.setRatingSum( ratingSum + rating );
         tag.setRatingCount( ratingCount + 1 );
+        tag.setDateUpdate( new Date().getTime());
         dao.update(tag);
         }
         catch( NumberFormatException e )
@@ -59,6 +70,7 @@ public class RatingJspBean implements Serializable
         TagDAO dao = new TagDAO();
         Tag tag = dao.findById( id );
         tag.setInappropriate(flag);
+        tag.setDateUpdate( new Date().getTime());
         dao.update(tag);
         }
         catch( Exception e )

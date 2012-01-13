@@ -12,33 +12,36 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package org.artags.server.service;
 
-import org.artags.server.business.Tag;
+import java.text.MessageFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
- * @author Pierre Levy
+ * @author pierre
  */
-public class SortTag implements Comparable
+public class LogService
 {
-    Tag tag;
-    long dist;
-
-    SortTag( Tag tag , double lat , double lon )
+    private static final Logger logger = Logger.getLogger( "ARTags Server ");
+    private static final LogService logService = new LogService();
+    
+    public static LogService getLogger()
     {
-        this.tag = tag;
-        long lat10e6 = (long) (lat * 1000000.0);
-        long lon10e6 = (long) (lon * 1000000.0);
-        dist = (tag.getLat10e6() - lat10e6)*(tag.getLat10e6() - lat10e6) + (tag.getLon10e6() - lon10e6)*(tag.getLon10e6() - lon10e6);
-        dist = dist / 1000000;
-
+        return logService;
     }
-
-    public int compareTo(Object t)
+    
+    public void log( String message )
     {
-        return (int) ( this.dist - ((SortTag) t).dist );
+        System.out.println( message );
+        logger.log(Level.INFO, message );
     }
-
+    
+    public void log( String message , Object... params )
+    {
+        System.out.println( MessageFormat.format(message, params) );
+        logger.log(Level.INFO, message , params );
+    }
+    
 }
