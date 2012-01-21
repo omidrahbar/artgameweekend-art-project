@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
+/* Copyright (c) 2010-2012 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -25,9 +25,10 @@ import net.sf.jsr107cache.CacheManager;
  */
 public class CacheService
 {
-
+    private static final LogService log = LogService.getLogger();
     private static CacheService _singleton = new CacheService();
     private static Cache _cache;
+    private static long _lastUpdate;
 
     private CacheService()
     {
@@ -62,4 +63,22 @@ public class CacheService
     {
         _cache.clear();
     }
+    
+    /**
+     * @return the _lastUpdate
+     */
+    public long getLastUpdate()
+    {
+        return _lastUpdate;
+    }
+
+    /**
+     * @param lastUpdate the _lastUpdate to set
+     */
+    public void setLastUpdate(long lastUpdate)
+    {
+        _lastUpdate = lastUpdate;
+    }
+
+
 }

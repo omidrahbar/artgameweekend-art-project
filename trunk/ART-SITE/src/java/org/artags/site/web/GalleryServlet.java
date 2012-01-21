@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
+/* Copyright (c) 2010-2012 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -18,18 +18,14 @@ import java.io.IOException;
 import java.io.Writer;
 import java.net.MalformedURLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.parsers.ParserConfigurationException;
 import org.artags.site.business.Tag;
 import org.artags.site.service.Constants;
 import org.artags.site.service.FetchService;
 import org.artags.site.service.TagService;
-import org.xml.sax.SAXException;
 
 /**
  *
@@ -45,42 +41,29 @@ public class GalleryServlet extends HttpServlet
         FetchService fs = new FetchService();
         Writer out = resp.getWriter();
         resp.setContentType(Constants.CONTENT_TYPE_XML);
-        try
-        {
-            List<Tag> list = null;
-            String title = "TAGS";
-            if (selection != null)
-            {
-                if (selection.equals("bestrated"))
-                {
-                    list = TagService.instance().getBestRatedTags();
-                    title = "BEST RATED";
-                } else if (selection.equals("latest"))
-                {
-                    list = TagService.instance().getLatestTags();
-                    title = "LATEST";
-                } else if (selection.equals("ourselection"))
-                {
-                    // todo
-                    title = "OUR SELECTION";
-                }
-            }
 
-            if( list == null )
+        List<Tag> list = null;
+        String title = "TAGS";
+        if (selection != null)
+        {
+            if (selection.equals("bestrated"))
             {
-                list = fs.getTags();
+                list = TagService.instance().getBestRatedTags();
+                title = "BEST RATED";
             }
-
-            build(out, list, title);
-        } catch (ParserConfigurationException ex)
-        {
-            Logger.getLogger(GalleryServlet.class.getName()).log(Level.SEVERE, null, ex);
-            out.write(ex.getMessage());
-        } catch (SAXException ex)
-        {
-            Logger.getLogger(GalleryServlet.class.getName()).log(Level.SEVERE, null, ex);
-            out.write(ex.getMessage());
+            else if (selection.equals("latest"))
+            {
+                list = TagService.instance().getLatestTags();
+                title = "LATEST";
+            }
+            else if (selection.equals("ourselection"))
+            {
+                // todo
+                title = "OUR SELECTION";
+            }
         }
+
+        build(out, list, title);
         out.close();
 
     }
@@ -100,10 +83,10 @@ public class GalleryServlet extends HttpServlet
         for (Tag tag : list)
         {
             out.write("<item Title=\"");
-            out.write(tag.getName() + "  " + tag.getRating() + "  " + tag.getRatingCount() + " votes" );
+            out.write(tag.getName() + "  " + tag.getRating() + "  " + tag.getRatingCount() + " votes");
             out.write("\" Thumb=\"thumbnail?id=" + tag.getThumbnailId());
 
-            out.write("\" LinkThumb=\"\" Content=\"thumbnail?id=" + tag.getThumbnailId() );
+            out.write("\" LinkThumb=\"\" Content=\"thumbnail?id=" + tag.getThumbnailId());
 //            out.write("\" LinkThumb=\"\" Content=\"media_gallery/image/image1.jpg" );
 //            out.write("\" LinkThumb=\"\" Content=\"display?id=" + tag.getId());
             out.write("\" >");

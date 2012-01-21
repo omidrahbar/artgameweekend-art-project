@@ -12,34 +12,36 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package org.artags.site.service;
 
-import java.io.Serializable;
+import java.text.MessageFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author pierre
  */
-public class CachedImage implements Serializable
+public class LogService
 {
-
-    private byte[] data;
-
-    /**
-     * @return the data
-     */
-    public byte[] getData()
+    private static final Logger logger = Logger.getLogger( "ARTags Server ");
+    private static final LogService logService = new LogService();
+    
+    public static LogService getLogger()
     {
-        return data;
+        return logService;
     }
-
-    /**
-     * @param data the data to set
-     */
-    public void setData(byte[] data)
+    
+    public void log( String message )
     {
-        this.data = data;
+        System.out.println( message );
+        logger.log(Level.INFO, message );
     }
-
+    
+    public void log( String message , Object... params )
+    {
+        System.out.println( MessageFormat.format(message, params) );
+        logger.log(Level.INFO, message , params );
+    }
+    
 }
