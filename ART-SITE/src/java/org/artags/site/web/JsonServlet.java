@@ -30,7 +30,7 @@ public class JsonServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        List<Tag> list = TagService.instance().getBestRatedTags();
+        List<Tag> list;
         String gallery = req.getParameter("gallery");
         if ( (gallery != null) && gallery.equals("latest"))
         {

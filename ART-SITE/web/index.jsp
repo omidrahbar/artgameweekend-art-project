@@ -61,7 +61,8 @@
                     <div class="absolute" style="left: -370px; width: 30000px;" id="is1">
                         <%
                                     List<Tag> listLast = TagService.instance().getLatestTags();
-                                    listLast = listLast.subList(0, 15);
+                                    int max = ( listLast.size() > 15 ) ? 15 : listLast.size();
+                                    listLast = listLast.subList(0, max);
                                     for (Tag t : listLast)
                                     {
                         %>
@@ -125,7 +126,8 @@
                     <div class="absolute" style="left: -370px; width: 30000px;" id="is2">
                         <%
                                     List<Tag> listBest = TagService.instance().getBestRatedTags();
-                                    listBest = listBest.subList(0, 15);
+                                    max = ( listBest.size() > 15 ) ? 15 : listBest.size();
+                                    listBest = listBest.subList(0, max);
                                     for (Tag t : listBest)
                                     {
                         %>
@@ -187,7 +189,7 @@
         // --    anim  = vitesse du slide, en millisecondes
         // --
         var ac = 1;
-        var max = 20;
+        var max = 15;
         var left = 0;
         var speed = 5000;
         var anim = 800;

@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
+/* Copyright (c) 2010-2012 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -14,17 +14,8 @@
  */
 package org.artags.site.service;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.xml.parsers.ParserConfigurationException;
+import java.util.*;
 import org.artags.site.business.Tag;
-import org.xml.sax.SAXException;
 
 /**
  *
@@ -32,16 +23,16 @@ import org.xml.sax.SAXException;
  */
 public class TagService
 {
-
-    private static final String CACHE_KEY_ALL_TAGS = "alltags";
+    private static final LogService log = LogService.getLogger();
     private static final String CACHE_KEY_BEST_RATED = "bestrated";
     private static final String CACHE_KEY_LATEST = "latest";
+    private static final long DAY = 86400000L;
+    private static final long DAY_COUNT = 20L;
+    private static final int MIN_RATING_COUNT = 1;
     private static TagService _singleton = new TagService();
     
-    // Item size of cached object should be < 1 MB so cached lists should be sliced into chunks
-    private static final int CHUNK_SIZE = 2000; 
 
-    
+   
     private TagService()
     {
     }
@@ -56,11 +47,8 @@ public class TagService
         List<Tag> bestRatedTags = (List<Tag>) CacheService.instance().get(CACHE_KEY_BEST_RATED);
         if (bestRatedTags == null)
         {
-            bestRatedTags = new ArrayList<Tag>(getAllTags());
-            removeNotRated(bestRatedTags);
+            bestRatedTags = new FetchService().getBestTags( MIN_RATING_COUNT );
             Collections.sort(bestRatedTags, new RatingComparator());
-            int max = ( bestRatedTags.size() < CHUNK_SIZE ) ? bestRatedTags.size() : CHUNK_SIZE;
-            bestRatedTags = getSubList(bestRatedTags, 0 , max );
             CacheService.instance().put(CACHE_KEY_BEST_RATED, bestRatedTags);
         }
         return bestRatedTags;
@@ -72,66 +60,15 @@ public class TagService
         List<Tag> latestTags = (List<Tag>) CacheService.instance().get(CACHE_KEY_LATEST);
         if (latestTags == null)
         {
-            latestTags = new ArrayList<Tag>(getAllTags());
-//            removeNotRated( latestTags );
+            long dateUpdate = new Date().getTime() - DAY_COUNT * DAY; 
+            latestTags = new ArrayList<Tag>( new FetchService().getLastTags( dateUpdate ));
             Collections.sort(latestTags, new RecentnessComparator());
-            int max = ( latestTags.size() < CHUNK_SIZE ) ? latestTags.size() : CHUNK_SIZE ;
-            latestTags = getSubList(latestTags, 0 , max );
             CacheService.instance().put(CACHE_KEY_LATEST, latestTags  );
         }
         return latestTags;
 
     }
 
-    public List<Tag> getAllTags()
-    {
-        List<Tag> allTags = (List<Tag>) CacheService.instance().get(CACHE_KEY_ALL_TAGS + 0 );
-        if (allTags == null)
-        {
-            try
-            {
-                allTags = new FetchService().getTags();
-                int numberOfTags = allTags.size();
-                int numberOfChunks = 1 + numberOfTags / CHUNK_SIZE;
-                for( int i = 0 ; i < numberOfChunks ; i++ )
-                {
-                    int max = (( i + 1 ) * CHUNK_SIZE) - 1;
-                    if( i == (numberOfChunks - 1 ))
-                    {
-                        max = numberOfTags; 
-                    }
-                    CacheService.instance().put(CACHE_KEY_ALL_TAGS + i, getSubList( allTags , i * CHUNK_SIZE , max ));
-                }
-                
-            } catch (MalformedURLException ex)
-            {
-                Logger.getLogger(TagService.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ParserConfigurationException ex)
-            {
-                Logger.getLogger(TagService.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SAXException ex)
-            {
-                Logger.getLogger(TagService.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex)
-            {
-                Logger.getLogger(TagService.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        else
-        {
-            // get all chunks
-            int i = 1;
-            List<Tag> moreTags = (List<Tag>) CacheService.instance().get(CACHE_KEY_ALL_TAGS + i );
-            while( moreTags != null )
-            {
-                allTags.addAll( moreTags );
-                i++;
-                moreTags = (List<Tag>) CacheService.instance().get(CACHE_KEY_ALL_TAGS + i );
-            }
-        }
-        return allTags;
-
-    }
     
     private List<Tag> getSubList( List<Tag> tags , int min , int max )
     {
@@ -142,36 +79,29 @@ public class TagService
     
     public Tag getTag( String id )
     {
-        for( Tag t : getAllTags() )
+        for( Tag t : getLatestTags() )
+        {
+            if( t.getId().equals( id )) return t;
+        }
+        for( Tag t : getBestRatedTags() )
         {
             if( t.getId().equals( id )) return t;
         }
         return null;
     }
 
-    private void removeNotRated(List<Tag> list)
-    {
-        for (int i = list.size(); i > 0; i--)
-        {
-            Tag t = list.get(i - 1);
-            if (t.getRatingValue() == 0)
-            {
-                list.remove(i - 1);
-            }
-        }
-    }
-
     class RatingComparator implements Comparator
     {
 
-        public int compare(Object t1, Object t2)
+        public int compare(Object tag1, Object tag2)
         {
-            int ret = ((Tag) t2).getRatingValue() - ((Tag) t1).getRatingValue();
-            if( ret == 0 )
-            {
-                ret = ((Tag) t2).getRatingCount() - ((Tag) t1).getRatingCount();
-            }
-            return ret;
+            Tag t1 = (Tag) tag1;
+            Tag t2 = (Tag) tag2;
+            
+            int r1 = t1.getRatingValue() + t1.getRatingCount();
+            int r2 = t2.getRatingValue() + t2.getRatingCount();
+
+            return r2 - r1;
         }
     }
 

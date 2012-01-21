@@ -1,4 +1,4 @@
-/* Copyright (c) 2010 ARTags project owners (see http://www.artags.org)
+/* Copyright (c) 2010-2012 ARTags project owners (see http://www.artags.org)
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -40,8 +40,7 @@ public class TagsServlet extends HttpServlet
         out.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         out.write("<tags>");
 
-        List<Tag> list = TagService.instance().getAllTags();
-//        list = list.subList( 0, 500 );
+        List<Tag> list = TagService.instance().getBestRatedTags();
         for (Tag tag : list )
         {
             out.write("<tag>");
