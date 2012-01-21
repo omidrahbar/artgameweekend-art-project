@@ -41,25 +41,43 @@ public class TagsServlet extends HttpServlet
         int max = Utils.getInt(req, "max", 100 );
         String all = req.getParameter( "all" );
         String dateUpdate = req.getParameter("dateUpdate");
+        String minRating = req.getParameter("minRating");
 
         Writer out = resp.getWriter();
         resp.setContentType(Constants.CONTENT_TYPE_XML);
+        resp.setCharacterEncoding("UTF-8");
+        
         out.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         out.write("<tags>");
 
         List<Tag> list;
+        String mode;
         if( (all != null) && ( all.equals("true")))
         {
             list = TagService.getAllTags();
+            mode = "all";
         }
         else if( dateUpdate != null )
         {
             list = TagService.getLastTags( Long.parseLong( dateUpdate ));
+            mode = "latest : from " + dateUpdate;
+        }
+        else if( minRating != null )
+        {
+            list = TagService.getBestTags( Integer.parseInt(minRating) );
+            mode = "best : min rating count = " + minRating;
         }
         else
         {
             list = TagService.getNearestTags(latitude, longitude, max);
+            mode = "nearest : lat = " + latitude + " lon = " + longitude + " max = " + max;
         }
+        out.write("<count>");
+        out.write( "" + list.size() );
+        out.write("</count>");
+        out.write("<mode>");
+        out.write( mode );
+        out.write("</mode>");
 
         for (Tag tag : list )
         {
@@ -90,7 +108,7 @@ public class TagsServlet extends HttpServlet
                 out.write("</thumbnail-id>");
             }
             out.write("<date>");
-            out.write(tag.getFormatedDate(req.getLocale()));
+            out.write( tag.getFormatedDate(req.getLocale()));
             out.write("</date>");
             out.write("<date-value>");
             out.write("" + tag.getDate());

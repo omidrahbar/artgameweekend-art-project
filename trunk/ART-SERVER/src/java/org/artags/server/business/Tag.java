@@ -16,6 +16,7 @@ package org.artags.server.business;
 
 import com.google.appengine.api.datastore.Key;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -221,10 +222,11 @@ public class Tag implements Serializable
         this.date = date;
     }
 
-    public String getFormatedDate(Locale locale)
+    public String getFormatedDate(Locale locale) throws UnsupportedEncodingException
     {
         DateFormat format = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-        return format.format(new Date(date));
+        String d = format.format(new Date(date)); 
+        return new String( d.getBytes( "UTF-8" ) );
     }
 
     /**
