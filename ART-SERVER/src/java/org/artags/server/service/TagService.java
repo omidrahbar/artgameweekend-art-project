@@ -113,6 +113,13 @@ public class TagService
         return list;
     }
 
+    public static List<Tag> getBestTags(int minRatingCount)
+    {
+        TagDAO dao = new TagDAO();
+        List<Tag> list = dao.findBest( minRatingCount );
+        return list;
+    }
+
 
     static class DateComparator implements Comparator
     {
@@ -131,7 +138,7 @@ public class TagService
         List<Tag> allTags = (List<Tag>) CacheService.instance().getCachedTags();
         if (allTags == null)
         {
-            log.log( "All tags requested. Cache is empty. Fetching tags from the database" );;
+            log.log( "All tags requested. Cache is empty. Fetching tags from the database" );
             TagDAO dao = new TagDAO();
             allTags = dao.findAll();
             log.log( "{0} tags fetched.", allTags.size() );

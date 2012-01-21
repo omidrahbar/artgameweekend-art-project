@@ -84,6 +84,19 @@ public class GenericDAO<E>
 
     }
 
+    public List<E> findBest( int minRatingCount )
+    {
+        PersistenceManager pm = PMF.get().getPersistenceManager();
+        Query query = pm.newQuery("SELECT FROM " + _entityClass.getName()  + " WHERE ratingCount >= " + minRatingCount );
+        List<E> list = (List<E>) query.execute();
+        E[] array = (E[]) pm.detachCopyAll( list.toArray());
+        List<E> listDetached = new ArrayList<E>();
+        listDetached.addAll(Arrays.asList(array));
+
+        return  listDetached;
+
+    }
+
     public <E> E create(E entity)
     {
         PersistenceManager pm = PMF.get().getPersistenceManager();
